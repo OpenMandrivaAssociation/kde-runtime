@@ -1,16 +1,20 @@
 %define branch 1
 %{?_branch: %{expand: %%global branch 1}}
-%define revision 745416
+%define revision 746973
 
 Name: kdebase4-runtime
 Summary: K Desktop Environment
-Version: 3.97.0
+Version: 3.97.1
 Release: %mkrel 1
 Epoch: 1
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://www.kde.org
-Source:	ftp://ftp.kde.org/pub/kde/stable/%version/src/kdebase-runtime-%version.tar.bz2
+%if %branch
+Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdebase-runtime-%version.%revision.tar.bz2
+%else
+Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdebase-runtime-%version.tar.bz2
+%endif
 BuildRequires: kde4-macros
 BuildRequires: cmake
 BuildRequires: kdelibs4-devel
@@ -63,8 +67,6 @@ KDE 4 application runtime components.
 %_kde_appsdir/kcm_componentchooser
 %_kde_appsdir/kcmlocale
 %_kde_appsdir/kde
-%_kde_appsdir/kinfocenter
-%_kde_appsdir/kcontrol
 %_kde_appsdir/kio_finger/kio_finger.css
 %_kde_appsdir/kio_finger/kio_finger.pl
 %_kde_appsdir/kio_info/kde-info2html
@@ -83,7 +85,6 @@ KDE 4 application runtime components.
 %_kde_bindir/kde-open
 %_kde_bindir/kfile4
 %_kde_bindir/khotnewstuff4
-%_kde_bindir/kinfocenter
 %_kde_bindir/kioclient
 %_kde_bindir/kmimetypefinder
 %_kde_libdir/strigi/strigiindex_sopranobackend.so
@@ -117,7 +118,6 @@ KDE 4 application runtime components.
 %_kde_bindir/khelpcenter
 %_kde_appsdir/khelpcenter
 %_kde_docdir/*/*/khelpcenter
-%_kde_libdir/libkdeinit4_kinfocenter.so
 %_kde_docdir/*/*/kcontrol
 %_kde_docdir/*/*/kdesu
 %_kde_datadir/man/man1/kdesu.1
