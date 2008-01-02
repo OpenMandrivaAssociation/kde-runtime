@@ -56,6 +56,7 @@ Obsoletes: kdebase4-progs < 1:3.93.0-0.714129.2
 Obsoletes: kdebase4-core  < 1:3.93.0-0.714129.2
 Obsoletes: kdebase4-common <= 1:3.80.3
 Conflicts: kdebase4-workspace < 1:3.94.1-0.728613.1
+BuildRoot: %_tmppath/%name-%version-%release-root
 
 %description
 KDE 4 application runtime components.
