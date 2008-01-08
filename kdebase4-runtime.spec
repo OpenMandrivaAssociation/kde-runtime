@@ -1,10 +1,10 @@
-%define branch 1
+%define branch 0
 %{?_branch: %{expand: %%global branch 1}}
 %define revision 752237
 
 Name: kdebase4-runtime
 Summary: K Desktop Environment
-Version: 3.97.1
+Version: 4.0.0
 Epoch: 1
 Group: Graphical desktop/KDE
 License: GPL
@@ -13,7 +13,7 @@ URL: http://www.kde.org
 Release: %mkrel 1.%revision.1
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdebase-runtime-%version.%revision.tar.bz2
 %else
-Release: 1
+Release: %mkrel 1
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdebase-runtime-%version.tar.bz2
 %endif
 BuildRequires: kde4-macros
