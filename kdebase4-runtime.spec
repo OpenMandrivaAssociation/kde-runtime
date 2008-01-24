@@ -1,6 +1,6 @@
-%define branch 0
+%define branch 1
 %{?_branch: %{expand: %%global branch 1}}
-%define revision 752237
+%define revision 765565
 
 Name: kdebase4-runtime
 Summary: K Desktop Environment
@@ -16,6 +16,7 @@ Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdebase-runtime-%version.%
 Release: %mkrel 1
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdebase-runtime-%version.tar.bz2
 %endif
+Patch0: kdebase-runtime-nepomuk-4.0-trunk.patch
 BuildRequires: kde4-macros
 BuildRequires: cmake
 BuildRequires: kdelibs4-devel
@@ -175,6 +176,7 @@ Xine backend to Phonon.
 
 %prep
 %setup -q -n kdebase-runtime-%version
+%patch0 -p1 -b .nepomuk
 
 %build
 %cmake_kde4 
