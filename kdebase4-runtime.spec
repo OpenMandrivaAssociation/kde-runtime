@@ -1,21 +1,12 @@
-%define branch 1
-%{?_branch: %{expand: %%global branch 1}}
-%define revision 765565
-
 Name: kdebase4-runtime
 Summary: K Desktop Environment
-Version: 4.0.0
+Version: 4.0.1
 Epoch: 1
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://www.kde.org
-%if %branch
-Release: %mkrel 1.%revision.2
-Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdebase-runtime-%version.%revision.tar.bz2
-%else
 Release: %mkrel 1
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdebase-runtime-%version.tar.bz2
-%endif
 Patch0: kdebase-runtime-nepomuk-4.0-trunk.patch
 BuildRequires: kde4-macros
 BuildRequires: cmake
