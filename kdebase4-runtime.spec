@@ -35,7 +35,7 @@ BuildRequires: libraw1394-devel
 BuildRequires: libxklavier-devel
 BuildRequires: lua-devel
 BuildRequires: resmgr-devel
-BuildRequires: libnetworkmanager-util-devel
+BuildRequires: networkmanager-util-devel
 BuildRequires: networkmanager-devel
 BuildRequires: bluez-devel
 BuildRequires: boost-devel
