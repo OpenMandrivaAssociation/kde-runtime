@@ -5,9 +5,9 @@ Epoch: 1
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://www.kde.org
-Release: %mkrel 2
+Release: %mkrel 3
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdebase-runtime-%version.tar.bz2
-Patch0: kdebase-runtime-nepomuk-4.0-trunk.patch
+Patch0: kdebase-runtime-nepomuk-4.0.1-trunk.patch
 BuildRequires: kde4-macros
 BuildRequires: cmake
 BuildRequires: kdelibs4-devel
