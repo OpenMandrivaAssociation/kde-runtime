@@ -1,11 +1,11 @@
 Name: kdebase4-runtime
 Summary: K Desktop Environment
-Version: 4.0.1
+Version: 4.0.2
 Epoch: 1
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://www.kde.org
-Release: %mkrel 3
+Release: %mkrel 1
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdebase-runtime-%version.tar.bz2
 Patch0: kdebase-runtime-nepomuk-4.0.1-trunk.patch
 BuildRequires: kde4-macros
