@@ -5,7 +5,7 @@ Epoch: 1
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://www.kde.org
-Release: %mkrel 2
+Release: %mkrel 3
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdebase-runtime-%version.tar.bz2
 Patch0: kdebase-runtime-nepomuk-4.0.1-trunk.patch
 BuildRequires: kde4-macros
@@ -45,9 +45,10 @@ BuildRequires: bluez-devel
 BuildRequires: boost-devel
 BuildRequires: xrdb
 BuildRequires: qimageblitz-devel
-Requires: kdelibs4-core
-Requires: oxygen-icon-theme
-Requires: phonon-xine
+Requires:  kdelibs4-core
+Requires:  oxygen-icon-theme
+Requires:  phonon-xine
+Requires:  kde4-l10n
 Obsoletes: kdebase4-progs < 1:3.93.0-0.714129.2
 Obsoletes: kdebase4-core  < 1:3.93.0-0.714129.2
 Obsoletes: kdebase4-common <= 1:3.80.3
@@ -185,7 +186,7 @@ cd build
 
 make DESTDIR=%buildroot install
 
-# kcalc.svgz crashes kicker
+# kcalc.svgz crashes Plasma
 rm -rf %buildroot/%_kde_iconsdir/oxygen/scalable/apps/small/16x16/kcalc.svgz
 
 %clean
