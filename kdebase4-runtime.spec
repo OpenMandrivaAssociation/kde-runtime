@@ -1,13 +1,12 @@
 Name: kdebase4-runtime
 Summary: K Desktop Environment
-Version: 4.0.3
+Version: 4.0.68
 Epoch: 1
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://www.kde.org
 Release: %mkrel 1
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdebase-runtime-%version.tar.bz2
-Patch0: kdebase-runtime-nepomuk-4.0.1-trunk.patch
 BuildRequires: kde4-macros
 BuildRequires: cmake
 BuildRequires: kdelibs4-devel
@@ -70,9 +69,9 @@ KDE 4 application runtime components.
 %_kde_appsdir/kio_info/kde-info2html
 %_kde_appsdir/kio_info/kde-info2html.conf
 %_kde_appsdir/kio_man/kio_man.css
-%_kde_appsdir/kio_thumbnail/pics/thumbnailfont_7x4.png
+%_kde_appsdir/kio_thumbnail/*
+%_kde_autostart/nepomukserver.desktop
 %_kde_bindir/kuiserver
-%_kde_libdir/libkdeinit4_kuiserver.so
 %_kde_appsdir/kstyle
 %_kde_bindir/ksvgtopng
 %_kde_bindir/kcmshell4
@@ -95,7 +94,12 @@ KDE 4 application runtime components.
 %_kde_bindir/ktraderclient
 %_kde_bindir/ktrash
 %_kde_bindir/kwriteconfig
-%_kde_configdir/xdg/menus/kde-information.menu
+%_kde_bindir/kde4
+%_kde_bindir/kiconfinder
+%_kde_bindir/nepomukserver
+%_kde_bindir/nepomukservicestub
+%_kde_bindir/solid-hardware
+%_kde_sysconfdir/xdg/menus/kde-information.menu
 %_kde_datadir/applications/kde4/Help.desktop
 %_kde_datadir/config/khotnewstuff.knsrc
 %_kde_datadir/config/kshorturifilterrc
@@ -111,14 +115,13 @@ KDE 4 application runtime components.
 %_kde_datadir/sounds
 %dir %_kde_libdir/kde4
 %_kde_libdir/kde4/*
-%_kde_libdir/libkdeinit4_kcmshell4.so
-%_kde_libdir/libkdeinit4_khelpcenter.so
+%_kde_libdir/libkdeinit4_*
 %_kde_bindir/khelpcenter
 %_kde_appsdir/khelpcenter
 %_kde_docdir/*/*/khelpcenter
 %_kde_docdir/*/*/kcontrol
 %_kde_docdir/*/*/kdesu
-%_kde_datadir/man/man1/kdesu.1
+%_kde_mandir/man1/kdesu.1.*
 %_kde_docdir/*/*/kioslave
 %_kde_docdir/*/*/kdebugdialog
 %_kde_datadir/apps/kconf_update/kuriikwsfilter.upd
@@ -138,6 +141,8 @@ Group: Graphical desktop/KDE
 Summary: Oxygen icon theme
 Provides: kde4-icon-theme
 Obsoletes: kdelibs4-common >= 30000000:3.80.3
+# Fallback hicolor icons
+Requires: hicolor-icon-theme
 
 %description -n oxygen-icon-theme
 Oxygen KDE 4 icon theme. Complains with FreeDesktop.org naming schema
@@ -145,10 +150,12 @@ Oxygen KDE 4 icon theme. Complains with FreeDesktop.org naming schema
 %files -n oxygen-icon-theme
 %defattr(-,root,root,-)
 %dir %_kde_iconsdir/oxygen
-%_kde_iconsdir/*/index.theme
+%_kde_configdir/emoticons.knsrc
+%_kde_iconsdir/oxygen/index.theme
+%_kde_iconsdir/oxygen/scalable/export_pngs.sh
 %_kde_iconsdir/*/*/*/*
 %_kde_datadir/emoticons/*
-%_kde_iconsdir/oxygen/scalable/export_pngs.sh
+%exclude %_kde_iconsdir/hicolor/index.theme
 
 #-----------------------------------------------------------------------------
 
@@ -172,12 +179,11 @@ Xine backend to Phonon.
 
 %prep
 %setup -q -n kdebase-runtime-%version
-%patch0 -p1 -b .nepomuk
 
 %build
 %cmake_kde4 
 
-%make 
+%make
 
 
 %install
@@ -185,9 +191,6 @@ rm -fr %buildroot
 cd build
 
 make DESTDIR=%buildroot install
-
-# kcalc.svgz crashes Plasma
-rm -rf %buildroot/%_kde_iconsdir/oxygen/scalable/apps/small/16x16/kcalc.svgz
 
 %clean
 rm -fr %buildroot
