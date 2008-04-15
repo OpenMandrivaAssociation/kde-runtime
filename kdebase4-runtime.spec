@@ -1,6 +1,6 @@
 Name: kdebase4-runtime
 Summary: K Desktop Environment
-Version: 4.0.68
+Version: 4.0.69
 Epoch: 1
 Group: Graphical desktop/KDE
 License: GPL
@@ -51,7 +51,7 @@ Requires:  kde4-l10n
 Obsoletes: kdebase4-progs < 1:3.93.0-0.714129.2
 Obsoletes: kdebase4-core  < 1:3.93.0-0.714129.2
 Obsoletes: kdebase4-common <= 1:3.80.3
-Conflicts: kdebase4-workspace < 1:3.94.1-0.728613.1
+Conflicts: kdebase4-workspace <= 1:4.0.68-1
 BuildRoot: %_tmppath/%name-%version-%release-root
 
 %description
@@ -155,6 +155,7 @@ Oxygen KDE 4 icon theme. Complains with FreeDesktop.org naming schema
 %_kde_iconsdir/oxygen/scalable/export_pngs.sh
 %_kde_iconsdir/*/*/*/*
 %_kde_datadir/emoticons/*
+%_kde_datadir/config/icons.knsrc
 %exclude %_kde_iconsdir/hicolor/index.theme
 
 #-----------------------------------------------------------------------------
