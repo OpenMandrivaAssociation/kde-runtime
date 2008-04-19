@@ -1,6 +1,6 @@
 Name: kdebase4-runtime
 Summary: K Desktop Environment
-Version: 4.0.69
+Version: 4.0.70
 Epoch: 1
 Group: Graphical desktop/KDE
 License: GPL
@@ -12,7 +12,7 @@ BuildRequires: cmake
 BuildRequires: kdelibs4-devel
 BuildRequires: kdepimlibs4-devel
 BuildRequires: strigi-devel
-BuildRequires: soprano-devel
+BuildRequires: soprano-devel >= 2.0.98
 BuildRequires: fontconfig-devel >= 2.1-9mdk
 BuildRequires: pam-devel
 BuildRequires: freetype2-devel
