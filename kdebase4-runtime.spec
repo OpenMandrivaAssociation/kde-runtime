@@ -154,9 +154,11 @@ Oxygen KDE 4 icon theme. Complains with FreeDesktop.org naming schema
 %_kde_iconsdir/oxygen/index.theme
 %_kde_iconsdir/oxygen/scalable/export_pngs.sh
 %_kde_iconsdir/*/*/*/*
-%_kde_iconsdir/default.kde4
 %_kde_datadir/emoticons/*
 %_kde_datadir/config/icons.knsrc
+#exclude it for the moment because i obtain this error message if included
+# error: unpacking of archive failed on file /usr/share/icons/default.kde4: cpio: rename failed - Is a directory
+%exclude %_kde_iconsdir/default.kde4
 %exclude %_kde_iconsdir/hicolor/index.theme
 
 #-----------------------------------------------------------------------------
