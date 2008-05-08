@@ -1,6 +1,6 @@
 Name: kdebase4-runtime
 Summary: K Desktop Environment
-Version: 4.0.72
+Version: 4.0.73
 Epoch: 1
 Group: Graphical desktop/KDE
 License: GPL
@@ -34,11 +34,7 @@ BuildRequires: libraw1394-devel
 BuildRequires: libxklavier-devel
 BuildRequires: lua-devel
 BuildRequires: resmgr-devel
-%if %mdkversion < 200810
-BuildRequires: libnetworkmanager-util-devel
-%else
 BuildRequires: networkmanager-util-devel
-%endif
 BuildRequires: networkmanager-devel
 BuildRequires: bluez-devel
 BuildRequires: boost-devel
