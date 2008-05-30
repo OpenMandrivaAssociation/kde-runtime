@@ -1,12 +1,12 @@
-Name: kdebase4-runtime
-Summary: K Desktop Environment
-Version: 4.0.80
-Epoch: 1
-Group: Graphical desktop/KDE
-License: GPL
-URL: http://www.kde.org
-Release: %mkrel 1
-Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdebase-runtime-%version.tar.bz2
+Name:          kdebase4-runtime
+Summary:       K Desktop Environment
+Version:       4.0.81
+Epoch:         1
+Group:         Graphical desktop/KDE
+License:       GPL
+URL:           http://www.kde.org
+Release:       %mkrel 1
+Source:        ftp://ftp.kde.org/pub/kde/stable/%version/src/kdebase-runtime-%version.tar.bz2
 BuildRequires: kde4-macros
 BuildRequires: cmake
 BuildRequires: kdelibs4-devel >= %version
@@ -38,19 +38,19 @@ BuildRequires: bluez-devel
 BuildRequires: boost-devel
 BuildRequires: xrdb
 BuildRequires: qimageblitz-devel
-Requires:  kdelibs4-core
-Requires:  oxygen-icon-theme
-Requires:  phonon-xine
-Requires:  kde4-l10n
-Obsoletes: kdebase4-progs < 1:3.93.0-0.714129.2
-Obsoletes: kdebase4-core  < 1:3.93.0-0.714129.2
-Obsoletes: kdebase4-common <= 1:3.80.3
-Conflicts: kdebase4-workspace <= 1:4.0.68-1
+Requires:      kdelibs4-core
+Requires:      oxygen-icon-theme
+Requires:      phonon-xine
+Requires:      kde4-l10n
+Obsoletes:     kdebase4-progs < 1:3.93.0-0.714129.2
+Obsoletes:     kdebase4-core  < 1:3.93.0-0.714129.2
+Obsoletes:     kdebase4-common <= 1:3.80.3
+Conflicts:     kdebase4-workspace <= 1:4.0.68-1
 # (Anssi 05/2008) KDE3 before move to /opt/kde3:
-Conflicts: kdebase-common < 1:3.5.9-38
-Conflicts: kdebase-progs < 1:3.5.9-38
-Conflicts: kdebase-konsole < 1:3.5.9-38
-BuildRoot: %_tmppath/%name-%version-%release-root
+Conflicts:     kdebase-common < 1:3.5.9-38
+Conflicts:     kdebase-progs < 1:3.5.9-38
+Conflicts:     kdebase-konsole < 1:3.5.9-38
+BuildRoot:     %_tmppath/%name-%version-%release-root
 
 %description
 KDE 4 application runtime components.
@@ -102,18 +102,20 @@ KDE 4 application runtime components.
 %_kde_datadir/config/khotnewstuff.knsrc
 %_kde_datadir/config/kshorturifilterrc
 %_kde_datadir/desktop-directories
-%dir %_kde_datadir/kde4/services
 %_kde_datadir/kde4/services/*
-%dir %_kde_datadir/kde4/servicetypes
 %_kde_datadir/kde4/servicetypes/*
 %_kde_appsdir/remoteview/smb-network.desktop
 %_kde_datadir/locale/l10n/*/*
 %_kde_datadir/locale/l10n/*.desktop
 %_kde_datadir/locale/en_US
 %_kde_datadir/sounds
-%dir %_kde_libdir/kde4
 %_kde_libdir/kde4/*
 %_kde_libdir/libkdeinit4_*
+%_kde_libdir/kconf_update_bin/phonon_devicepreference_update
+%_kde_appsdir/kcm_phonon
+%_kde_appsdir/kconf_update/devicepreference.upd
+%_kde_appsdir/libphonon
+%_kde_appsdir/phonon
 %_kde_bindir/khelpcenter
 %_kde_appsdir/khelpcenter
 %_kde_docdir/*/*/khelpcenter
@@ -127,6 +129,7 @@ KDE 4 application runtime components.
 %_kde_datadir/apps/cmake/modules/*
 %_kde_datadir/config.kcfg/*
 %_datadir/dbus-1/interfaces/*
+#(nl) Excluding because they are on Phonon-xine
 %exclude %_kde_libdir/kde4/kcm_phononxine.so
 %exclude %_kde_libdir/kde4/phonon_xine.so
 %exclude %_kde_datadir/kde4/services/kcm_phononxine.desktop
@@ -174,6 +177,49 @@ Xine backend to Phonon.
 %_kde_libdir/kde4/phonon_xine.so
 %_kde_datadir/kde4/services/kcm_phononxine.desktop
 %_kde_datadir/kde4/services/phononbackends/xine.desktop
+
+#-----------------------------------------------------------------------------
+ 
+%define kaudiodevicelist_major 4
+%define libkaudiodevicelist %mklibname kaudiodevicelist %kaudiodevicelist_major
+
+%package -n %libkaudiodevicelist
+Summary: KDE 4 core library
+Group: System/Libraries
+Conflicts: %{_lib}kdecore5 >= 30000000:3.80.3
+Obsoletes: %{_lib}kaudiodevicelist5 < 3.93.0-0.714006.1
+Obsoletes: %{_lib}cupsdconf4 < 3.93.0-0.728415.2
+Obsoletes: %{_lib}kdefx5 < 3.93.0-0.728415.2
+Obsoletes: %{_lib}kdeprint_management4 < 3.94.1-0.728203.3
+Obsoletes: %{_lib}kdeprint5 < 3.94.1-0.728203.3
+
+%description -n %libkaudiodevicelist
+KDE 4 core library.
+
+%post -n %libkaudiodevicelist -p /sbin/ldconfig
+%postun -n %libkaudiodevicelist -p /sbin/ldconfig
+
+%files -n %libkaudiodevicelist
+%defattr(-,root,root)
+%_kde_libdir/libkaudiodevicelist.so.%{kaudiodevicelist_major}*
+
+#-----------------------------------------------------------------------------
+
+%package devel
+Group: Development/KDE and Qt
+Summary: Header files and documentation for compiling KDE applications
+Requires: kdelibs4-devel
+Requires: %libkaudiodevicelist = %version
+
+%description devel
+This package includes the header files you will need to compile applications
+for KDE. Also included is the KDE API documentation in HTML format for easy
+browsing.
+
+%files devel
+%defattr(-,root,root,-)
+%{_kde_includedir}/phonon
+%{_kde_libdir}/libkaudiodevicelist.so
 
 #-----------------------------------------------------------------------------
 
