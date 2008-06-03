@@ -167,6 +167,8 @@ Summary: Xine backend to Phonon
 Group: Sound
 BuildRequires: libxine-devel
 Obsoletes: kde4-phonon-xine < 1:3.93.0-0.714129.2
+#fhimpe: fix bug #41210: without xine-plugins phonon-xine always crashes
+Requires: xine-plugins
 
 %description -n phonon-xine
 Xine backend to Phonon.
