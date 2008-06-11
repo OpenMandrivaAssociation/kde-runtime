@@ -1,5 +1,5 @@
 Name:          kdebase4-runtime
-Summary:       K Desktop Environment
+Summary:       K Desktop Environment - Runtime
 Version: 4.0.82
 Epoch:         1
 Group:         Graphical desktop/KDE
