@@ -128,7 +128,6 @@ KDE 4 application runtime components.
 %_kde_datadir/apps/konqueror/dirtree/remote/smb-network.desktop
 %_kde_datadir/apps/cmake/modules/*
 %_kde_datadir/config.kcfg/*
-%_datadir/dbus-1/interfaces/*
 #(nl) Excluding because they are on Phonon-xine
 %exclude %_kde_libdir/kde4/kcm_phononxine.so
 %exclude %_kde_libdir/kde4/phonon_xine.so
@@ -223,6 +222,7 @@ browsing.
 %defattr(-,root,root,-)
 %{_kde_includedir}/phonon
 %{_kde_libdir}/libkaudiodevicelist.so
+%{_kde_datadir}/dbus-1/interfaces/*
 
 #-----------------------------------------------------------------------------
 
