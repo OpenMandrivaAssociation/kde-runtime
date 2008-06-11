@@ -159,7 +159,7 @@ Oxygen KDE 4 icon theme. Complains with FreeDesktop.org naming schema
 %_kde_datadir/config/icons.knsrc
 %_kde_iconsdir/default.kde4
 %exclude %_kde_iconsdir/hicolor/index.theme
-%{_var}/lib/rpm/filetriggers/gtk-icon-cache-hicolor.*
+%{_var}/lib/rpm/filetriggers/gtk-icon-cache-oxygen.*
 
 #-----------------------------------------------------------------------------
 
