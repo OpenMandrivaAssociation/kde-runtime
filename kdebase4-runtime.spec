@@ -5,7 +5,7 @@ Epoch:         1
 Group:         Graphical desktop/KDE
 License:       GPL
 URL:           http://www.kde.org
-Release: %mkrel 2
+Release: %mkrel 3
 Source:        ftp://ftp.kde.org/pub/kde/stable/%version/src/kdebase-runtime-%version.tar.bz2
 BuildRequires: kde4-macros
 BuildRequires: cmake
@@ -46,10 +46,11 @@ Obsoletes:     kdebase4-progs < 1:3.93.0-0.714129.2
 Obsoletes:     kdebase4-core  < 1:3.93.0-0.714129.2
 Obsoletes:     kdebase4-common <= 1:3.80.3
 Conflicts:     kdebase4-workspace <= 1:4.0.68-1
-# (Anssi 05/2008) KDE3 before move to /opt/kde3:
+%if %mdkversion > 200810
 Conflicts:     kdebase-common < 1:3.5.9-38
 Conflicts:     kdebase-progs < 1:3.5.9-38
 Conflicts:     kdebase-konsole < 1:3.5.9-38
+%endif
 BuildRoot:     %_tmppath/%name-%version-%release-root
 
 %description
@@ -143,8 +144,9 @@ Provides: kde4-icon-theme
 Obsoletes: kdelibs4-common >= 30000000:3.80.3
 # Fallback hicolor icons
 Requires: hicolor-icon-theme
-# (Anssi 05/2008) KDE3 before move to /opt/kde3:
+%if %mdkversion > 200810
 Conflicts: kdebase-common < 1:3.5.9-38
+%endif
 
 %description -n oxygen-icon-theme
 Oxygen KDE 4 icon theme. Complains with FreeDesktop.org naming schema
