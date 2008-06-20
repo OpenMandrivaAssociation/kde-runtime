@@ -5,7 +5,7 @@ Epoch:         1
 Group:         Graphical desktop/KDE
 License:       GPL
 URL:           http://www.kde.org
-Release: %mkrel 1
+Release: %mkrel 2
 Source:        ftp://ftp.kde.org/pub/kde/stable/%version/src/kdebase-runtime-%version.tar.bz2
 BuildRequires: kde4-macros
 BuildRequires: cmake
@@ -213,7 +213,7 @@ KDE 4 core library.
 Group: Development/KDE and Qt
 Summary: Header files and documentation for compiling KDE applications
 Requires: kdelibs4-devel
-Requires: %libkaudiodevicelist = %version
+Requires: %libkaudiodevicelist = %epoch:%version
 
 %description devel
 This package includes the header files you will need to compile applications
