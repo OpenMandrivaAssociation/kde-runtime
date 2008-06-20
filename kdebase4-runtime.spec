@@ -222,7 +222,6 @@ browsing.
 
 %files devel
 %defattr(-,root,root,-)
-%{_kde_includedir}/phonon
 %{_kde_libdir}/libkaudiodevicelist.so
 %{_kde_datadir}/dbus-1/interfaces/*
 
