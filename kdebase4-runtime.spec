@@ -1,11 +1,11 @@
 Name:          kdebase4-runtime
 Summary:       K Desktop Environment - Runtime
-Version: 4.0.83
+Version: 4.0.84
 Epoch:         1
 Group:         Graphical desktop/KDE
 License:       GPL
 URL:           http://www.kde.org
-Release: %mkrel 2
+Release: %mkrel 1
 Source:        ftp://ftp.kde.org/pub/kde/stable/%version/src/kdebase-runtime-%version.tar.bz2
 BuildRequires: kde4-macros
 BuildRequires: cmake
