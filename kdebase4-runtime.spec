@@ -1,11 +1,11 @@
 Name:          kdebase4-runtime
 Summary:       K Desktop Environment - Runtime
-Version: 4.0.84
+Version:       4.0.85
 Epoch:         1
 Group:         Graphical desktop/KDE
 License:       GPL
 URL:           http://www.kde.org
-Release: %mkrel 1
+Release:       %mkrel 1
 Source:        ftp://ftp.kde.org/pub/kde/stable/%version/src/kdebase-runtime-%version.tar.bz2
 BuildRequires: kde4-macros
 BuildRequires: cmake
@@ -129,7 +129,7 @@ KDE 4 application runtime components.
 %_kde_datadir/apps/konqueror/dirtree/remote/smb-network.desktop
 %_kde_datadir/apps/cmake/modules/*
 %_kde_datadir/config.kcfg/*
-#(nl) Excluding because they are on Phonon-xine
+# Excluding because they are on Phonon-xine
 %exclude %_kde_libdir/kde4/kcm_phononxine.so
 %exclude %_kde_libdir/kde4/phonon_xine.so
 %exclude %_kde_datadir/kde4/services/kcm_phononxine.desktop
