@@ -5,7 +5,7 @@ Epoch:         1
 Group:         Graphical desktop/KDE
 License:       GPL
 URL:           http://www.kde.org
-Release: %mkrel 1
+Release: %mkrel 2
 Source0:        ftp://ftp.kde.org/pub/kde/stable/%version/src/kdebase-runtime-%version.tar.bz2
 Patch0:		kdebase-runtime-4.0.98-liblzma.patch
 BuildRequires: kde4-macros
