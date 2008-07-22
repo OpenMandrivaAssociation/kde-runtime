@@ -6,7 +6,8 @@ Group:         Graphical desktop/KDE
 License:       GPL
 URL:           http://www.kde.org
 Release: %mkrel 1
-Source:        ftp://ftp.kde.org/pub/kde/stable/%version/src/kdebase-runtime-%version.tar.bz2
+Source0:        ftp://ftp.kde.org/pub/kde/stable/%version/src/kdebase-runtime-%version.tar.bz2
+Patch0:		kdebase-runtime-4.0.98-liblzma.patch
 BuildRequires: kde4-macros
 BuildRequires: cmake
 BuildRequires: kdelibs4-devel >= 4.0.81
@@ -229,6 +230,7 @@ browsing.
 
 %prep
 %setup -q -n kdebase-runtime-%version
+%patch0 -p1 -b .liblzma
 
 %build
 %cmake_kde4 
