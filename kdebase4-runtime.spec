@@ -1,13 +1,14 @@
-Name:          kdebase4-runtime
-Summary:       K Desktop Environment - Runtime
+Name: kdebase4-runtime
+Summary: K Desktop Environment - Base Runtime
 Version: 4.1.0
-Epoch:         1
-Group:         Graphical desktop/KDE
-License:       GPL
-URL:           http://www.kde.org
-Release: %mkrel 1
-Source0:        ftp://ftp.kde.org/pub/kde/stable/%version/src/kdebase-runtime-%version.tar.bz2
-Patch0:		kdebase-runtime-4.0.98-liblzma.patch
+Release: %mkrel 2
+Epoch: 1
+Group: Graphical desktop/KDE
+License: GPL
+URL: http://www.kde.org
+Source0: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdebase-runtime-%version.tar.bz2
+Patch0: kdebase-runtime-4.0.98-liblzma.patch
+Patch100: kdebase-runtime-post-4.1.0-rev839261.patch
 BuildRequires: kde4-macros
 BuildRequires: cmake
 BuildRequires: kdelibs4-devel >= 4.0.81
@@ -231,6 +232,8 @@ browsing.
 %prep
 %setup -q -n kdebase-runtime-%version
 %patch0 -p1 -b .liblzma
+# POST 4.1.0
+%patch100 -p0 -b .post410
 
 %build
 %cmake_kde4 
