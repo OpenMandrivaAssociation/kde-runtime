@@ -1,7 +1,7 @@
 Name: kdebase4-runtime
 Summary: K Desktop Environment - Base Runtime
 Version: 4.1.0
-Release: %mkrel 2
+Release: %mkrel 3
 Epoch: 1
 Group: Graphical desktop/KDE
 License: GPL
@@ -40,18 +40,17 @@ BuildRequires: bluez-devel
 BuildRequires: boost-devel
 BuildRequires: xrdb
 BuildRequires: qimageblitz-devel
-Requires:      kdelibs4-core
-Requires:      oxygen-icon-theme
-Requires:      phonon-xine
-Requires:      kde4-l10n
-Obsoletes:     kdebase4-progs < 1:3.93.0-0.714129.2
-Obsoletes:     kdebase4-core  < 1:3.93.0-0.714129.2
-Obsoletes:     kdebase4-common <= 1:3.80.3
-Conflicts:     kdebase4-workspace <= 1:4.0.68-1
+Requires: kdelibs4-core
+Requires: oxygen-icon-theme
+Requires: kde4-l10n
+Obsoletes: kdebase4-progs < 1:3.93.0-0.714129.2
+Obsoletes: kdebase4-core  < 1:3.93.0-0.714129.2
+Obsoletes: kdebase4-common <= 1:3.80.3
+Conflicts: kdebase4-workspace <= 1:4.0.68-1
 %if %mdkversion > 200810
-Conflicts:     kdebase-common < 1:3.5.9-38
-Conflicts:     kdebase-progs < 1:3.5.9-38
-Conflicts:     kdebase-konsole < 1:3.5.9-38
+Conflicts: kdebase-common < 1:3.5.9-38
+Conflicts: kdebase-progs < 1:3.5.9-38
+Conflicts: kdebase-konsole < 1:3.5.9-38
 %endif
 BuildRoot:     %_tmppath/%name-%version-%release-root
 
@@ -171,8 +170,8 @@ Summary: Xine backend to Phonon
 Group: Sound
 BuildRequires: libxine-devel
 Obsoletes: kde4-phonon-xine < 1:3.93.0-0.714129.2
-#fhimpe: fix bug #41210: without xine-plugins phonon-xine always crashes
 Requires: xine-plugins
+Provides: phonon-backend = 4.2.0
 
 %description -n phonon-xine
 Xine backend to Phonon.
