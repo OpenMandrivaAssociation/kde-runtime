@@ -18,7 +18,7 @@ BuildRequires: kde4-macros
 BuildRequires: cmake
 BuildRequires: kdelibs4-devel >= 4.0.81
 BuildRequires: kdepimlibs4-devel >= 4.0.81
-BuildRequires: strigi-devel
+BuildRequires: strigi-devel >= 1:0.5.10-2
 BuildRequires: soprano-devel >= 2.0.98
 BuildRequires: fontconfig-devel >= 2.1-9mdk
 BuildRequires: pam-devel
