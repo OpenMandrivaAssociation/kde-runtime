@@ -11,9 +11,10 @@ Patch0:   kdebase-runtime-4.0.98-liblzma.patch
 Patch100: kdebase-runtime-post-4.1.0-rev839261.patch
 # Backported from 4.2 trunk
 Patch101: kdebase-runtime-post-4.1.0-rev838557.patch
-Patch102: kdebase-runtime-post-4.1.0-rev839635.patch
-Patch103: kdebase-runtime-post-4.1.0-rev839725.patch 
-Patch104: kdebase-runtime-post-4.1.0-rev839783.patch 
+Patch102: kdebase-runtime-post-4.1.0-rev839383.patch
+Patch103: kdebase-runtime-post-4.1.0-rev839635.patch
+Patch104: kdebase-runtime-post-4.1.0-rev839725.patch 
+Patch105: kdebase-runtime-post-4.1.0-rev839783.patch 
 BuildRequires: kde4-macros
 BuildRequires: cmake
 BuildRequires: kdelibs4-devel >= 4.0.81
@@ -240,9 +241,9 @@ browsing.
 %patch100 -p0 -b .post410
 %patch101 -p0 -b .post410
 %patch102 -p0 -b .post410
-#%patch103 -p0 -b .post410
-%patch104 -p0 -b .post410
-
+%patch103 -p0 -b .post410
+#%patch104 -p0 -b .post410
+%patch105 -p0 -b .post410
 %build
 %cmake_kde4 
 
