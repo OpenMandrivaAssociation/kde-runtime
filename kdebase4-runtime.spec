@@ -239,11 +239,11 @@ browsing.
 %patch0 -p1 -b .liblzma
 # POST 4.1.0
 %patch100 -p0 -b .post410
-%patch101 -p0 -b .post410
-%patch102 -p0 -b .post410
-%patch103 -p0 -b .post410
-#%patch104 -p0 -b .post410
-%patch105 -p0 -b .post410
+#%patch101 -p0 -b .post410
+#%patch102 -p0 -b .post410
+#%patch103 -p0 -b .post410
+##%patch104 -p0 -b .post410
+#%patch105 -p0 -b .post410
 %build
 %cmake_kde4 
 
