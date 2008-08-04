@@ -1,3 +1,6 @@
+%define with_nepomuk_experimental 0
+%{?_with_nepomuk_experimental: %{expand: %%global with_nepomuk_experimental 1}}
+
 Name: kdebase4-runtime
 Summary: K Desktop Environment - Base Runtime
 Version: 4.1.0
@@ -16,9 +19,15 @@ Patch102: kdebase-runtime-post-4.1.0-rev839636.patch
 Patch103: kdebase-runtime-post-4.1.0-rev839927.patch
 Patch104: kdebase-runtime-post-4.1.0-rev840307.patch
 Patch105: kdebase-runtime-post-4.1.0-rev840458.patch
+Patch200: kdebase-runtime-backport-4.2-rev838557.patch
+Patch201: kdebase-runtime-backport-4.2-rev839383.patch
+Patch202: kdebase-runtime-backport-4.2-rev839725.patch
+Patch203: kdebase-runtime-backport-4.2-rev839783.patch
+Patch204: kdebase-runtime-backport-4.2-rev838605.patch
+Patch205: kdebase-runtime-backport-4.2-rev838672.patch
 BuildRequires: kde4-macros
 BuildRequires: cmake
-BuildRequires: kdelibs4-devel >= 4.0.81
+BuildRequires: kdelibs4-devel >= 4.1.0-5
 BuildRequires: kdepimlibs4-devel >= 4.0.81
 BuildRequires: strigi-devel >= 1:0.5.10-2
 BuildRequires: soprano-devel >= 2.0.98
@@ -245,7 +254,14 @@ browsing.
 %patch103 -p0 -b .post410
 %patch104 -p0 -b .post410
 %patch105 -p0 -b .post410
-
+%if %{with_nepomuk_experimental}
+%patch200 -p1 -b .backport42
+%patch201 -p1 -b .backport42
+%patch202 -p1 -b .backport42
+%patch203 -p1 -b .backport42
+%patch204 -p1 -b .backport42
+%patch205 -p1 -b .backport42
+%endif
 %build
 %cmake_kde4 
 
