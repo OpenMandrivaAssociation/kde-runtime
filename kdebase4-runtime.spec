@@ -25,6 +25,7 @@ Patch202: kdebase-runtime-backport-4.2-rev839725.patch
 Patch203: kdebase-runtime-backport-4.2-rev839783.patch
 Patch204: kdebase-runtime-backport-4.2-rev838605.patch
 Patch205: kdebase-runtime-backport-4.2-rev838672.patch
+Patch206: kdebase-runtime-backport-4.2-rev838563.patch
 BuildRequires: kde4-macros
 BuildRequires: cmake
 BuildRequires: kdelibs4-devel >= 4.1.0-5
@@ -261,6 +262,7 @@ browsing.
 %patch203 -p1 -b .backport42
 %patch204 -p1 -b .backport42
 %patch205 -p1 -b .backport42
+%patch206 -p1 -b .backport42
 %endif
 %build
 %cmake_kde4 
