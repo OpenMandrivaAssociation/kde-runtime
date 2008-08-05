@@ -1,10 +1,10 @@
-%define with_nepomuk_experimental 0
+%define with_nepomuk_experimental 1
 %{?_with_nepomuk_experimental: %{expand: %%global with_nepomuk_experimental 1}}
 
 Name: kdebase4-runtime
 Summary: K Desktop Environment - Base Runtime
 Version: 4.1.0
-Release: %mkrel 4
+Release: %mkrel 5
 Epoch: 1
 Group: Graphical desktop/KDE
 License: GPL
