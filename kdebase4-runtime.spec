@@ -147,6 +147,7 @@ KDE 4 application runtime components.
 %_kde_datadir/apps/konqueror/dirtree/remote/smb-network.desktop
 %_kde_datadir/apps/cmake/modules/*
 %_kde_datadir/config.kcfg/*
+%_kde_appsdir/nepomukstrigiservice/nepomukstrigiservice.notifyrc
 # Excluding because they are on Phonon-xine
 %exclude %_kde_libdir/kde4/kcm_phononxine.so
 %exclude %_kde_libdir/kde4/phonon_xine.so
