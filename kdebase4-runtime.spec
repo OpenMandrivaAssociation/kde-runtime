@@ -4,7 +4,7 @@
 Name: kdebase4-runtime
 Summary: K Desktop Environment - Base Runtime
 Version: 4.1.0
-Release: %mkrel 5
+Release: %mkrel 6
 Epoch: 1
 Group: Graphical desktop/KDE
 License: GPL
@@ -19,6 +19,11 @@ Patch102: kdebase-runtime-post-4.1.0-rev839636.patch
 Patch103: kdebase-runtime-post-4.1.0-rev839927.patch
 Patch104: kdebase-runtime-post-4.1.0-rev840307.patch
 Patch105: kdebase-runtime-post-4.1.0-rev840458.patch
+Patch106: kdebase-runtime-post-4.1.0-rev843186.patch
+Patch107: kdebase-runtime-post-4.1.0-rev843452.patch
+Patch108: kdebase-runtime-post-4.1.0-rev845705.patch
+Patch109: kdebase-runtime-post-4.1.0-rev845815.patch
+Patch110: kdebase-runtime-post-4.1.0-rev845816.patch
 Patch200: kdebase-runtime-backport-4.2-rev838557.patch
 Patch201: kdebase-runtime-backport-4.2-rev839383.patch
 Patch202: kdebase-runtime-backport-4.2-rev839725.patch
@@ -249,13 +254,18 @@ browsing.
 %prep
 %setup -q -n kdebase-runtime-%version
 %patch0 -p1 -b .liblzma
-# POST 4.1.0
+# Post 4.1 patches
 %patch100 -p0 -b .post410
 %patch101 -p0 -b .post410
 %patch102 -p0 -b .post410
 %patch103 -p0 -b .post410
 %patch104 -p0 -b .post410
 %patch105 -p0 -b .post410
+%patch106 -p0 -b .post410
+%patch107 -p0 -b .post410
+%patch108 -p0 -b .post410
+%patch109 -p0 -b .post410
+%patch110 -p0 -b .post410
 %if %{with_nepomuk_experimental}
 %patch200 -p1 -b .backport42
 %patch201 -p1 -b .backport42
