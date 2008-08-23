@@ -1,10 +1,12 @@
-%define with_nepomuk_experimental 1
+%define with_nepomuk_experimental 0
 %{?_with_nepomuk_experimental: %{expand: %%global with_nepomuk_experimental 1}}
+
+%define subrel 2
 
 Name: kdebase4-runtime
 Summary: K Desktop Environment - Base Runtime
 Version: 4.1.0
-Release: %mkrel 7
+Release: %mkrel 6
 Epoch: 1
 Group: Graphical desktop/KDE
 License: GPL
@@ -24,6 +26,8 @@ Patch107: kdebase-runtime-post-4.1.0-rev843452.patch
 Patch108: kdebase-runtime-post-4.1.0-rev845705.patch
 Patch109: kdebase-runtime-post-4.1.0-rev845815.patch
 Patch110: kdebase-runtime-post-4.1.0-rev845816.patch
+Patch111: kdebase-runtime-post-4.1.0-rev849983.patch
+Patch112: kdebase-runtime-post-4.1.0-rev849989.patch
 
 # Backports
 Patch200: kdebase-runtime-backport-4.2-rev838557.patch
@@ -158,7 +162,9 @@ KDE 4 application runtime components.
 %_kde_datadir/apps/konqueror/dirtree/remote/smb-network.desktop
 %_kde_datadir/apps/cmake/modules/*
 %_kde_datadir/config.kcfg/*
+%if %{with_nepomuk_experimental}
 %_kde_appsdir/nepomukstrigiservice/nepomukstrigiservice.notifyrc
+%endif
 # Excluding because they are on Phonon-xine
 %exclude %_kde_libdir/kde4/kcm_phononxine.so
 %exclude %_kde_libdir/kde4/phonon_xine.so
@@ -272,6 +278,8 @@ browsing.
 %patch108 -p0 -b .post410
 %patch109 -p0 -b .post410
 %patch110 -p0 -b .post410
+%patch111 -p0 -b .post410
+%patch112 -p0 -b .post410
 %if %{with_nepomuk_experimental}
 %patch200 -p1 -b .backport42
 %patch201 -p1 -b .backport42
