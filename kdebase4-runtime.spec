@@ -1,12 +1,10 @@
-%define with_nepomuk_experimental 0
+%define with_nepomuk_experimental 1
 %{?_with_nepomuk_experimental: %{expand: %%global with_nepomuk_experimental 1}}
-
-%define subrel 2
 
 Name: kdebase4-runtime
 Summary: K Desktop Environment - Base Runtime
 Version: 4.1.0
-Release: %mkrel 6
+Release: %mkrel 8
 Epoch: 1
 Group: Graphical desktop/KDE
 License: GPL
@@ -30,17 +28,11 @@ Patch111: kdebase-runtime-post-4.1.0-rev849983.patch
 Patch112: kdebase-runtime-post-4.1.0-rev849989.patch
 
 # Backports
-Patch200: kdebase-runtime-backport-4.2-rev838557.patch
-Patch201: kdebase-runtime-backport-4.2-rev839383.patch
-Patch202: kdebase-runtime-backport-4.2-rev839725.patch
-Patch203: kdebase-runtime-backport-4.2-rev839783.patch
-Patch204: kdebase-runtime-backport-4.2-rev838605.patch
-Patch205: kdebase-runtime-backport-4.2-rev838672.patch
-Patch206: kdebase-runtime-backport-4.2-rev838563.patch
+Patch200: kdebase-runtime-backport-nepomuk.patch
 
 #Testing
 Patch300: kdebase-runtime-testing-fix-network-icon.patch
-
+ 
 BuildRequires: kde4-macros
 BuildRequires: cmake
 BuildRequires: kdelibs4-devel >= 4.1.0-5
@@ -282,12 +274,6 @@ browsing.
 %patch112 -p0 -b .post410
 %if %{with_nepomuk_experimental}
 %patch200 -p1 -b .backport42
-%patch201 -p1 -b .backport42
-%patch202 -p1 -b .backport42
-%patch203 -p1 -b .backport42
-%patch204 -p1 -b .backport42
-%patch205 -p1 -b .backport42
-%patch206 -p1 -b .backport42
 %endif
 %patch300 -p0
 
