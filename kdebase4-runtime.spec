@@ -29,6 +29,7 @@ Patch112: kdebase-runtime-post-4.1.0-rev849989.patch
 
 # Backports
 Patch200: kdebase-runtime-backport-nepomuk.patch
+Patch201: kdebase-runtime-backport-4.2-rev852681.patch
 
 #Testing
 Patch300: kdebase-runtime-testing-fix-network-icon.patch
@@ -274,6 +275,7 @@ browsing.
 %patch112 -p0 -b .post410
 %if %{with_nepomuk_experimental}
 %patch200 -p1 -b .backport42
+%patch201 -p1 -b .backport42
 %endif
 %patch300 -p0
 
