@@ -1,10 +1,10 @@
-%define with_nepomuk_experimental 0
+%define with_nepomuk_experimental 1
 %{?_with_nepomuk_experimental: %{expand: %%global with_nepomuk_experimental 1}}
 
 Name: kdebase4-runtime
 Summary: K Desktop Environment - Base Runtime
 Version: 4.1.1
-Release: %mkrel 1
+Release: %mkrel 2
 Epoch: 1
 Group: Graphical desktop/KDE
 License: GPL
@@ -14,7 +14,6 @@ Patch0:   kdebase-runtime-4.0.98-liblzma.patch
 
 # Backports
 Patch200: kdebase-runtime-backport-nepomuk.patch
-Patch201: kdebase-runtime-backport-4.2-rev852681.patch
 
 #Testing
 Patch300: kdebase-runtime-testing-fix-network-icon.patch
@@ -245,8 +244,7 @@ browsing.
 %setup -q -n kdebase-runtime-%version
 %patch0 -p1 -b .liblzma
 %if %{with_nepomuk_experimental}
-%patch200 -p1 -b .backport42
-%patch201 -p1 -b .backport42
+%patch200 -p0 -b .backport42
 %endif
 %patch300 -p0
 
