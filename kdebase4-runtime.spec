@@ -4,7 +4,7 @@
 Name: kdebase4-runtime
 Summary: K Desktop Environment - Base Runtime
 Version: 4.1.1
-Release: %mkrel 2
+Release: %mkrel 3
 Epoch: 1
 Group: Graphical desktop/KDE
 License: GPL
@@ -17,6 +17,7 @@ Patch200: kdebase-runtime-backport-nepomuk.patch
 
 #Testing
 Patch300: kdebase-runtime-testing-fix-network-icon.patch
+Patch301: kdebase-runtime-4.1.1-mandriva-pulseaudio-ignore-audiodevices.patch
  
 BuildRequires: kde4-macros
 BuildRequires: cmake
@@ -247,6 +248,7 @@ browsing.
 %patch200 -p0 -b .backport42
 %endif
 %patch300 -p0
+%patch301 -p0
 
 %build
 %cmake_kde4 
