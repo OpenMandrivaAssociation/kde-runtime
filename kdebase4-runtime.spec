@@ -4,13 +4,14 @@
 Name: kdebase4-runtime
 Summary: K Desktop Environment - Base Runtime
 Version: 4.1.1
-Release: %mkrel 4
+Release: %mkrel 5
 Epoch: 1
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://www.kde.org
 Source0: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdebase-runtime-%version.tar.bz2
 Patch0:   kdebase-runtime-4.0.98-liblzma.patch
+Patch1:   kdebase-runtime-4.1.1-phonon-xine-pulseaudio-not-advanced.patch
 
 # Backports
 Patch200: kdebase-runtime-backport-nepomuk.patch
@@ -184,6 +185,7 @@ Group: Sound
 BuildRequires: libxine-devel
 Obsoletes: kde4-phonon-xine < 1:3.93.0-0.714129.2
 Requires: xine-plugins
+Requires: xine-pulse
 Provides: phonon-backend = 4.2.0
 
 %description -n phonon-xine
@@ -244,6 +246,7 @@ browsing.
 %prep
 %setup -q -n kdebase-runtime-%version
 %patch0 -p1 -b .liblzma
+%patch1 -p0 -b .pulse-not-advanced
 %if %{with_nepomuk_experimental}
 %patch200 -p0 -b .backport42
 %endif
