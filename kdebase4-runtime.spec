@@ -12,6 +12,7 @@ URL: http://www.kde.org
 Source0: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdebase-runtime-%version.tar.bz2
 Patch0:   kdebase-runtime-4.0.98-liblzma.patch
 Patch1:   kdebase-runtime-4.1.1-phonon-xine-pulseaudio-not-advanced.patch
+Patch2:   kdebase-runtime-4.1.1-fix-htsearch-path.patch
 
 # Backports
 Patch200: kdebase-runtime-backport-nepomuk.patch
@@ -248,6 +249,7 @@ browsing.
 %setup -q -n kdebase-runtime-%version
 %patch0 -p1 -b .liblzma
 %patch1 -p0 -b .pulse-not-advanced
+%patch2 -p1
 %if %{with_nepomuk_experimental}
 %patch200 -p0 -b .backport42
 %endif
