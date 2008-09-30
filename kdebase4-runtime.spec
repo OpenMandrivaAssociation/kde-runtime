@@ -4,7 +4,7 @@
 Name: kdebase4-runtime
 Summary: K Desktop Environment - Base Runtime
 Version: 4.1.2
-Release: %mkrel 2
+Release: %mkrel 3
 Epoch: 1
 Group: Graphical desktop/KDE
 License: GPL
@@ -55,7 +55,8 @@ BuildRequires: qimageblitz-devel
 Requires: kdelibs4-core
 Requires: oxygen-icon-theme
 Requires: kde4-l10n
-Requires:  htdig
+Requires: kde4-splash-mdv
+Requires: htdig
 Obsoletes: kdebase4-progs < 1:3.93.0-0.714129.2
 Obsoletes: kdebase4-core  < 1:3.93.0-0.714129.2
 Obsoletes: kdebase4-common <= 1:3.80.3
