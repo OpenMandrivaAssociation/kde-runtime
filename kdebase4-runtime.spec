@@ -1,21 +1,16 @@
-%define with_nepomuk_experimental 1
-%{?_with_nepomuk_experimental: %{expand: %%global with_nepomuk_experimental 1}}
-
 Name: kdebase4-runtime
 Summary: K Desktop Environment - Base Runtime
-Version: 4.1.2
-Release: %mkrel 3
+Version: 4.1.70
+Release: %mkrel 1
 Epoch: 1
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://www.kde.org
 Source0: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdebase-runtime-%version.tar.bz2
 Patch0:   kdebase-runtime-4.0.98-liblzma.patch
-Patch1:   kdebase-runtime-4.1.1-phonon-xine-pulseaudio-not-advanced.patch
 Patch2:   kdebase-runtime-4.1.1-fix-htsearch-path.patch
 
 # Backports
-Patch200: kdebase-runtime-backport-nepomuk.patch
 
 #Testing
 Patch300: kdebase-runtime-testing-fix-network-icon.patch
@@ -60,12 +55,12 @@ Requires: htdig
 Obsoletes: kdebase4-progs < 1:3.93.0-0.714129.2
 Obsoletes: kdebase4-core  < 1:3.93.0-0.714129.2
 Obsoletes: kdebase4-common <= 1:3.80.3
-Conflicts: kdebase4-workspace <= 1:4.0.68-1
+Conflicts: kdebase4-workspace <= 1:4.1.67-1
 %if %mdkversion > 200810
 Conflicts: kdebase-common < 1:3.5.9-38
 Conflicts: kdebase-progs < 1:3.5.9-38
 Conflicts: kdebase-konsole < 1:3.5.9-38
-%endif
+%endif 
 BuildRoot:     %_tmppath/%name-%version-%release-root
 
 %description
@@ -121,6 +116,7 @@ KDE 4 application runtime components.
 %_kde_datadir/kde4/services/*
 %_kde_datadir/kde4/servicetypes/*
 %_kde_appsdir/remoteview/smb-network.desktop
+%_kde_appsdir/kio_bookmarks
 %_kde_datadir/locale/l10n/*/*
 %_kde_datadir/locale/l10n/*.desktop
 %_kde_datadir/locale/en_US
@@ -144,14 +140,9 @@ KDE 4 application runtime components.
 %_kde_datadir/apps/konqueror/dirtree/remote/smb-network.desktop
 %_kde_datadir/apps/cmake/modules/*
 %_kde_datadir/config.kcfg/*
-%if %{with_nepomuk_experimental}
+%_kde_appsdir/ksmserver/windowmanagers
 %_kde_appsdir/nepomukstrigiservice/nepomukstrigiservice.notifyrc
-%endif
-# Excluding because they are on Phonon-xine
-%exclude %_kde_libdir/kde4/kcm_phononxine.so
-%exclude %_kde_libdir/kde4/phonon_xine.so
-%exclude %_kde_datadir/kde4/services/kcm_phononxine.desktop
-%exclude %_kde_datadir/kde4/services/phononbackends/xine.desktop
+%_kde_appsdir/nepomuk/ontologies
 
 #--------------------------------------------------------------
 
@@ -181,27 +172,6 @@ Oxygen KDE 4 icon theme. Complains with FreeDesktop.org naming schema
 %{_var}/lib/rpm/filetriggers/gtk-icon-cache-oxygen.*
 
 #-----------------------------------------------------------------------------
-
-%package -n phonon-xine
-Summary: Xine backend to Phonon
-Group: Sound
-BuildRequires: libxine-devel
-Obsoletes: kde4-phonon-xine < 1:3.93.0-0.714129.2
-Requires: xine-plugins
-Requires: xine-pulse
-Provides: phonon-backend = 4.2.0
-
-%description -n phonon-xine
-Xine backend to Phonon.
-
-%files -n phonon-xine
-%defattr(-,root,root)
-%_kde_libdir/kde4/kcm_phononxine.so
-%_kde_libdir/kde4/phonon_xine.so
-%_kde_datadir/kde4/services/kcm_phononxine.desktop
-%_kde_datadir/kde4/services/phononbackends/xine.desktop
-
-#-----------------------------------------------------------------------------
  
 %define kaudiodevicelist_major 4
 %define libkaudiodevicelist %mklibname kaudiodevicelist %kaudiodevicelist_major
@@ -226,6 +196,43 @@ KDE 4 core library.
 %defattr(-,root,root)
 %_kde_libdir/libkaudiodevicelist.so.%{kaudiodevicelist_major}*
 
+#------------------------------------------------
+ 
+%package -n kwallet-daemon
+Summary: Kwallet daemon
+Group: Development/KDE and Qt
+
+%description -n kwallet-daemon
+Kwallet daemon.
+
+%files -n kwallet-daemon
+%defattr(-,root,root)
+%_kde_bindir/kwalletd
+
+#------------------------------------------------      
+%define kwalletbackend_major 4
+%define libkwalletbackend %mklibname kwalletbackend %kwalletbackend_major
+
+%package -n %libkwalletbackend
+Summary: KDE 4 core library
+Group: System/Libraries
+Conflicts: %{_lib}kdecore5 >= 30000000:3.80.3
+Obsoletes: %{_lib}kwalletbackend5 < 3.93.0-0.714006.1
+
+%description -n %libkwalletbackend
+KDE 4 core library.
+
+%if %mdkversion < 200900
+%post -n %libkwalletbackend -p /sbin/ldconfig
+%endif
+%if %mdkversion < 200900
+%postun -n %libkwalletbackend -p /sbin/ldconfig
+%endif
+
+%files -n %libkwalletbackend
+%defattr(-,root,root)
+%_kde_libdir/libkwalletbackend.so.%{kwalletbackend_major}*
+
 #-----------------------------------------------------------------------------
 
 %package devel
@@ -242,18 +249,15 @@ browsing.
 %files devel
 %defattr(-,root,root,-)
 %{_kde_libdir}/libkaudiodevicelist.so
+%{_kde_libdir}/libkwalletbackend.so
 %{_kde_datadir}/dbus-1/interfaces/*
 
 #-----------------------------------------------------------------------------
 
 %prep
 %setup -q -n kdebase-runtime-%version
-%patch0 -p1 -b .liblzma
-%patch1 -p0 -b .pulse-not-advanced
+#%patch0 -p1 -b .liblzma
 %patch2 -p1
-%if %{with_nepomuk_experimental}
-%patch200 -p0 -b .backport42
-%endif
 %patch300 -p0
 %patch301 -p0
 
