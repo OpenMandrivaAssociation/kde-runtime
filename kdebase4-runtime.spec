@@ -117,7 +117,7 @@ KDE 4 application runtime components.
 %_kde_datadir/kde4/servicetypes/*
 %_kde_appsdir/remoteview/smb-network.desktop
 %_kde_appsdir/kio_bookmarks
-%_kde_appsdir/kio_desktop/DesktopLinks
+%_kde_appsdir/kio_desktop
 %_kde_datadir/locale/l10n/*/*
 %_kde_datadir/locale/l10n/*.desktop
 %_kde_datadir/locale/en_US
@@ -172,31 +172,6 @@ Oxygen KDE 4 icon theme. Complains with FreeDesktop.org naming schema
 %_kde_iconsdir/default.kde4
 %exclude %_kde_iconsdir/hicolor/index.theme
 %{_var}/lib/rpm/filetriggers/gtk-icon-cache-oxygen.*
-
-#-----------------------------------------------------------------------------
- 
-%define kaudiodevicelist_major 4
-%define libkaudiodevicelist %mklibname kaudiodevicelist %kaudiodevicelist_major
-
-%package -n %libkaudiodevicelist
-Summary: KDE 4 core library
-Group: System/Libraries
-Conflicts: %{_lib}kdecore5 >= 30000000:3.80.3
-Obsoletes: %{_lib}kaudiodevicelist5 < 3.93.0-0.714006.1
-Obsoletes: %{_lib}cupsdconf4 < 3.93.0-0.728415.2
-Obsoletes: %{_lib}kdefx5 < 3.93.0-0.728415.2
-Obsoletes: %{_lib}kdeprint_management4 < 3.94.1-0.728203.3
-Obsoletes: %{_lib}kdeprint5 < 3.94.1-0.728203.3
-
-%description -n %libkaudiodevicelist
-KDE 4 core library.
-
-%post -n %libkaudiodevicelist -p /sbin/ldconfig
-%postun -n %libkaudiodevicelist -p /sbin/ldconfig
-
-%files -n %libkaudiodevicelist
-%defattr(-,root,root)
-%_kde_libdir/libkaudiodevicelist.so.%{kaudiodevicelist_major}*
 
 #------------------------------------------------
  
