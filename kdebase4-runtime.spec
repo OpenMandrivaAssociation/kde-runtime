@@ -224,7 +224,6 @@ browsing.
 
 %files devel
 %defattr(-,root,root,-)
-%{_kde_libdir}/libkaudiodevicelist.so
 %{_kde_libdir}/libkwalletbackend.so
 %{_kde_datadir}/dbus-1/interfaces/*
 
