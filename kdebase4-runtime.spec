@@ -216,7 +216,6 @@ KDE 4 core library.
 Group: Development/KDE and Qt
 Summary: Header files and documentation for compiling KDE applications
 Requires: kdelibs4-devel
-Requires: %libkaudiodevicelist = %epoch:%version
 
 %description devel
 This package includes the header files you will need to compile applications
