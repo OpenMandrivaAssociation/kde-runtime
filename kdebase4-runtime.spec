@@ -117,6 +117,7 @@ KDE 4 application runtime components.
 %_kde_datadir/kde4/servicetypes/*
 %_kde_appsdir/remoteview/smb-network.desktop
 %_kde_appsdir/kio_bookmarks
+%_kde_appsdir/kio_desktop/DesktopLinks
 %_kde_datadir/locale/l10n/*/*
 %_kde_datadir/locale/l10n/*.desktop
 %_kde_datadir/locale/en_US
@@ -124,6 +125,7 @@ KDE 4 application runtime components.
 %_kde_libdir/kde4/*
 %_kde_libdir/libkdeinit4_*
 %_kde_libdir/kconf_update_bin/phonon_devicepreference_update
+%_kde_libdir/kconf_update_bin/phonon_deviceuids_update
 %_kde_appsdir/kcm_phonon
 %_kde_appsdir/kconf_update/devicepreference.upd
 %_kde_appsdir/libphonon
