@@ -1,7 +1,7 @@
 Name: kdebase4-runtime
 Summary: K Desktop Environment - Base Runtime
 Version: 4.1.71
-Release: %mkrel 2
+Release: %mkrel 3
 Epoch: 1
 Group: Graphical desktop/KDE
 License: GPL
@@ -219,6 +219,8 @@ KDE 4 core library.
 Group: Development/KDE and Qt
 Summary: Header files and documentation for compiling KDE applications
 Requires: kdelibs4-devel
+Requires: %name = %epoch:%version
+Requires:  %libkwalletbackend = %epoch:%version
 
 %description devel
 This package includes the header files you will need to compile applications
