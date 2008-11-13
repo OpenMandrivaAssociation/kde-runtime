@@ -1,7 +1,7 @@
 Name: kdebase4-runtime
 Summary: K Desktop Environment - Base Runtime
-Version: 4.1.71
-Release: %mkrel 3
+Version: 4.1.73
+Release: %mkrel 1
 Epoch: 1
 Group: Graphical desktop/KDE
 License: GPL
@@ -147,6 +147,7 @@ KDE 4 application runtime components.
 %_kde_datadir/config.kcfg/*
 %_kde_appsdir/ksmserver/windowmanagers
 %_kde_appsdir/nepomukstrigiservice/nepomukstrigiservice.notifyrc
+%_kde_appsdir/nepomukstorage/nepomukstorage.notifyrc
 %_kde_appsdir/nepomuk/ontologies
 
 #--------------------------------------------------------------
