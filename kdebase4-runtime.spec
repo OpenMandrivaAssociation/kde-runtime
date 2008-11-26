@@ -53,6 +53,8 @@ Requires: kde4-l10n
 Requires: kde4-splash-mdv
 Requires: htdig
 Requires: kwallet-daemon
+# (tv) for drkonqi:
+Suggests: gdb
 Obsoletes: kdebase4-progs < 1:3.93.0-0.714129.2
 Obsoletes: kdebase4-core  < 1:3.93.0-0.714129.2
 Obsoletes: kdebase4-common <= 1:3.80.3
