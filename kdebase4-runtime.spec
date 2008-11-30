@@ -1,7 +1,7 @@
 Name: kdebase4-runtime
 Summary: K Desktop Environment - Base Runtime
-Version: 4.1.80
-Release: %mkrel 2
+Version: 4.1.81
+Release: %mkrel 1
 Epoch: 1
 Group: Graphical desktop/KDE
 License: GPL
@@ -17,9 +17,8 @@ Patch300: kdebase-runtime-testing-fix-network-icon.patch
 Patch301: kdebase-runtime-4.1.1-mandriva-pulseaudio-ignore-audiodevices.patch
  
 BuildRequires: kde4-macros
-BuildRequires: cmake
-BuildRequires: kdelibs4-devel >= 4.1.0-5
-BuildRequires: kdepimlibs4-devel >= 4.0.81
+BuildRequires: kdelibs4-devel >= 2:4.1.81
+BuildRequires: kdepimlibs4-devel >= 2:4.1.81
 BuildRequires: strigi-devel >= 1:0.5.10-2
 BuildRequires: soprano-devel >= 2.0.98
 BuildRequires: fontconfig-devel >= 2.1-9mdk
@@ -151,7 +150,7 @@ KDE 4 application runtime components.
 %_kde_appsdir/nepomukstrigiservice/nepomukstrigiservice.notifyrc
 %_kde_appsdir/nepomukstorage/nepomukstorage.notifyrc
 %_kde_appsdir/nepomuk/ontologies
-
+%_kde_appsdir/kconf_update/kdedglobalaccel_kde42.upd
 #--------------------------------------------------------------
 
 %package -n oxygen-icon-theme
