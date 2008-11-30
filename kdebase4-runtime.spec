@@ -1,7 +1,7 @@
 Name: kdebase4-runtime
 Summary: K Desktop Environment - Base Runtime
 Version: 4.1.80
-Release: %mkrel 1
+Release: %mkrel 2
 Epoch: 1
 Group: Graphical desktop/KDE
 License: GPL
@@ -162,6 +162,7 @@ Obsoletes: kdelibs4-common >= 30000000:3.80.3
 # Fallback hicolor icons
 Requires: hicolor-icon-theme
 %if %mdkversion > 200810
+Conflicts: digikam < 0.10.0-1.beta5.2
 Conflicts: kdebase-common < 1:3.5.9-38
 %endif
 
