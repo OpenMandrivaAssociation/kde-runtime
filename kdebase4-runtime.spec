@@ -1,7 +1,7 @@
 Name: kdebase4-runtime
 Summary: K Desktop Environment - Base Runtime
 Version: 4.1.85
-Release: %mkrel 2
+Release: %mkrel 3
 Epoch: 1
 Group: Graphical desktop/KDE
 License: GPL
@@ -11,11 +11,10 @@ Patch0:   kdebase-runtime-4.0.98-liblzma.patch
 Patch2:   kdebase-runtime-4.1.1-fix-htsearch-path.patch
 
 # Backports
-
+Patch200:   kdebase-runtime-4.2.0-backport-rev905226.patch
 #Testing
 Patch300: kdebase-runtime-testing-fix-network-icon.patch
 Patch301: kdebase-runtime-4.1.1-mandriva-pulseaudio-ignore-audiodevices.patch
- 
 BuildRequires: kde4-macros
 BuildRequires: kdelibs4-devel >= 2:4.1.81
 BuildRequires: kdepimlibs4-devel >= 2:4.1.81
@@ -241,9 +240,11 @@ browsing.
 %setup -q -n kdebase-runtime-%version
 #%patch0 -p1 -b .liblzma
 %patch2 -p1
+#Backported Patches
+%patch200 -p0
+#Test patches
 %patch300 -p0
 %patch301 -p0
-
 %build
 %cmake_kde4 
 
