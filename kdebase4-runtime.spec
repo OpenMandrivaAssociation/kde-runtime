@@ -11,7 +11,6 @@ Patch0:   kdebase-runtime-4.1.85-xz-support.patch
 Patch2:   kdebase-runtime-4.1.1-fix-htsearch-path.patch
 
 # Backports
-Patch200:   kdebase-runtime-4.2.0-backport-rev905226.patch
 #Testing
 Patch300: kdebase-runtime-testing-fix-network-icon.patch
 Patch301: kdebase-runtime-4.1.1-mandriva-pulseaudio-ignore-audiodevices.patch
@@ -241,9 +240,8 @@ browsing.
 %patch0 -p1 -b .liblzma
 %patch2 -p1
 #Backported Patches
-%patch200 -p0
 #Test patches
-%patch300 -p0
+#%patch300 -p0
 %patch301 -p0
 %build
 %cmake_kde4 
