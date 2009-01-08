@@ -7,7 +7,7 @@ Group: Graphical desktop/KDE
 License: GPL
 URL: http://www.kde.org
 Source0: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdebase-runtime-%version.tar.bz2
-Patch0:   kdebase-runtime-4.0.98-liblzma.patch
+Patch0:   kdebase-runtime-4.1.85-xz-support.patch
 Patch2:   kdebase-runtime-4.1.1-fix-htsearch-path.patch
 
 # Backports
@@ -238,7 +238,7 @@ browsing.
 
 %prep
 %setup -q -n kdebase-runtime-%version
-#%patch0 -p1 -b .liblzma
+%patch0 -p1 -b .liblzma
 %patch2 -p1
 #Backported Patches
 %patch200 -p0
