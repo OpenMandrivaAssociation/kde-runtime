@@ -1,7 +1,7 @@
 Name: kdebase4-runtime
 Summary: K Desktop Environment - Base Runtime
 Version: 4.1.96
-Release: %mkrel 1
+Release: %mkrel 2
 Epoch: 1
 Group: Graphical desktop/KDE
 License: GPL
@@ -162,6 +162,7 @@ Requires: hicolor-icon-theme
 Conflicts: digikam < 0.10.0-1.beta5.2
 Conflicts: kdebase-common < 1:3.5.9-38
 %endif
+Conflicts: kdebase4-workspace < 2:4.1.96-1
 
 %description -n oxygen-icon-theme
 Oxygen KDE 4 icon theme. Complains with FreeDesktop.org naming schema
