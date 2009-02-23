@@ -1,7 +1,7 @@
 Name: kdebase4-runtime
 Summary: K Desktop Environment - Base Runtime
 Version: 4.2.0
-Release: %mkrel 3
+Release: %mkrel 4
 Epoch: 1
 Group: Graphical desktop/KDE
 License: GPL
@@ -13,7 +13,7 @@ Patch2: kdebase-runtime-4.1.1-fix-htsearch-path.patch
 # Backports
 #Testing
 Patch300: kdebase-runtime-testing-fix-network-icon.patch
-Patch301: kdebase-runtime-4.1.1-mandriva-pulseaudio-ignore-audiodevices.patch
+Patch301: kdebase-runtime-4.2.0-mandriva-pulseaudio-ignore-audiodevices.patch
 BuildRequires: kde4-macros
 BuildRequires: kdelibs4-devel >= 2:4.1.81
 BuildRequires: kdepimlibs4-devel >= 2:4.1.81
@@ -245,7 +245,7 @@ browsing.
 #Backported Patches
 #Test patches
 #%patch300 -p0
-%patch301 -p0
+%patch301 -p1
 %build
 %cmake_kde4 
 
