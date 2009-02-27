@@ -9,8 +9,6 @@ URL: http://www.kde.org
 Source0: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdebase-runtime-%version.tar.bz2
 Patch0: kdebase-runtime-4.1.85-xz-support.patch
 Patch2: kdebase-runtime-4.1.1-fix-htsearch-path.patch
-
-# Backports
 #Testing
 Patch300: kdebase-runtime-testing-fix-network-icon.patch
 Patch301: kdebase-runtime-4.2.0-mandriva-pulseaudio-ignore-audiodevices.patch
