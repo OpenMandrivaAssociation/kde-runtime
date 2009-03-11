@@ -1,7 +1,7 @@
 Name: kdebase4-runtime
 Summary: K Desktop Environment - Base Runtime
 Version: 4.2.1
-Release: %mkrel 1
+Release: %mkrel 2
 Epoch: 1
 Group: Graphical desktop/KDE
 License: GPL
@@ -9,6 +9,8 @@ URL: http://www.kde.org
 Source0: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdebase-runtime-%version.tar.bz2
 Patch0: kdebase-runtime-4.2.1-xz-support.patch
 Patch2: kdebase-runtime-4.1.1-fix-htsearch-path.patch
+# Patches from trunk
+Patch200: kdebase-runtime-backport-4.3.0-rev937499.patch
 #Testing
 Patch300: kdebase-runtime-testing-fix-network-icon.patch
 Patch301: kdebase-runtime-4.2.0-mandriva-pulseaudio-ignore-audiodevices.patch
@@ -241,6 +243,7 @@ browsing.
 %patch0 -p1 -b .xz~
 %patch2 -p1
 #Backported Patches
+%patch200 -p0
 #Test patches
 #%patch300 -p0
 %patch301 -p1
