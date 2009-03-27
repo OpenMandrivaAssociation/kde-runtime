@@ -1,7 +1,7 @@
 Name: kdebase4-runtime
 Summary: K Desktop Environment - Base Runtime
-Version: 4.2.1
-Release: %mkrel 2
+Version: 4.2.2
+Release: %mkrel 1
 Epoch: 1
 Group: Graphical desktop/KDE
 License: GPL
@@ -46,11 +46,11 @@ BuildRequires: xrdb
 BuildRequires: qimageblitz-devel
 Requires: kdelibs4-core
 Requires: oxygen-icon-theme
+Requires: hicolor-icon-theme
 Requires: kde4-l10n
 Requires: kde4-splash-mdv
 Requires: htdig
 Requires: kwallet-daemon
-# (tv) for drkonqi:
 Suggests: gdb
 Obsoletes: kdebase4-progs < 1:3.93.0-0.714129.2
 Obsoletes: kdebase4-core  < 1:3.93.0-0.714129.2
@@ -58,12 +58,12 @@ Obsoletes: kdebase4-common <= 1:3.80.3
 Conflicts: kdebase4-workspace < 2:4.1.70
 Conflicts: kdelibs4-core < 4.1.70
 Conflicts: nepomuk-kde < 4.1.71-0.878903.1
-%if %mdkversion > 200810
 Conflicts: kdebase-common < 1:3.5.9-38
 Conflicts: kdebase-progs < 1:3.5.9-38
 Conflicts: kdebase-konsole < 1:3.5.9-38
-%endif 
-BuildRoot:     %_tmppath/%name-%version-%release-root
+Conflicts: digikam < 0.10.0-1.beta5.2
+Conflicts: kappfinder < 1:4.1.96-2
+BuildRoot: %_tmppath/%name-%version-%release-root
 
 %description
 KDE 4 application runtime components.
@@ -149,39 +149,16 @@ KDE 4 application runtime components.
 %_kde_appsdir/nepomukstorage/nepomukstorage.notifyrc
 %_kde_appsdir/nepomuk/ontologies
 %_kde_appsdir/kconf_update/kdedglobalaccel_kde42.upd
-#--------------------------------------------------------------
-
-%package -n oxygen-icon-theme
-Group: Graphical desktop/KDE
-Summary: Oxygen icon theme
-Provides: kde4-icon-theme
-Obsoletes: kdelibs4-common >= 30000000:3.80.3
-# Fallback hicolor icons
-Requires: hicolor-icon-theme
-%if %mdkversion > 200810
-Conflicts: digikam < 0.10.0-1.beta5.2
-Conflicts: kdebase-common < 1:3.5.9-38
-%endif
-Conflicts: kdebase4-workspace < 2:4.1.96-1
-Conflicts: kappfinder < 1:4.1.96-2
-
-%description -n oxygen-icon-theme
-Oxygen KDE 4 icon theme. Complains with FreeDesktop.org naming schema
-
-%files -n oxygen-icon-theme
-%defattr(-,root,root,-)
 %_kde_configdir/emoticons.knsrc
-%_kde_iconsdir/oxygen
 %_kde_iconsdir/hicolor/*/*/*
 %_kde_datadir/emoticons/*
 %_kde_datadir/config/icons.knsrc
 %_kde_iconsdir/default.kde4
 %_kde_appsdir/desktoptheme/default
 %exclude %_kde_iconsdir/hicolor/index.theme
-%{_var}/lib/rpm/filetriggers/gtk-icon-cache-oxygen.*
-
-#------------------------------------------------
  
+#--------------------------------------------------------------
+
 %package -n kwallet-daemon
 Summary: Kwallet daemon
 Group: Development/KDE and Qt
@@ -194,6 +171,7 @@ Kwallet daemon.
 %_kde_bindir/kwalletd
 
 #------------------------------------------------      
+
 %define kwalletbackend_major 4
 %define libkwalletbackend %mklibname kwalletbackend %kwalletbackend_major
 
@@ -255,23 +233,8 @@ browsing.
 
 %install
 rm -fr %buildroot
-cd build
 
-make DESTDIR=%buildroot install
-
-# automatic gtk icon cache update on rpm installs/removals
-# (see http://wiki.mandriva.com/en/Rpm_filetriggers)
-install -d %buildroot%{_var}/lib/rpm/filetriggers
-cat > %buildroot%{_var}/lib/rpm/filetriggers/gtk-icon-cache-oxygen.filter << EOF
-^./usr/share/icons/oxygen/
-EOF
-cat > %buildroot%{_var}/lib/rpm/filetriggers/gtk-icon-cache-oxygen.script << EOF
-#!/bin/sh
-if [ -x /usr/bin/gtk-update-icon-cache ]; then 
-  /usr/bin/gtk-update-icon-cache --force --quiet /usr/share/icons/oxygen
-fi
-EOF
-chmod 755 %buildroot%{_var}/lib/rpm/filetriggers/gtk-icon-cache-oxygen.script
+%makeinstall_std -C build
 
 %clean
 rm -fr %buildroot
