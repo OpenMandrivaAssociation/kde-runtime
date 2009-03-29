@@ -1,7 +1,7 @@
 Name: kdebase4-runtime
 Summary: K Desktop Environment - Base Runtime
 Version: 4.2.2
-Release: %mkrel 1
+Release: %mkrel 4
 Epoch: 1
 Group: Graphical desktop/KDE
 License: GPL
@@ -170,7 +170,7 @@ Kwallet daemon.
 %defattr(-,root,root)
 %_kde_bindir/kwalletd
 
-#------------------------------------------------      
+#--------------------------------------------------------------
 
 %define kwalletbackend_major 4
 %define libkwalletbackend %mklibname kwalletbackend %kwalletbackend_major
@@ -194,6 +194,24 @@ KDE 4 core library.
 %files -n %libkwalletbackend
 %defattr(-,root,root)
 %_kde_libdir/libkwalletbackend.so.%{kwalletbackend_major}*
+
+#-----------------------------------------------------------------------------
+
+%package -n oxygen-icon-theme
+Summary: Oxygen icon theme
+Group: Graphical desktop/KDE
+Provides: kde4-icon-theme
+Obsoletes: kdelibs4-common >= 30000000:3.80.3
+Conflicts: kdebase4-workspace < 2:4.1.96-1
+Conflicts: kappfinder < 1:4.1.96-2
+
+%description -n oxygen-icon-theme
+Oxygen KDE 4 icon theme. Complains with FreeDesktop.org naming schema
+
+%files -n oxygen-icon-theme
+%defattr(-,root,root,-)
+%_iconsdir/oxygen
+%{_var}/lib/rpm/filetriggers/gtk-icon-cache-oxygen.*
 
 #-----------------------------------------------------------------------------
 
@@ -235,6 +253,22 @@ browsing.
 rm -fr %buildroot
 
 %makeinstall_std -C build
+
+# REMEMEBR TO REMOVE THIS ON KDE 4.3 ( will be on splitted package )
+# automatic gtk icon cache update on rpm installs/removals
+# (see http://wiki.mandriva.com/en/Rpm_filetriggers)
+install -d %buildroot%{_var}/lib/rpm/filetriggers
+cat > %buildroot%{_var}/lib/rpm/filetriggers/gtk-icon-cache-oxygen.filter << EOF
+^./usr/share/icons/oxygen/
+EOF
+cat > %buildroot%{_var}/lib/rpm/filetriggers/gtk-icon-cache-oxygen.script << EOF
+#!/bin/sh
+if [ -x /usr/bin/gtk-update-icon-cache ]; then 
+  /usr/bin/gtk-update-icon-cache --force --quiet /usr/share/icons/oxygen
+fi
+EOF
+chmod 755 %buildroot%{_var}/lib/rpm/filetriggers/gtk-icon-cache-oxygen.script
+
 
 %clean
 rm -fr %buildroot
