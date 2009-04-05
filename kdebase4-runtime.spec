@@ -1,7 +1,7 @@
 Name: kdebase4-runtime
 Summary: K Desktop Environment - Base Runtime
 Version: 4.2.2
-Release: %mkrel 4
+Release: %mkrel 5
 Epoch: 1
 Group: Graphical desktop/KDE
 License: GPL
@@ -9,6 +9,7 @@ URL: http://www.kde.org
 Source0: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdebase-runtime-%version.tar.bz2
 Patch0: kdebase-runtime-4.2.1-xz-support.patch
 Patch2: kdebase-runtime-4.1.1-fix-htsearch-path.patch
+Patch100: kdebase-runtime-4.2.3-rev947578.patch
 # Patches from trunk
 Patch200: kdebase-runtime-backport-4.3.0-rev937499.patch
 #Testing
@@ -238,7 +239,7 @@ browsing.
 %setup -q -n kdebase-runtime-%version
 %patch0 -p1 -b .xz~
 %patch2 -p1
-#Backported Patches
+%patch100 -p0
 %patch200 -p0
 #Test patches
 #%patch300 -p0
