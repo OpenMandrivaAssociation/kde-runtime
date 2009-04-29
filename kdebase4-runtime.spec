@@ -1,21 +1,17 @@
+%define kderevision svn954171
+
 Name: kdebase4-runtime
 Summary: K Desktop Environment - Base Runtime
-Version: 4.2.2
-Release: %mkrel 7
+Version: 4.2.70
+Release: %mkrel 0.%kderevision.1
 Epoch: 1
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://www.kde.org
-Source0: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdebase-runtime-%version.tar.bz2
-Patch0: kdebase-runtime-4.2.1-xz-support.patch
+Source0: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdebase-runtime-%version.%kderevision.tar.bz2
 Patch2: kdebase-runtime-4.1.1-fix-htsearch-path.patch
-Patch100: kdebase-runtime-4.2.3-rev947578.patch
-Patch101: kdebase-runtime-4.2.3-rev946641.patch
-Patch102: kdebase-runtime-4.2.3-rev952068.patch
 # Patches from trunk
-Patch200: kdebase-runtime-backport-4.3.0-rev937499.patch
 #Testing
-Patch300: kdebase-runtime-testing-fix-network-icon.patch
 Patch301: kdebase-runtime-4.2.0-mandriva-pulseaudio-ignore-audiodevices.patch
 BuildRequires: kde4-macros
 BuildRequires: kdelibs4-devel >= 2:4.1.81
@@ -66,6 +62,7 @@ Conflicts: kdebase-progs < 1:3.5.9-38
 Conflicts: kdebase-konsole < 1:3.5.9-38
 Conflicts: digikam < 0.10.0-1.beta5.2
 Conflicts: kappfinder < 1:4.1.96-2
+Conflicts: dolphin < 1:4.2.2-8
 BuildRoot: %_tmppath/%name-%version-%release-root
 
 %description
@@ -82,7 +79,7 @@ KDE 4 application runtime components.
 %_kde_appsdir/kio_finger/kio_finger.pl
 %_kde_appsdir/kio_info/kde-info2html
 %_kde_appsdir/kio_info/kde-info2html.conf
-%_kde_appsdir/kio_man/kio_man.css
+#%_kde_appsdir/kio_man/kio_man.css
 %_kde_appsdir/kio_thumbnail/*
 %_kde_autostart/nepomukserver.desktop
 %_kde_bindir/kuiserver
@@ -113,6 +110,8 @@ KDE 4 application runtime components.
 %_kde_bindir/nepomukserver
 %_kde_bindir/nepomukservicestub
 %_kde_bindir/solid-hardware
+%_kde_bindir/keditfiletype
+%_kde_bindir/kglobalaccel
 %_kde_sysconfdir/xdg/menus/kde-information.menu
 %_kde_datadir/applications/kde4/Help.desktop
 %_kde_datadir/config/khotnewstuff.knsrc
@@ -151,7 +150,8 @@ KDE 4 application runtime components.
 %_kde_appsdir/nepomukstrigiservice/nepomukstrigiservice.notifyrc
 %_kde_appsdir/nepomukstorage/nepomukstorage.notifyrc
 %_kde_appsdir/nepomuk/ontologies
-%_kde_appsdir/kconf_update/kdedglobalaccel_kde42.upd
+%_kde_appsdir/kio_docfilter
+#%_kde_appsdir/kconf_update/kdedglobalaccel_kde42.upd
 %_kde_configdir/emoticons.knsrc
 %_kde_iconsdir/hicolor/*/*/*
 %_kde_datadir/emoticons/*
@@ -172,6 +172,7 @@ Kwallet daemon.
 %files -n kwallet-daemon
 %defattr(-,root,root)
 %_kde_bindir/kwalletd
+%_kde_appsdir/kwalletd
 
 #--------------------------------------------------------------
 
@@ -200,24 +201,6 @@ KDE 4 core library.
 
 #-----------------------------------------------------------------------------
 
-%package -n oxygen-icon-theme
-Summary: Oxygen icon theme
-Group: Graphical desktop/KDE
-Provides: kde4-icon-theme
-Obsoletes: kdelibs4-common >= 30000000:3.80.3
-Conflicts: kdebase4-workspace < 2:4.1.96-1
-Conflicts: kappfinder < 1:4.1.96-2
-
-%description -n oxygen-icon-theme
-Oxygen KDE 4 icon theme. Complains with FreeDesktop.org naming schema
-
-%files -n oxygen-icon-theme
-%defattr(-,root,root,-)
-%_iconsdir/oxygen
-%{_var}/lib/rpm/filetriggers/gtk-icon-cache-oxygen.*
-
-#-----------------------------------------------------------------------------
-
 %package devel
 Group: Development/KDE and Qt
 Summary: Header files and documentation for compiling KDE applications
@@ -238,15 +221,9 @@ browsing.
 #-----------------------------------------------------------------------------
 
 %prep
-%setup -q -n kdebase-runtime-%version
-%patch0 -p1 -b .xz~
+%setup -q -n kdebase-runtime-%version.%kderevision
 %patch2 -p1
-%patch100 -p0
-%patch101 -p0
-%patch102 -p0
-%patch200 -p0
 #Test patches
-#%patch300 -p0
 %patch301 -p1
 %build
 %cmake_kde4 
@@ -258,22 +235,6 @@ browsing.
 rm -fr %buildroot
 
 %makeinstall_std -C build
-
-# REMEMEBR TO REMOVE THIS ON KDE 4.3 ( will be on splitted package )
-# automatic gtk icon cache update on rpm installs/removals
-# (see http://wiki.mandriva.com/en/Rpm_filetriggers)
-install -d %buildroot%{_var}/lib/rpm/filetriggers
-cat > %buildroot%{_var}/lib/rpm/filetriggers/gtk-icon-cache-oxygen.filter << EOF
-^./usr/share/icons/oxygen/
-EOF
-cat > %buildroot%{_var}/lib/rpm/filetriggers/gtk-icon-cache-oxygen.script << EOF
-#!/bin/sh
-if [ -x /usr/bin/gtk-update-icon-cache ]; then 
-  /usr/bin/gtk-update-icon-cache --force --quiet /usr/share/icons/oxygen
-fi
-EOF
-chmod 755 %buildroot%{_var}/lib/rpm/filetriggers/gtk-icon-cache-oxygen.script
-
 
 %clean
 rm -fr %buildroot
