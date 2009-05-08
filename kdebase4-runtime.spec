@@ -43,7 +43,6 @@ BuildRequires: bluez-devel
 BuildRequires: boost-devel
 BuildRequires: xrdb
 BuildRequires: qimageblitz-devel
-BuildRequires: kdelibs-experimental-devel
 Requires: kdelibs4-core
 Requires: oxygen-icon-theme
 Requires: hicolor-icon-theme
