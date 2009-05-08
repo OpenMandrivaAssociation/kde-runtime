@@ -121,6 +121,7 @@ KDE 4 application runtime components.
 %_kde_datadir/kde4/services/*
 %_kde_datadir/kde4/servicetypes/*
 %_kde_appsdir/remoteview/smb-network.desktop
+%_kde_appsdir/remoteview/network.desktop
 %_kde_appsdir/kio_bookmarks
 %_kde_appsdir/kio_desktop
 %_kde_datadir/locale/l10n/*/*
@@ -145,8 +146,10 @@ KDE 4 application runtime components.
 %_kde_mandir/man8/nepomukservicestub.8.*
 %_kde_docdir/*/*/kioslave
 %_kde_docdir/*/*/kdebugdialog
+%_kde_docdir/*/*/network
 %_kde_datadir/apps/kconf_update/kuriikwsfilter.upd
-%_kde_datadir/apps/konqueror/dirtree/remote/smb-network.desktop
+%_kde_appsdir/konqueror/dirtree/remote/smb-network.desktop
+%_kde_appsdir/konqsidebartng/virtual_folders/remote/virtualfolder_network.desktop
 %_kde_datadir/apps/cmake/modules/*
 %_kde_datadir/config.kcfg/*
 %_kde_appsdir/ksmserver/windowmanagers
@@ -161,6 +164,7 @@ KDE 4 application runtime components.
 %_kde_datadir/config/icons.knsrc
 %_kde_iconsdir/default.kde4
 %_kde_appsdir/desktoptheme/default
+%_kde_datadir/mime/packages/network.xml
 %exclude %_kde_iconsdir/hicolor/index.theme
  
 #--------------------------------------------------------------
@@ -191,16 +195,25 @@ Obsoletes: %{_lib}kwalletbackend5 < 3.93.0-0.714006.1
 %description -n %libkwalletbackend
 KDE 4 core library.
 
-%if %mdkversion < 200900
-%post -n %libkwalletbackend -p /sbin/ldconfig
-%endif
-%if %mdkversion < 200900
-%postun -n %libkwalletbackend -p /sbin/ldconfig
-%endif
-
 %files -n %libkwalletbackend
 %defattr(-,root,root)
 %_kde_libdir/libkwalletbackend.so.%{kwalletbackend_major}*
+
+#--------------------------------------------------------------
+
+%define molletnetwork_major 4
+%define libmolletnetwork %mklibname molletnetwork %molletnetwork_major
+
+%package -n %libmolletnetwork
+Summary: KDE 4 core library
+Group: System/Libraries
+
+%description -n %libmolletnetwork
+KDE 4 core library.
+
+%files -n %libmolletnetwork
+%defattr(-,root,root)
+%_kde_libdir/libmolletnetwork.so.%{molletnetwork_major}*
 
 #-----------------------------------------------------------------------------
 
@@ -210,6 +223,7 @@ Summary: Header files and documentation for compiling KDE applications
 Requires: kdelibs4-devel
 Requires: %name = %epoch:%version
 Requires:  %libkwalletbackend = %epoch:%version
+Requires:  %libmolletnetwork = %epoch:%version
 
 %description devel
 This package includes the header files you will need to compile applications
@@ -219,6 +233,7 @@ browsing.
 %files devel
 %defattr(-,root,root,-)
 %{_kde_libdir}/libkwalletbackend.so
+%{_kde_libdir}/libmolletnetwork.so
 %{_kde_datadir}/dbus-1/interfaces/*
 
 #-----------------------------------------------------------------------------
