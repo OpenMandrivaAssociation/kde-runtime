@@ -14,7 +14,7 @@ Patch2: kdebase-runtime-4.1.1-fix-htsearch-path.patch
 #Testing
 Patch301: kdebase-runtime-4.2.0-mandriva-pulseaudio-ignore-audiodevices.patch
 BuildRequires: kde4-macros
-BuildRequires: kdelibs4-devel >= 2:4.1.81
+BuildRequires: kdelibs4-devel >= 2:4.2.85-3
 BuildRequires: kdepimlibs4-devel >= 2:4.1.81
 BuildRequires: strigi-devel >= 1:0.5.10-2
 BuildRequires: soprano-devel >= 2.0.98
