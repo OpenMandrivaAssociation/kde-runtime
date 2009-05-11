@@ -3,12 +3,13 @@
 Name: kdebase4-runtime
 Summary: K Desktop Environment - Base Runtime
 Version: 4.2.85
-Release: %mkrel 1
+Release: %mkrel 2
 Epoch: 1
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://www.kde.org
 Source0: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdebase-runtime-%version.tar.bz2
+Patch0: kdebase-runtime-4.2.85-lzma-ioslave.patch
 Patch2: kdebase-runtime-4.1.1-fix-htsearch-path.patch
 # Patches from trunk
 #Testing
@@ -239,6 +240,7 @@ browsing.
 
 %prep
 %setup -q -n kdebase-runtime-%version
+%patch0 -p0
 %patch2 -p1
 #Test patches
 %patch301 -p1
