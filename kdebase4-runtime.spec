@@ -142,9 +142,9 @@ KDE 4 application runtime components.
 %_kde_docdir/*/*/khelpcenter
 %_kde_docdir/*/*/kcontrol
 %_kde_docdir/*/*/kdesu
-%_kde_mandir/man1/kdesu.1.*
-%_kde_mandir/man8/nepomukserver.8.*
-%_kde_mandir/man8/nepomukservicestub.8.*
+%_kde_mandir/man1/kdesu.1*
+%_kde_mandir/man8/nepomukserver.8*
+%_kde_mandir/man8/nepomukservicestub.8*
 %_kde_docdir/*/*/kioslave
 %_kde_docdir/*/*/kdebugdialog
 %_kde_docdir/*/*/network
