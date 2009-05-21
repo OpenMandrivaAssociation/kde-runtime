@@ -105,6 +105,7 @@ KDE 4 application runtime components.
 %_kde_bindir/khotnewstuff4
 %_kde_bindir/kioclient
 %_kde_bindir/kmimetypefinder
+%_kde_bindir/plasmapkg
 %_kde_libdir/strigi/strigiindex_sopranobackend.so
 %_kde_datadir/applications/kde4/knetattach.desktop
 %_kde_docdir/*/*/knetattach
@@ -248,9 +249,9 @@ browsing.
 
 %prep
 %if %branch
-%setup -q -n kdebase-runtime-%version
+%setup -q -n kdebase-runtime-%version%kderevision
 %else
-%setup -q -n kdebase-runtime
+%setup -q -n kdebase-runtime-%version
 %endif
 %patch0 -p0
 %patch2 -p1
