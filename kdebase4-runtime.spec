@@ -1,14 +1,23 @@
-%define kderevision svn961800
+%define branch 1
+%{?_branch: %{expand: %%global branch 1}}
+
+%if %branch
+%define kderevision svn969966
+%endif
 
 Name: kdebase4-runtime
 Summary: K Desktop Environment - Base Runtime
-Version: 4.2.85
-Release: %mkrel 4
+Version: 4.2.87
+Release: %mkrel 1
 Epoch: 1
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://www.kde.org
+%if %branch
+Source0: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdebase-runtime-%version%kderevision.tar.bz2
+%else
 Source0: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdebase-runtime-%version.tar.bz2
+%endif
 Patch0: kdebase-runtime-4.2.85-lzma-ioslave.patch
 Patch2: kdebase-runtime-4.1.1-fix-htsearch-path.patch
 # Patches from trunk
@@ -81,7 +90,6 @@ KDE 4 application runtime components.
 %_kde_appsdir/kio_finger/kio_finger.pl
 %_kde_appsdir/kio_info/kde-info2html
 %_kde_appsdir/kio_info/kde-info2html.conf
-#%_kde_appsdir/kio_man/kio_man.css
 %_kde_appsdir/kio_thumbnail/*
 %_kde_autostart/nepomukserver.desktop
 %_kde_bindir/kuiserver
@@ -158,7 +166,6 @@ KDE 4 application runtime components.
 %_kde_appsdir/nepomukstorage/nepomukstorage.notifyrc
 %_kde_appsdir/nepomuk/ontologies
 %_kde_appsdir/kio_docfilter
-#%_kde_appsdir/kconf_update/kdedglobalaccel_kde42.upd
 %_kde_configdir/emoticons.knsrc
 %_kde_iconsdir/hicolor/*/*/*
 %_kde_datadir/emoticons/*
@@ -240,7 +247,11 @@ browsing.
 #-----------------------------------------------------------------------------
 
 %prep
+%if %branch
 %setup -q -n kdebase-runtime-%version
+%else
+%setup -q -n kdebase-runtime
+%endif
 %patch0 -p0
 %patch2 -p1
 #Test patches
