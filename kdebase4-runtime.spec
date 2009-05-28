@@ -8,7 +8,7 @@
 Name: kdebase4-runtime
 Summary: K Desktop Environment - Base Runtime
 Version: 4.2.88
-Release: %mkrel 2
+Release: %mkrel 3
 Epoch: 1
 Group: Graphical desktop/KDE
 License: GPL
@@ -60,6 +60,7 @@ Requires: kde4-l10n
 Requires: kde4-splash-mdv
 Requires: htdig
 Requires: kwallet-daemon
+Suggests: kdialog
 Suggests: gdb
 Obsoletes: kdebase4-progs < 1:3.93.0-0.714129.2
 Obsoletes: kdebase4-core  < 1:3.93.0-0.714129.2
