@@ -18,7 +18,6 @@ Source0: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdebase-runtime-%version%
 %else
 Source0: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdebase-runtime-%version.tar.bz2
 %endif
-Patch0: kdebase-runtime-4.2.85-lzma-ioslave.patch
 Patch2: kdebase-runtime-4.1.1-fix-htsearch-path.patch
 # Patches from trunk
 #Testing
@@ -254,7 +253,6 @@ browsing.
 %else
 %setup -q -n kdebase-runtime-%version
 %endif
-%patch0 -p0
 %patch2 -p1
 #Test patches
 %patch301 -p1
