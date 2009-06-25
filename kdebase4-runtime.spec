@@ -7,8 +7,8 @@
 
 Name: kdebase4-runtime
 Summary: K Desktop Environment - Base Runtime
-Version: 4.2.90
-Release: %mkrel 2
+Version: 4.2.95
+Release: %mkrel 1
 Epoch: 1
 Group: Graphical desktop/KDE
 License: GPL
@@ -173,6 +173,7 @@ KDE 4 application runtime components.
 %_kde_datadir/config/icons.knsrc
 %_kde_iconsdir/default.kde4
 %_kde_appsdir/desktoptheme/default
+%_kde_appsdir/desktoptheme/oxygen
 %_kde_datadir/mime/packages/network.xml
 %exclude %_kde_iconsdir/hicolor/index.theme
  
