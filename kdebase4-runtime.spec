@@ -8,7 +8,7 @@
 Name: kdebase4-runtime
 Summary: K Desktop Environment - Base Runtime
 Version: 4.2.95
-Release: %mkrel 1
+Release: %mkrel 2
 Epoch: 1
 Group: Graphical desktop/KDE
 License: GPL
@@ -19,6 +19,7 @@ Source0: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdebase-runtime-%version%
 Source0: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdebase-runtime-%version.tar.bz2
 %endif
 Patch2: kdebase-runtime-4.1.1-fix-htsearch-path.patch
+Patch3: kdebase-runtime-4.2.95-fix-desktop-files.patch
 # Patches from trunk
 #Testing
 Patch301: kdebase-runtime-4.2.0-mandriva-pulseaudio-ignore-audiodevices.patch
@@ -255,6 +256,7 @@ browsing.
 %setup -q -n kdebase-runtime-%version
 %endif
 %patch2 -p1
+%patch3 -p0
 #Test patches
 %patch301 -p1
 %build
