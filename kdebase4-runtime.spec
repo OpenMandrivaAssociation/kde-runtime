@@ -53,6 +53,8 @@ BuildRequires: bluez-devel
 BuildRequires: boost-devel
 BuildRequires: xrdb
 BuildRequires: qimageblitz-devel
+BuildRequires: pulseaudio-devel
+BuildRequires: openslp-devel 
 Requires: kdelibs4-core
 Requires: oxygen-icon-theme
 Requires: hicolor-icon-theme
@@ -68,9 +70,11 @@ Obsoletes: kdebase4-common <= 1:3.80.3
 Conflicts: kdebase4-workspace < 2:4.2.87-1
 Conflicts: kdelibs4-core < 4.1.70
 Conflicts: nepomuk-kde < 4.1.71-0.878903.1
+%if %mdkversion >= 200910
 Conflicts: kdebase-common < 1:3.5.9-38
 Conflicts: kdebase-progs < 1:3.5.9-38
 Conflicts: kdebase-konsole < 1:3.5.9-38
+%endif
 Conflicts: digikam < 0.10.0-1.beta5.2
 Conflicts: kappfinder < 1:4.1.96-2
 Conflicts: dolphin < 1:4.2.2-8
