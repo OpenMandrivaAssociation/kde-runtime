@@ -1,30 +1,18 @@
-%define branch 0
-%{?_branch: %{expand: %%global branch 1}}
-
-%if %branch
-%define kderevision svn973768
-%endif
-
 Name: kdebase4-runtime
 Summary: K Desktop Environment - Base Runtime
-Version: 4.2.96
+Version: 4.2.98
 Release: %mkrel 1
 Epoch: 1
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://www.kde.org
-%if %branch
-Source0: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdebase-runtime-%version%kderevision.tar.bz2
-%else
 Source0: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdebase-runtime-%version.tar.bz2
-%endif
-Patch2: kdebase-runtime-4.1.1-fix-htsearch-path.patch
-Patch3: kdebase-runtime-4.2.95-fix-desktop-files.patch
+Patch0: kdebase-runtime-4.1.1-fix-htsearch-path.patch
+Patch1: kdebase-runtime-4.2.95-fix-desktop-files.patch
 # Patches from trunk
-#Testing
-Patch301: kdebase-runtime-4.2.0-mandriva-pulseaudio-ignore-audiodevices.patch
 BuildRequires: kde4-macros
-BuildRequires: kdelibs4-devel >= 2:4.2.85-3
+BuildRequires: kdelibs4-devel >= 2:4.2.98
+BuildRequires: kdelibs4-experimental-devel >= 4.2.98
 BuildRequires: kdepimlibs4-devel >= 2:4.1.81
 BuildRequires: strigi-devel >= 1:0.5.10-2
 BuildRequires: soprano-devel >= 2.0.98
@@ -57,11 +45,11 @@ BuildRequires: pulseaudio-devel
 BuildRequires: openslp-devel 
 Requires: kdelibs4-core
 Requires: oxygen-icon-theme
-Requires: hicolor-icon-theme
 Requires: kde4-l10n
-Requires: kde4-splash-mdv
-Requires: htdig
-Requires: kwallet-daemon
+Suggests: hicolor-icon-theme
+Suggests: kde4-splash-mdv
+Suggests: htdig
+Suggests: kwallet-daemon
 Suggests: kdialog
 Suggests: gdb
 Obsoletes: kdebase4-progs < 1:3.93.0-0.714129.2
@@ -235,7 +223,8 @@ KDE 4 core library.
 %package devel
 Group: Development/KDE and Qt
 Summary: Header files and documentation for compiling KDE applications
-Requires: kdelibs4-devel
+Requires: kdelibs4-devel >= 2:4.2.96
+Requires: kdelibs4-experimental-devel >= 4.2.96
 Requires: %name = %epoch:%version
 Requires:  %libkwalletbackend = %epoch:%version
 Requires:  %libmolletnetwork = %epoch:%version
@@ -254,20 +243,13 @@ browsing.
 #-----------------------------------------------------------------------------
 
 %prep
-%if %branch
-%setup -q -n kdebase-runtime-%version%kderevision
-%else
 %setup -q -n kdebase-runtime-%version
-%endif
-%patch2 -p1
-%patch3 -p0
-#Test patches
-%patch301 -p1
+%patch0 -p1
+%patch1 -p0
+
 %build
 %cmake_kde4 
-
 %make
-
 
 %install
 rm -fr %buildroot
