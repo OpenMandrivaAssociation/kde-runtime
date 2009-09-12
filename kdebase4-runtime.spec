@@ -1,7 +1,7 @@
 Name: kdebase4-runtime
 Summary: K Desktop Environment - Base Runtime
 Version: 4.3.1
-Release: %mkrel 1
+Release: %mkrel 2
 Epoch: 1
 Group: Graphical desktop/KDE
 License: GPL
@@ -58,10 +58,15 @@ Obsoletes: kdebase4-common <= 1:3.80.3
 Conflicts: kdebase4-workspace < 2:4.2.87-1
 Conflicts: kdelibs4-core < 4.1.70
 Conflicts: nepomuk-kde < 4.1.71-0.878903.1
-%if %mdkversion >= 200910
-Conflicts: kdebase-common < 1:3.5.9-38
-Conflicts: kdebase-progs < 1:3.5.9-38
-Conflicts: kdebase-konsole < 1:3.5.9-38
+%if %mdkversion >= 200100
+Obsoletes: kdebase3 < 1:3.5.10-24
+Obsoletes: kdebase3-common < 1:3.5.10-24
+Obsoletes: kdebase3-progs < 1:3.5.10-24
+Obsoletes: kdebase3-konsole < 1:3.5.10-24
+Obsoletes: kdebase < 1:3.5.10-24
+Obsoletes: kdebase-common < 1:3.5.10-24
+Obsoletes: kdebase-progs < 1:3.5.10-24
+Obsoletes: kdebase-konsole < 1:3.5.10-24
 %endif
 Conflicts: digikam < 0.10.0-1.beta5.2
 Conflicts: kappfinder < 1:4.3.0
