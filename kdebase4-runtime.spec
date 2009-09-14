@@ -1,7 +1,9 @@
+%define _default_patch_fuzz 1
+
 Name: kdebase4-runtime
 Summary: K Desktop Environment - Base Runtime
 Version: 4.3.1
-Release: %mkrel 4
+Release: %mkrel 5
 Epoch: 1
 Group: Graphical desktop/KDE
 License: GPL
@@ -10,7 +12,7 @@ Source0: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdebase-runtime-%version.
 Patch0: kdebase-runtime-4.1.1-fix-htsearch-path.patch
 Patch1: kdebase-runtime-4.2.95-fix-desktop-files.patch
 Patch2: kdebase-runtime-4.2.0-mandriva-pulseaudio-ignore-audiodevices.patch
-# Patches from trunk
+Patch3: kdebase-runtime-nepomuk-strigi.patch
 BuildRequires: kde4-macros
 BuildRequires: kdelibs4-devel >= 2:4.2.98
 BuildRequires: kdelibs4-experimental-devel >= 2:4.2.98
@@ -253,6 +255,7 @@ browsing.
 %patch0 -p1
 %patch1 -p0
 %patch2 -p1
+%patch3 -p1 -b .orig
 
 %build
 %cmake_kde4 
