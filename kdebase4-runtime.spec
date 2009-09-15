@@ -164,8 +164,6 @@ KDE 4 application runtime components.
 %_kde_datadir/apps/cmake/modules/*
 %_kde_datadir/config.kcfg/*
 %_kde_appsdir/ksmserver/windowmanagers
-%_kde_appsdir/nepomukstrigiservice/nepomukstrigiservice.notifyrc
-%_kde_appsdir/nepomukstorage/nepomukstorage.notifyrc
 %_kde_appsdir/nepomuk/ontologies
 %_kde_appsdir/kio_docfilter
 %_kde_configdir/emoticons.knsrc
