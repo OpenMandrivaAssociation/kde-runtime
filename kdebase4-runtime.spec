@@ -60,7 +60,6 @@ Obsoletes: kdebase4-core  < 1:3.93.0-0.714129.2
 Obsoletes: kdebase4-common <= 1:3.80.3
 Conflicts: kdebase4-workspace < 2:4.2.87-1
 Conflicts: kdelibs4-core < 4.1.70
-Conflicts: nepomuk-kde < 4.1.71-0.878903.1
 %if %mdkversion >= 200100
 Obsoletes: kdebase3 < 1:3.5.10-24
 Obsoletes: kdebase3-common < 1:3.5.10-24
@@ -164,7 +163,9 @@ KDE 4 application runtime components.
 %_kde_datadir/apps/cmake/modules/*
 %_kde_datadir/config.kcfg/*
 %_kde_appsdir/ksmserver/windowmanagers
-%_kde_appsdir/nepomuk/ontologies
+%_kde_appsdir/nepomuk
+%_kde_appsdir/nepomukstorage
+%_kde_appsdir/nepomukstrigiservice
 %_kde_appsdir/kio_docfilter
 %_kde_configdir/emoticons.knsrc
 %_kde_iconsdir/hicolor/*/*/*
