@@ -3,7 +3,7 @@
 Name: kdebase4-runtime
 Summary: K Desktop Environment - Base Runtime
 Version: 4.3.1
-Release: %mkrel 13
+Release: %mkrel 14
 Epoch: 1
 Group: Graphical desktop/KDE
 License: GPL
@@ -14,6 +14,7 @@ Patch1: kdebase-runtime-4.2.95-fix-desktop-files.patch
 # (cg)  For the latest version of the below patch see: http://colin.guthr.ie/git/runtime/log/?h=pulse
 Patch2: kdebase-runtime-4.3.1-honour-backend-fullAudioDeviceEnumeration.patch
 Patch3: kdebase-runtime-nepomuk-strigi.patch
+Patch4: kdebase-runtime-nepomuk-strigi-smartfile.patch
 BuildRequires: kde4-macros
 BuildRequires: kdelibs4-devel >= 2:4.2.98
 BuildRequires: kdelibs4-experimental-devel >= 2:4.2.98
@@ -259,7 +260,8 @@ browsing.
 %patch0 -p1
 %patch1 -p0
 %patch2 -p1
-%patch3 -p1 -b .orig
+%patch3 -p1 -b .nepomuk
+%patch4 -p0 -b .nepomuk
 
 %build
 %cmake_kde4 
