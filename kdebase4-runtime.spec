@@ -3,7 +3,7 @@
 Name: kdebase4-runtime
 Summary: K Desktop Environment - Base Runtime
 Version: 4.3.1
-Release: %mkrel 14
+Release: %mkrel 15
 Epoch: 1
 Group: Graphical desktop/KDE
 License: GPL
@@ -12,7 +12,7 @@ Source0: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdebase-runtime-%version.
 Patch0: kdebase-runtime-4.1.1-fix-htsearch-path.patch
 Patch1: kdebase-runtime-4.2.95-fix-desktop-files.patch
 # (cg)  For the latest version of the below patch see: http://colin.guthr.ie/git/runtime/log/?h=pulse
-Patch2: kdebase-runtime-4.3.1-honour-backend-fullAudioDeviceEnumeration.patch
+Patch2: kdebase-runtime-4.3.1-backend-globalconfig.patch
 Patch3: kdebase-runtime-nepomuk-strigi.patch
 Patch4: kdebase-runtime-nepomuk-strigi-smartfile.patch
 BuildRequires: kde4-macros
