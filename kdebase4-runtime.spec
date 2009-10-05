@@ -2,8 +2,8 @@
 
 Name: kdebase4-runtime
 Summary: K Desktop Environment - Base Runtime
-Version: 4.3.1
-Release: %mkrel 15
+Version: 4.3.2
+Release: %mkrel 1
 Epoch: 1
 Group: Graphical desktop/KDE
 License: GPL
@@ -259,9 +259,11 @@ browsing.
 %setup -q -n kdebase-runtime-%version
 %patch0 -p1
 %patch1 -p0
-%patch2 -p1
-%patch3 -p1 -b .nepomuk
-%patch4 -p0 -b .nepomuk
+%if %mdkversion >= 201000
+%patch2 -p1 -b .pulseaudio
+%endif
+#patch3 -p1 -b .nepomuk
+#patch4 -p0 -b .nepomuk
 
 %build
 %cmake_kde4 
