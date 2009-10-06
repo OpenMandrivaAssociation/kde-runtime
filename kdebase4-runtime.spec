@@ -3,7 +3,7 @@
 Name: kdebase4-runtime
 Summary: K Desktop Environment - Base Runtime
 Version: 4.3.2
-Release: %mkrel 1
+Release: %mkrel 2
 Epoch: 1
 Group: Graphical desktop/KDE
 License: GPL
@@ -15,6 +15,7 @@ Patch1: kdebase-runtime-4.2.95-fix-desktop-files.patch
 Patch2: kdebase-runtime-4.3.1-backend-globalconfig.patch
 Patch3: kdebase-runtime-nepomuk-strigi.patch
 Patch4: kdebase-runtime-nepomuk-strigi-smartfile.patch
+Patch100: kdebase-runtime-4.3.2-b1031482-fix-nepomuk-error-messages.patch
 BuildRequires: kde4-macros
 BuildRequires: kdelibs4-devel >= 2:4.2.98
 BuildRequires: kdelibs4-experimental-devel >= 2:4.2.98
@@ -264,7 +265,7 @@ browsing.
 %endif
 #patch3 -p1 -b .nepomuk
 #patch4 -p0 -b .nepomuk
-
+%patch100 -p0
 %build
 %cmake_kde4 
 %make
