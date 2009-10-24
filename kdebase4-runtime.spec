@@ -3,7 +3,7 @@
 Name: kdebase4-runtime
 Summary: K Desktop Environment - Base Runtime
 Version: 4.3.2
-Release: %mkrel 7
+Release: %mkrel 8
 Epoch: 1
 Group: Graphical desktop/KDE
 License: GPL
@@ -69,7 +69,7 @@ Obsoletes: kdebase4-core  < 1:3.93.0-0.714129.2
 Obsoletes: kdebase4-common <= 1:3.80.3
 Conflicts: kdebase4-workspace < 2:4.2.87-1
 Conflicts: kdelibs4-core < 4.1.70
-%if %mdkversion >= 200100
+%if %mdkversion >= 201000
 Obsoletes: kdebase3 < 1:3.5.10-24
 Obsoletes: kdebase3-common < 1:3.5.10-24
 Obsoletes: kdebase3-progs < 1:3.5.10-24
