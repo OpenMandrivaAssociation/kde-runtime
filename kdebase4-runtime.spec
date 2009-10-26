@@ -3,7 +3,7 @@
 Name: kdebase4-runtime
 Summary: K Desktop Environment - Base Runtime
 Version: 4.3.2
-Release: %mkrel 8
+Release: %mkrel 9
 Epoch: 1
 Group: Graphical desktop/KDE
 License: GPL
@@ -13,7 +13,7 @@ Patch0: kdebase-runtime-4.1.1-fix-htsearch-path.patch
 Patch1: kdebase-runtime-4.2.95-fix-desktop-files.patch
 # (cg)  For the latest version of the below patch see: http://colin.guthr.ie/git/runtime/log/?h=pulse
 Patch2: kdebase-runtime-4.3.1-backend-globalconfig.patch
-Patch3: kdebase-runtime-nepomuk-strigi.patch
+Patch3: kdebase-runtime-nepomuk-strigi2.patch
 Patch4: kdebase-runtime-nepomuk-strigi-smartfile.patch
 Patch5: kdebase-runtime-4.3.2-knotify-fix-cpu-charge.patch
 Patch6: kdebase-runtime-nepomuk-strigi-eventmonitor.patch
