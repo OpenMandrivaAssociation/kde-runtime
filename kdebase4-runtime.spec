@@ -3,7 +3,7 @@
 Name: kdebase4-runtime
 Summary: K Desktop Environment - Base Runtime
 Version: 4.3.2
-Release: %mkrel 9
+Release: %mkrel 10
 Epoch: 1
 Group: Graphical desktop/KDE
 License: GPL
@@ -20,6 +20,7 @@ Patch6: kdebase-runtime-nepomuk-strigi-eventmonitor.patch
 # Branch patches
 Patch100: kdebase-runtime-4.3.2-b1031482-fix-nepomuk-error-messages.patch
 Patch101: kdebase-runtime-4.3.2-b1031926-fix-nepomuk-initialize.patch
+Patch102: kdebase-runtime-4.3.2-b1030579-validation-fix.patch
 # Trunk  patches
 Patch200: kdebase-runtime-4.3.2-t1035841-fix-kwallet-default-size.patch
 BuildRequires: kde4-macros
@@ -275,6 +276,7 @@ browsing.
 %patch6 -p1 -b .nepomuk
 %patch100 -p0
 %patch101 -p0
+%patch102 -p0
 %patch200 -p0
 %build
 %cmake_kde4 
