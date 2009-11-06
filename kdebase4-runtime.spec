@@ -1,14 +1,14 @@
-%define _default_patch_fuzz 1
+%define kde_snapshot svn1040395
 
 Name: kdebase4-runtime
 Summary: K Desktop Environment - Base Runtime
-Version: 4.3.2
-Release: %mkrel 10
+Version: 4.3.73
+Release: %mkrel 1
 Epoch: 1
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://www.kde.org
-Source0: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdebase-runtime-%version.tar.bz2
+Source0: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdebase-runtime-%version%kde_snapshot.tar.bz2
 Patch0: kdebase-runtime-4.1.1-fix-htsearch-path.patch
 Patch1: kdebase-runtime-4.2.95-fix-desktop-files.patch
 # (cg)  For the latest version of the below patch see: http://colin.guthr.ie/git/runtime/log/?h=pulse
@@ -18,17 +18,12 @@ Patch4: kdebase-runtime-nepomuk-strigi-smartfile.patch
 Patch5: kdebase-runtime-4.3.2-knotify-fix-cpu-charge.patch
 Patch6: kdebase-runtime-nepomuk-strigi-eventmonitor.patch
 # Branch patches
-Patch100: kdebase-runtime-4.3.2-b1031482-fix-nepomuk-error-messages.patch
-Patch101: kdebase-runtime-4.3.2-b1031926-fix-nepomuk-initialize.patch
-Patch102: kdebase-runtime-4.3.2-b1030579-validation-fix.patch
 # Trunk  patches
-Patch200: kdebase-runtime-4.3.2-t1035841-fix-kwallet-default-size.patch
 BuildRequires: kde4-macros
 BuildRequires: kdelibs4-devel >= 2:4.2.98
-BuildRequires: kdelibs4-experimental-devel >= 2:4.2.98
 BuildRequires: kdepimlibs4-devel >= 2:4.1.81
 BuildRequires: strigi-devel >= 1:0.5.10-2
-BuildRequires: soprano-devel >= 2.0.98
+BuildRequires: soprano-devel >= 2.3.67
 BuildRequires: fontconfig-devel >= 2.1-9mdk
 BuildRequires: pam-devel
 BuildRequires: freetype2-devel
@@ -104,7 +99,6 @@ KDE 4 application runtime components.
 %_kde_appsdir/kio_finger/kio_finger.pl
 %_kde_appsdir/kio_info/kde-info2html
 %_kde_appsdir/kio_info/kde-info2html.conf
-%_kde_appsdir/kio_thumbnail/*
 %_kde_autostart/nepomukserver.desktop
 %_kde_bindir/kuiserver
 %_kde_appsdir/kstyle
@@ -148,6 +142,7 @@ KDE 4 application runtime components.
 %_kde_appsdir/remoteview/network.desktop
 %_kde_appsdir/kio_bookmarks
 %_kde_appsdir/kio_desktop
+%_kde_appsdir/kglobalaccel
 %_kde_datadir/locale/l10n/*/*
 %_kde_datadir/locale/l10n/*.desktop
 %_kde_datadir/locale/en_US
@@ -264,20 +259,14 @@ browsing.
 #-----------------------------------------------------------------------------
 
 %prep
-%setup -q -n kdebase-runtime-%version
-%patch0 -p1
+%setup -q -n kdebase-runtime-%version%kde_snapshot
+#%patch0 -p1
 %patch1 -p0
 %if %mdkversion >= 201000
 %patch2 -p1 -b .pulseaudio
 %endif
-%patch3 -p1 -b .nepomuk
 %patch4 -p0 -b .nepomuk
 %patch5 -p1 -b .bug_49814
-%patch6 -p1 -b .nepomuk
-%patch100 -p0
-%patch101 -p0
-%patch102 -p0
-%patch200 -p0
 %build
 %cmake_kde4 
 %make
