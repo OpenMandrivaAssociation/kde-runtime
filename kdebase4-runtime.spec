@@ -3,7 +3,7 @@
 Name: kdebase4-runtime
 Summary: K Desktop Environment - Base Runtime
 Version: 4.3.73
-Release: %mkrel 1
+Release: %mkrel 2
 Epoch: 1
 Group: Graphical desktop/KDE
 License: GPL
@@ -51,6 +51,7 @@ BuildRequires: xrdb
 BuildRequires: qimageblitz-devel
 BuildRequires: pulseaudio-devel
 BuildRequires: openslp-devel 
+BuildRequires: libssh-devel
 Requires: kdelibs4-core
 Requires: oxygen-icon-theme
 Requires: kde4-l10n
