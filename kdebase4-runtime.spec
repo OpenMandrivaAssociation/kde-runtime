@@ -52,6 +52,7 @@ BuildRequires: qimageblitz-devel
 BuildRequires: pulseaudio-devel
 BuildRequires: openslp-devel 
 BuildRequires: libssh-devel
+BuildRequires: xine-devel
 Requires: kdelibs4-core
 Requires: oxygen-icon-theme
 Requires: kde4-l10n
