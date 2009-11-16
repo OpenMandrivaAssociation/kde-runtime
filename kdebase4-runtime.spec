@@ -1,9 +1,9 @@
-%define kde_snapshot svn1040395
+%define kde_snapshot svn1048496
 
 Name: kdebase4-runtime
 Summary: K Desktop Environment - Base Runtime
-Version: 4.3.73
-Release: %mkrel 5
+Version: 4.3.75
+Release: %mkrel 1
 Epoch: 1
 Group: Graphical desktop/KDE
 License: GPL
@@ -20,8 +20,8 @@ Patch6: kdebase-runtime-nepomuk-strigi-eventmonitor.patch
 # Branch patches
 # Trunk  patches
 BuildRequires: kde4-macros
-BuildRequires: kdelibs4-devel >= 2:4.2.98
-BuildRequires: kdepimlibs4-devel >= 2:4.1.81
+BuildRequires: kdelibs4-devel >= 2:%version
+BuildRequires: kdepimlibs4-devel >= 2:%version
 BuildRequires: strigi-devel >= 1:0.5.10-2
 BuildRequires: soprano-devel >= 2.3.67
 BuildRequires: fontconfig-devel >= 2.1-9mdk
