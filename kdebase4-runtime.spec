@@ -184,7 +184,6 @@ KDE 4 application runtime components.
 %_kde_appsdir/ksmserver/windowmanagers
 %_kde_appsdir/nepomuk
 %_kde_appsdir/nepomukstorage
-%_kde_appsdir/nepomukstrigiservice
 %_kde_appsdir/kio_docfilter
 %_kde_configdir/emoticons.knsrc
 %_kde_iconsdir/hicolor/*/*/*
