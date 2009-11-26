@@ -1,14 +1,24 @@
-%define kde_snapshot svn1048496
+%define branch 1
+%{?_branch: %{expand: %%global branch 1}}
+
+
+%if %branch
+%define kde_snapshot svn1053190
+%endif
 
 Name: kdebase4-runtime
 Summary: K Desktop Environment - Base Runtime
-Version: 4.3.75
-Release: %mkrel 2
+Version: 4.3.77
+Release: %mkrel 1
 Epoch: 1
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://www.kde.org
+%if %branch
 Source0: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdebase-runtime-%version%kde_snapshot.tar.bz2
+%else
+Source0: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdebase-runtime-%version.tar.bz2
+%endif
 Patch0: kdebase-runtime-4.1.1-fix-htsearch-path.patch
 Patch1: kdebase-runtime-4.2.95-fix-desktop-files.patch
 # (cg)  For the latest version of the below patch see: http://colin.guthr.ie/git/runtime/log/?h=pulse
@@ -261,7 +271,12 @@ browsing.
 #-----------------------------------------------------------------------------
 
 %prep
+%if %branch
 %setup -q -n kdebase-runtime-%version%kde_snapshot
+%else
+%setup -q -n kdebase-runtime-%version
+%endif
+
 #%patch0 -p1
 %patch1 -p0
 %if %mdkversion >= 201000
