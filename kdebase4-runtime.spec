@@ -9,7 +9,7 @@
 Name: kdebase4-runtime
 Summary: K Desktop Environment - Base Runtime
 Version: 4.3.77
-Release: %mkrel 1
+Release: %mkrel 2
 Epoch: 1
 Group: Graphical desktop/KDE
 License: GPL
@@ -93,6 +93,8 @@ Conflicts: digikam < 0.10.0-1.beta5.2
 Conflicts: kappfinder < 1:4.3.0
 Conflicts: dolphin < 1:4.3.0
 Conflicts: kdepim4-akonadi < 2:4.2.85-3
+Conflicts: nepomuk-scribo < 1:0.6.0-3
+
 BuildRoot: %_tmppath/%name-%version-%release-root
 
 %description
