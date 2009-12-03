@@ -203,7 +203,7 @@ KDE 4 application runtime components.
 %_kde_appsdir/nepomukstrigiservice
 %_kde_libdir/attica_kde.so
 %_kde_datadir/config/khotnewstuff_upload.knsrc
-%_kde_datadir/locale/currency/adf.desktop
+%_kde_datadir/locale/currency
 %exclude %_kde_iconsdir/hicolor/index.theme
 
 #--------------------------------------------------------------
