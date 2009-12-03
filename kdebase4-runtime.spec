@@ -1,4 +1,4 @@
-%define branch 1
+%define branch 0
 %{?_branch: %{expand: %%global branch 1}}
 
 
@@ -8,8 +8,8 @@
 
 Name: kdebase4-runtime
 Summary: K Desktop Environment - Base Runtime
-Version: 4.3.77
-Release: %mkrel 2
+Version: 4.3.80
+Release: %mkrel 1
 Epoch: 1
 Group: Graphical desktop/KDE
 License: GPL
@@ -61,6 +61,7 @@ BuildRequires: pulseaudio-devel
 BuildRequires: openslp-devel 
 BuildRequires: ssh-devel
 BuildRequires: libxine-devel
+BuildRequires: libssh-devel >= 0.3.92
 Requires: kdelibs4-core
 Requires: oxygen-icon-theme
 Requires: kde4-l10n
