@@ -127,6 +127,7 @@ KDE 4 application runtime components.
 %_kde_bindir/kde-open
 %_kde_bindir/kfile4
 %_kde_bindir/khotnewstuff4
+%_kde_bindir/khotnewstuff-upload
 %_kde_bindir/kioclient
 %_kde_bindir/kmimetypefinder
 %_kde_bindir/plasmapkg
@@ -199,8 +200,12 @@ KDE 4 application runtime components.
 %_kde_appsdir/desktoptheme/default
 %_kde_appsdir/desktoptheme/oxygen
 %_kde_datadir/mime/packages/network.xml
+%_kde_appsdir/nepomukstrigiservice
+%_kde_libdir/attica_kde.so
+%_kde_datadir/config/khotnewstuff_upload.knsrc
+%_kde_datadir/locale/currency/adf.desktop
 %exclude %_kde_iconsdir/hicolor/index.theme
- 
+
 #--------------------------------------------------------------
 
 %package -n kwallet-daemon
