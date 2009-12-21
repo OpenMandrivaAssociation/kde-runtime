@@ -131,7 +131,7 @@ KDE 4 application runtime components.
 %_kde_bindir/kioclient
 %_kde_bindir/kmimetypefinder
 %_kde_bindir/plasmapkg
-%_kde_libdir/strigi/strigiindex_sopranobackend.so
+%_kde_libdir/strigi/strigiindex_nepomukbackend.so
 %_kde_datadir/applications/kde4/knetattach.desktop
 %_kde_docdir/*/*/knetattach
 %_kde_bindir/knotify4
@@ -189,7 +189,6 @@ KDE 4 application runtime components.
 %_kde_datadir/apps/cmake/modules/*
 %_kde_datadir/config.kcfg/*
 %_kde_appsdir/ksmserver/windowmanagers
-%_kde_appsdir/nepomuk
 %_kde_appsdir/nepomukstorage
 %_kde_appsdir/kio_docfilter
 %_kde_configdir/emoticons.knsrc
