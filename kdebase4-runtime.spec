@@ -8,8 +8,8 @@
 
 Name: kdebase4-runtime
 Summary: K Desktop Environment - Base Runtime
-Version: 4.3.80
-Release: %mkrel 2
+Version: 4.3.85
+Release: %mkrel 1
 Epoch: 1
 Group: Graphical desktop/KDE
 License: GPL
@@ -27,13 +27,6 @@ Patch5: kdebase-runtime-4.3.2-knotify-fix-cpu-charge.patch
 Patch6: kdebase-runtime-nepomuk-strigi-eventmonitor.patch
 # Branch patches
 # Trunk  patches
-Patch200: kdebase-runtime-4.3.80-t1057961-port-to-virtuoso.patch
-Patch201: kdebase-runtime-4.3.80-t1058049-add-dbus-methods.patch
-Patch202: kdebase-runtime-4.3.80-t1058050-improve-startup.patch
-Patch203: kdebase-runtime-4.3.80-t1058055-nepomuk-fixes.patch
-Patch204: kdebase-runtime-4.3.80-t1058056-lower-nepomuk-mem-usage.patch
-Patch205: kdebase-runtime-4.3.80-t1058057-add-dbus-interface.patch 
-Patch206: kdebase-runtime-4.3.80-t1058058-nepomuk-fixes.patch
 BuildRequires: kde4-macros
 BuildRequires: kdelibs4-devel >= 2:%version
 BuildRequires: kdepimlibs4-devel >= 2:%version
@@ -296,13 +289,6 @@ browsing.
 %patch1 -p0
 %patch4 -p0 -b .nepomuk
 %patch5 -p1 -b .bug_49814
-%patch200 -p0
-%patch201 -p0
-%patch202 -p0
-%patch203 -p0
-%patch204 -p0
-%patch205 -p0
-%patch206 -p0
 
 %build
 %cmake_kde4 
