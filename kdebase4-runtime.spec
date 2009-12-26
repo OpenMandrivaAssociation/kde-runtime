@@ -45,7 +45,6 @@ BuildRequires: OpenEXR-devel
 BuildRequires: hal-devel 
 BuildRequires: libusb-devel
 BuildRequires: libxml2-utils
-BuildRequires: X11-devel
 BuildRequires: GL-devel
 BuildRequires: bdftopcf
 BuildRequires: imake
