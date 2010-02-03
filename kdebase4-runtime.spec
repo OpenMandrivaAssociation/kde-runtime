@@ -260,16 +260,33 @@ KDE 4 core library.
 %defattr(-,root,root)
 %_kde_libdir/libmolletnetwork.so.%{molletnetwork_major}*
 
+#--------------------------------------------------------------
+
+%define kupnp_major 4
+%define libkupnp %mklibname kupnp %kupnp_major
+
+%package -n %libkupnp
+Summary: KDE 4 core library
+Group: System/Libraries
+
+%description -n %libkupnp
+KDE 4 core library.
+
+%files -n %libkupnp
+%defattr(-,root,root)
+%_kde_libdir/libkupnp.so.%{kupnp_major}*
+
 #-----------------------------------------------------------------------------
 
-%package devel
-Group: Development/KDE and Qt
-Summary: Header files and documentation for compiling KDE applications
-Requires: kdelibs4-devel >= 2:4.2.96
-Requires: kdelibs4-experimental-devel >= 4.2.96
-Requires: %name = %epoch:%version
+%package   devel
+Group:     Development/KDE and Qt
+Summary:   Header files and documentation for compiling KDE applications
+Requires:  kdelibs4-devel >= 2:4.2.96
+Requires:  kdelibs4-experimental-devel >= 4.2.96
+Requires:  %name = %epoch:%version
 Requires:  %libkwalletbackend = %epoch:%version
 Requires:  %libmolletnetwork = %epoch:%version
+Requires:  %libkupnp = %epoch:%version
 
 %description devel
 This package includes the header files you will need to compile applications
@@ -278,8 +295,10 @@ browsing.
 
 %files devel
 %defattr(-,root,root,-)
+%{_kde_includedir}/upnp
 %{_kde_libdir}/libkwalletbackend.so
 %{_kde_libdir}/libmolletnetwork.so
+%{_kde_libdir}/libkupnp.so
 %{_kde_datadir}/dbus-1/interfaces/*
 
 #-----------------------------------------------------------------------------
