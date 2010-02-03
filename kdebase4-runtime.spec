@@ -28,6 +28,13 @@ Patch6: kdebase-runtime-nepomuk-strigi-eventmonitor.patch
 Patch7: kdebase-runtime-4.3.98-disable-kglobalaccel.patch
 # Branch patches
 # Trunk  patches
+Patch200: kdebase-runtime-4.3.98-t1079784-add-kupnp-support.patch
+Patch201: kdebase-runtime-4.3.98-t1079789-fix-kdebug.patch
+Patch202: kdebase-runtime-4.3.98-t1079790-fix-libs.patch
+Patch203: kdebase-runtime-4.3.98-t1079845-disable-kioslave.patch
+Patch204: kdebase-runtime-4.3.98-t1079847-remove-upnp.cmake.patch
+Patch205: kdebase-runtime-4.3.98-t1079848-fix-build.patch
+Patch206: kdebase-runtime-4.3.98-t1079849-activate-shared-lib.patch
 BuildRequires: kde4-macros
 BuildRequires: kdelibs4-devel >= 2:%version
 BuildRequires: kdepimlibs4-devel >= 2:%version
@@ -289,9 +296,15 @@ browsing.
 %patch4 -p0 -b .nepomuk
 %patch5 -p1 -b .bug_49814
 %patch7 -p0
-
+%patch200 -p1
+%patch201 -p1
+%patch202 -p1
+%patch203 -p1
+%patch204 -p1
+%patch205 -p1
+%patch206 -p1
 %build
-%cmake_kde4 
+%cmake_kde4
 %make
 
 %install
