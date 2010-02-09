@@ -25,7 +25,6 @@ Patch3: kdebase-runtime-nepomuk-strigi2.patch
 Patch4: kdebase-runtime-nepomuk-strigi-smartfile.patch
 Patch5: kdebase-runtime-4.3.2-knotify-fix-cpu-charge.patch
 Patch6: kdebase-runtime-nepomuk-strigi-eventmonitor.patch
-Patch7: kdebase-runtime-4.3.98-disable-kglobalaccel.patch
 # Branch patches
 # Trunk  patches
 Patch200: kdebase-runtime-4.3.98-t1079784-add-kupnp-support.patch
@@ -314,7 +313,6 @@ browsing.
 %patch1 -p0
 %patch4 -p0 -b .nepomuk
 %patch5 -p1 -b .bug_49814
-%patch7 -p0
 %patch200 -p1
 %patch201 -p1
 %patch202 -p1
