@@ -80,6 +80,7 @@ Suggests: kwallet-daemon
 Suggests: kdialog
 Suggests: gdb
 Requires:  soprano-plugin-redland
+Requires:  polkit-kde-1
 Obsoletes: kdebase4-progs < 1:3.93.0-0.714129.2
 Obsoletes: kdebase4-core  < 1:3.93.0-0.714129.2
 Obsoletes: kdebase4-common <= 1:3.80.3
