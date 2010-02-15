@@ -9,7 +9,7 @@
 Name: kdebase4-runtime
 Summary: K Desktop Environment - Base Runtime
 Version: 4.4.0
-Release: %mkrel 3
+Release: %mkrel 4
 Epoch: 1
 Group: Graphical desktop/KDE
 License: GPL
@@ -27,6 +27,7 @@ Patch5: kdebase-runtime-4.3.2-knotify-fix-cpu-charge.patch
 Patch6: kdebase-runtime-nepomuk-strigi-eventmonitor.patch
 Patch7: kdebase-runtime-nepomuk-services-inotify.diff
 # Branch patches
+Patch100: kdebase-runtime-4.3.98-b108770-fix-used-prefix.patch
 # Trunk  patches
 Patch200: kdebase-runtime-4.3.98-t1079784-add-kupnp-support.patch
 Patch201: kdebase-runtime-4.3.98-t1079789-fix-kdebug.patch
@@ -316,6 +317,7 @@ browsing.
 %patch4 -p0 -b .nepomuk
 %patch5 -p1 -b .bug_49814
 %patch7 -p1
+%patch100 -p0
 %patch200 -p1
 %patch201 -p1
 %patch202 -p1
