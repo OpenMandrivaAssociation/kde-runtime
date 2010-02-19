@@ -9,7 +9,7 @@
 Name: kdebase4-runtime
 Summary: K Desktop Environment - Base Runtime
 Version: 4.4.0
-Release: %mkrel 6
+Release: %mkrel 7
 Epoch: 1
 Group: Graphical desktop/KDE
 License: GPL
@@ -29,6 +29,9 @@ Patch7: kdebase-runtime-nepomuk-filewatch-inotify.diff
 # Branch patches
 Patch100: kdebase-runtime-4.3.98-b108770-fix-used-prefix.patch
 Patch101: kdebase-runtime-4.4.0-b1091868-fix-listing-ressources.patch
+Patch102: kdebase-runtime-4.4.0-b1087709-nepomuk-fix-delay.patch
+Patch103: kdebase-runtime-4.4.0-b1092849-nepomuk-fix-query.patch
+Patch104: kdebase-runtime-4.4.0-b1092851-nepomuk-fix-delay.patch
 # Trunk  patches
 Patch200: kdebase-runtime-4.3.98-t1079784-add-kupnp-support.patch
 Patch201: kdebase-runtime-4.3.98-t1079789-fix-kdebug.patch
@@ -320,6 +323,9 @@ browsing.
 %patch7 -p1
 %patch100 -p0
 %patch101 -p1
+%patch102 -p0
+%patch103 -p0
+%patch104 -p0
 %patch200 -p1
 %patch201 -p1
 %patch202 -p1
