@@ -9,7 +9,7 @@
 Name: kdebase4-runtime
 Summary: K Desktop Environment - Base Runtime
 Version: 4.4.0
-Release: %mkrel 7
+Release: %mkrel 8
 Epoch: 1
 Group: Graphical desktop/KDE
 License: GPL
@@ -217,6 +217,22 @@ KDE 4 application runtime components.
 %_kde_datadir/config/khotnewstuff_upload.knsrc
 %_kde_datadir/locale/currency
 %exclude %_kde_iconsdir/hicolor/index.theme
+%exclude %_kde_libdir/kde4/kcm_phononxine.so
+%exclude %_kde_datadir/kde4/services/kcm_phononxine.desktop
+
+#--------------------------------------------------------------
+
+%package -n phonon-xine-kcm 
+Summary:    Phonon Xine KCM
+Group: Development/KDE and Qt
+
+%description -n phonon-xine-kcm
+This package provide the KCM for Phonon Xine.
+
+%files -n phonon-xine-kcm
+%defattr(-,root,root)
+%_kde_libdir/kde4/kcm_phononxine.so
+%_kde_datadir/kde4/services/kcm_phononxine.desktop
 
 #--------------------------------------------------------------
 
