@@ -27,11 +27,6 @@ Patch5: kdebase-runtime-4.3.2-knotify-fix-cpu-charge.patch
 Patch6: kdebase-runtime-nepomuk-strigi-eventmonitor.patch
 Patch7: kdebase-runtime-nepomuk-filewatch-inotify.diff
 # Branch patches
-Patch100: kdebase-runtime-4.3.98-b108770-fix-used-prefix.patch
-Patch101: kdebase-runtime-4.4.0-b1091868-fix-listing-ressources.patch
-Patch102: kdebase-runtime-4.4.0-b1087709-nepomuk-fix-delay.patch
-Patch103: kdebase-runtime-4.4.0-b1092849-nepomuk-fix-query.patch
-Patch104: kdebase-runtime-4.4.0-b1092851-nepomuk-fix-delay.patch
 # Trunk  patches
 Patch200: kdebase-runtime-4.3.98-t1079784-add-kupnp-support.patch
 Patch201: kdebase-runtime-4.3.98-t1079789-fix-kdebug.patch
@@ -336,12 +331,7 @@ browsing.
 %patch1 -p0
 %patch4 -p0 -b .nepomuk
 %patch5 -p1 -b .bug_49814
-%patch7 -p1
-%patch100 -p0
-%patch101 -p1
-%patch102 -p0
-%patch103 -p0
-%patch104 -p0
+#%patch7 -p1
 %patch200 -p1
 %patch201 -p1
 %patch202 -p1
