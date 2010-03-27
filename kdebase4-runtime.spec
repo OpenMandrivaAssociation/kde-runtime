@@ -75,7 +75,7 @@ BuildRequires: shared-desktop-ontologies-devel
 BuildRequires: libexiv-devel
 Requires: kdelibs4-core
 Requires: oxygen-icon-theme
-Requires: kde4-l10n
+Suggests: kde4-l10n
 Suggests: hicolor-icon-theme
 Suggests: kde4-splash-mdv
 Suggests: htdig
