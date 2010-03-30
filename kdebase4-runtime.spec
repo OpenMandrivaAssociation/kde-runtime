@@ -333,7 +333,7 @@ browsing.
 %patch1 -p0
 %patch4 -p0 -b .nepomuk
 %patch5 -p1 -b .bug_49814
-%patch7 -p1
+#%patch7 -p1
 %patch8 -p0
 %patch200 -p1
 %patch201 -p1
