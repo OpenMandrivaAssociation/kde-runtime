@@ -66,7 +66,7 @@ BuildRequires: xrdb
 BuildRequires: qimageblitz-devel
 BuildRequires: pulseaudio-devel
 BuildRequires: openslp-devel 
-BuildRequires: ssh-devel
+BuildRequires: ssh-devel >= 0.4.2
 BuildRequires: libxine-devel
 BuildRequires: libssh-devel >= 0.3.92
 BuildRequires: attica-devel
