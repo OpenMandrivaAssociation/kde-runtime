@@ -9,7 +9,7 @@
 Name: kdebase4-runtime
 Summary: K Desktop Environment - Base Runtime
 Version: 4.4.2
-Release: %mkrel 2
+Release: %mkrel 3
 Epoch: 1
 Group: Graphical desktop/KDE
 License: GPL
@@ -40,7 +40,8 @@ Patch205: kdebase-runtime-4.3.98-t1079848-fix-build.patch
 Patch206: kdebase-runtime-4.3.98-t1079849-activate-shared-lib.patch
 Patch207: kdebase-runtime-4.4.2-t1107759-fix-reload-model.patch
 BuildRequires: kde4-macros
-Buildrequires: kdelib4-devel
+BuildRequires: kdelibs4-devel >= 2:%version
+BuildRequires: kdepimlibs4-devel >= 2:%version
 BuildRequires: strigi-devel >= 1:0.5.10-2
 BuildRequires: soprano-devel >= 2.3.67
 BuildRequires: fontconfig-devel >= 2.1-9mdk
