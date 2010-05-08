@@ -9,7 +9,7 @@
 Name: kdebase4-runtime
 Summary: K Desktop Environment - Base Runtime
 Version: 4.4.3
-Release: %mkrel 2
+Release: %mkrel 3
 Epoch: 1
 Group: Graphical desktop/KDE
 License: GPL
@@ -22,11 +22,11 @@ Source0: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdebase-runtime-%version.
 Patch0: kdebase-runtime-4.1.1-fix-htsearch-path.patch
 Patch1: kdebase-runtime-4.2.95-fix-desktop-files.patch
 Patch3: kdebase-runtime-nepomuk-strigi2.patch
-Patch4: kdebase-runtime-nepomuk-strigi-smartfile.patch
 Patch5: kdebase-runtime-4.3.2-knotify-fix-cpu-charge.patch
 Patch6: kdebase-runtime-nepomuk-strigi-eventmonitor.patch
 Patch7: kdebase-runtime-nepomuk-sync-with-trunk.patch
 Patch8: kdebase-runtime-4.4.1-use-mdv-icon.patch
+Patch9: kdebase-runtime-nepomuk-strigi-smartfile.patch
 # Branch patches
 Patch100: kdebase-runtime-4.4.1-b1101677-strigi-fix-indexing.patch
 Patch101: kdebase-runtime-4.4.2-b1121161-fix-kreadconf.patch
@@ -333,10 +333,10 @@ browsing.
 
 #%patch0 -p1
 %patch1 -p0
-%patch4 -p0 -b .nepomuk
 %patch5 -p1 -b .bug_49814
-#%patch7 -p1
+%patch7 -p0
 %patch8 -p0
+%patch9 -p0 -b .nepomuk
 %patch101 -p0
 %patch200 -p1
 %patch201 -p1
