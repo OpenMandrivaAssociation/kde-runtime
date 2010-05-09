@@ -73,7 +73,7 @@ BuildRequires: ssh-devel >= 0.4.2
 BuildRequires: libxine-devel
 BuildRequires: libssh-devel >= 0.3.92
 BuildRequires: attica-devel
-BuildRequires: shared-desktop-ontologies-devel
+BuildRequires: shared-desktop-ontologies-devel >= 0.4
 BuildRequires: libexiv-devel
 Requires: kdelibs4-core
 Requires: oxygen-icon-theme
