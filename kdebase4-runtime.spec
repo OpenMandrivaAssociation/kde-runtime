@@ -9,7 +9,7 @@
 Name: kdebase4-runtime
 Summary: K Desktop Environment - Base Runtime
 Version: 4.4.3
-Release: %mkrel 5
+Release: %mkrel 6
 Epoch: 1
 Group: Graphical desktop/KDE
 License: GPL
@@ -30,6 +30,13 @@ Patch9: kdebase-runtime-nepomuk-strigi-smartfile.patch
 # Branch patches
 Patch100: kdebase-runtime-4.4.1-b1101677-strigi-fix-indexing.patch
 Patch101: kdebase-runtime-4.4.2-b1121161-fix-kreadconf.patch
+Patch102: kdebase-runtime-4.4.3-b1124663-fix-khelpcenter.patch
+Patch103: kdebase-runtime-4.4.3-b1124665-fix-khelpcenter.patch
+Patch104: kdebase-runtime-4.4.3-b1124667-fix-khelpcenter.patch
+Patch105: kdebase-runtime-4.4.3-b1125038-oxygen-fix-scrollbars-drawn.patch
+Patch106: kdebase-runtime-4.4.3-b1125643-oxygen-fix-animations.patch
+Patch107: kdebase-runtime-4.4.3-b1127437-oxygen-fix-QMenu-paint.patch
+Patch108: kdebase-runtime-4.4.3-b1127555-oxygen-fix-menu-draw.patch
 # Trunk  patches
 Patch200: kdebase-runtime-4.3.98-t1079784-add-kupnp-support.patch
 Patch201: kdebase-runtime-4.3.98-t1079789-fix-kdebug.patch
@@ -338,6 +345,15 @@ browsing.
 %patch8 -p0
 %patch9 -p0 -b .nepomuk
 %patch101 -p0
+%patch102 -p2
+%patch103 -p2
+%patch104 -p2
+%patch105 -p2
+%patch106 -p2
+%patch107 -p2
+%patch108 -p2
+
+
 %patch200 -p1
 %patch201 -p1
 %patch202 -p1
