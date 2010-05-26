@@ -9,7 +9,7 @@
 Name: kdebase4-runtime
 Summary: K Desktop Environment - Base Runtime
 Version: 4.4.3
-Release: %mkrel 7
+Release: %mkrel 8
 Epoch: 1
 Group: Graphical desktop/KDE
 License: GPL
@@ -46,6 +46,7 @@ Patch204: kdebase-runtime-4.3.98-t1079847-remove-upnp.cmake.patch
 Patch205: kdebase-runtime-4.3.98-t1079848-fix-build.patch
 Patch206: kdebase-runtime-4.3.98-t1079849-activate-shared-lib.patch
 Patch207: kdebase-runtime-4.4.2-t1107759-fix-reload-model.patch
+Patch208: kdebase-runtime-4.4.3-t1130850-nepomuk-fix-crash.patch
 BuildRequires: kde4-macros
 BuildRequires: kdelibs4-devel >= 2:%version
 BuildRequires: kdepimlibs4-devel >= 2:%version
@@ -362,7 +363,7 @@ browsing.
 %patch205 -p1
 %patch206 -p1
 %patch207 -p1
-
+%patch208 -p2
 %build
 %cmake_kde4
 %make
