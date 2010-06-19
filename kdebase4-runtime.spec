@@ -9,7 +9,7 @@
 Name: kdebase4-runtime
 Summary: K Desktop Environment - Base Runtime
 Version: 4.4.3
-Release: %mkrel 8
+Release: %mkrel 9
 Epoch: 1
 Group: Graphical desktop/KDE
 License: GPL
@@ -363,7 +363,6 @@ browsing.
 %patch205 -p1
 %patch206 -p1
 %patch207 -p1
-%patch208 -p2
 %build
 %cmake_kde4
 %make
