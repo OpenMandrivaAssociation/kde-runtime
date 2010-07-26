@@ -9,7 +9,7 @@
 Name: kdebase4-runtime
 Summary: K Desktop Environment - Base Runtime
 Version: 4.4.3
-Release: %mkrel 10
+Release: %mkrel 11
 Epoch: 1
 Group: Graphical desktop/KDE
 License: GPL
@@ -47,6 +47,7 @@ Patch205: kdebase-runtime-4.3.98-t1079848-fix-build.patch
 Patch206: kdebase-runtime-4.3.98-t1079849-activate-shared-lib.patch
 Patch207: kdebase-runtime-4.4.2-t1107759-fix-reload-model.patch
 Patch208: kdebase-runtime-4.4.3-t1130850-nepomuk-fix-crash.patch
+Patch300: kdebase-runtime-4.4-speakersetup.patch
 BuildRequires: kde4-macros
 BuildRequires: kdelibs4-devel >= 2:%version
 BuildRequires: kdepimlibs4-devel >= 2:%version
@@ -76,6 +77,7 @@ BuildRequires: boost-devel
 BuildRequires: xrdb
 BuildRequires: qimageblitz-devel
 BuildRequires: pulseaudio-devel
+BuildRequires: libcanberra-devel
 BuildRequires: openslp-devel 
 BuildRequires: ssh-devel >= 0.4.2
 BuildRequires: libxine-devel
@@ -363,6 +365,7 @@ browsing.
 %patch205 -p1
 %patch206 -p1
 %patch207 -p1
+%patch300 -p0
 %build
 %cmake_kde4
 %make
