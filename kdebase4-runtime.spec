@@ -3,13 +3,13 @@
 
 
 %if %branch
-%define kde_snapshot svn1053190
+%define kde_snapshot svn1138650
 %endif
 
 Name: kdebase4-runtime
 Summary: K Desktop Environment - Base Runtime
-Version: 4.4.3
-Release: %mkrel 11
+Version: 4.4.92
+Release: %mkrel 1
 Epoch: 1
 Group: Graphical desktop/KDE
 License: GPL
@@ -24,30 +24,15 @@ Patch1: kdebase-runtime-4.2.95-fix-desktop-files.patch
 Patch3: kdebase-runtime-nepomuk-strigi2.patch
 Patch5: kdebase-runtime-4.3.2-knotify-fix-cpu-charge.patch
 Patch6: kdebase-runtime-nepomuk-strigi-eventmonitor.patch
-Patch7: kdebase-runtime-nepomuk-sync-with-trunk.patch
 Patch8: kdebase-runtime-4.4.1-use-mdv-icon.patch
 Patch9: kdebase-runtime-nepomuk-strigi-smartfile.patch
-# Branch patches
-Patch100: kdebase-runtime-4.4.1-b1101677-strigi-fix-indexing.patch
-Patch101: kdebase-runtime-4.4.2-b1121161-fix-kreadconf.patch
-Patch102: kdebase-runtime-4.4.3-b1124663-fix-khelpcenter.patch
-Patch103: kdebase-runtime-4.4.3-b1124665-fix-khelpcenter.patch
-Patch104: kdebase-runtime-4.4.3-b1124667-fix-khelpcenter.patch
-Patch105: kdebase-runtime-4.4.3-b1125038-oxygen-fix-scrollbars-drawn.patch
-Patch106: kdebase-runtime-4.4.3-b1125643-oxygen-fix-animations.patch
-Patch107: kdebase-runtime-4.4.3-b1127437-oxygen-fix-QMenu-paint.patch
-Patch108: kdebase-runtime-4.4.3-b1127555-oxygen-fix-menu-draw.patch
-# Trunk  patches
-Patch200: kdebase-runtime-4.3.98-t1079784-add-kupnp-support.patch
-Patch201: kdebase-runtime-4.3.98-t1079789-fix-kdebug.patch
-Patch202: kdebase-runtime-4.3.98-t1079790-fix-libs.patch
-Patch203: kdebase-runtime-4.3.98-t1079845-disable-kioslave.patch
-Patch204: kdebase-runtime-4.3.98-t1079847-remove-upnp.cmake.patch
-Patch205: kdebase-runtime-4.3.98-t1079848-fix-build.patch
-Patch206: kdebase-runtime-4.3.98-t1079849-activate-shared-lib.patch
-Patch207: kdebase-runtime-4.4.2-t1107759-fix-reload-model.patch
-Patch208: kdebase-runtime-4.4.3-t1130850-nepomuk-fix-crash.patch
+# Branch patches 100 -> 199
+
+# Trunk patches 200 -> 299
+
+# Testing Patches 300 -> ...
 Patch300: kdebase-runtime-4.4-speakersetup.patch
+
 BuildRequires: kde4-macros
 BuildRequires: kdelibs4-devel >= 2:%version
 BuildRequires: kdepimlibs4-devel >= 2:%version
@@ -77,7 +62,6 @@ BuildRequires: boost-devel
 BuildRequires: xrdb
 BuildRequires: qimageblitz-devel
 BuildRequires: pulseaudio-devel
-BuildRequires: libcanberra-devel
 BuildRequires: openslp-devel 
 BuildRequires: ssh-devel >= 0.4.2
 BuildRequires: libxine-devel
@@ -120,6 +104,7 @@ Conflicts: kappfinder < 1:4.3.0
 Conflicts: dolphin < 1:4.3.0
 Conflicts: kdepim4-akonadi < 2:4.2.85-3
 Conflicts: nepomuk-scribo < 1:0.6.0-3
+Conflicts: kdelibs4-core <  2:4.4.86-1
 
 BuildRoot: %_tmppath/%name-%version-%release-root
 
@@ -139,7 +124,6 @@ KDE 4 application runtime components.
 %_kde_appsdir/kio_info/kde-info2html.conf
 %_kde_autostart/nepomukserver.desktop
 %_kde_bindir/kuiserver
-%_kde_appsdir/kstyle
 %_kde_bindir/ksvgtopng
 %_kde_bindir/kcmshell4
 %_kde_bindir/kde4-menu
@@ -225,6 +209,10 @@ KDE 4 application runtime components.
 %_kde_libdir/attica_kde.so
 %_kde_datadir/config/khotnewstuff_upload.knsrc
 %_kde_datadir/locale/currency
+%_kde_appsdir/hardwarenotifications
+%_sysconfdir/dbus-1/system.d/org.kde.kcontrol.kcmremotewidgets.conf
+%_kde_datadir/dbus-1/system-services/org.kde.kcontrol.kcmremotewidgets.service
+%_kde_datadir/polkit-1/actions/org.kde.kcontrol.kcmremotewidgets.policy
 %exclude %_kde_iconsdir/hicolor/index.theme
 %exclude %_kde_libdir/kde4/kcm_phononxine.so
 %exclude %_kde_datadir/kde4/services/kcm_phononxine.desktop
@@ -291,22 +279,6 @@ KDE 4 core library.
 %defattr(-,root,root)
 %_kde_libdir/libmolletnetwork.so.%{molletnetwork_major}*
 
-#--------------------------------------------------------------
-
-%define kupnp_major 4
-%define libkupnp %mklibname kupnp %kupnp_major
-
-%package -n %libkupnp
-Summary: KDE 4 core library
-Group: System/Libraries
-
-%description -n %libkupnp
-KDE 4 core library.
-
-%files -n %libkupnp
-%defattr(-,root,root)
-%_kde_libdir/libkupnp.so.%{kupnp_major}*
-
 #-----------------------------------------------------------------------------
 
 %package   devel
@@ -317,7 +289,6 @@ Requires:  kdelibs4-experimental-devel >= 4.2.96
 Requires:  %name = %epoch:%version
 Requires:  %libkwalletbackend = %epoch:%version
 Requires:  %libmolletnetwork = %epoch:%version
-Requires:  %libkupnp = %epoch:%version
 
 %description devel
 This package includes the header files you will need to compile applications
@@ -326,10 +297,8 @@ browsing.
 
 %files devel
 %defattr(-,root,root,-)
-%{_kde_includedir}/upnp
 %{_kde_libdir}/libkwalletbackend.so
 %{_kde_libdir}/libmolletnetwork.so
-%{_kde_libdir}/libkupnp.so
 %{_kde_datadir}/dbus-1/interfaces/*
 
 #-----------------------------------------------------------------------------
@@ -344,28 +313,10 @@ browsing.
 #%patch0 -p1
 %patch1 -p0
 %patch5 -p1 -b .bug_49814
-%patch7 -p0
 %patch8 -p0
 %patch9 -p0 -b .nepomuk
-%patch101 -p0
-%patch102 -p2
-%patch103 -p2
-%patch104 -p2
-%patch105 -p2
-%patch106 -p2
-%patch107 -p2
-%patch108 -p2
-
-
-%patch200 -p1
-%patch201 -p1
-%patch202 -p1
-%patch203 -p1
-%patch204 -p1
-%patch205 -p1
-%patch206 -p1
-%patch207 -p1
-%patch300 -p0
+# REDIFF
+#%patch300 -p0
 %build
 %cmake_kde4
 %make
