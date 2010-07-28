@@ -8,7 +8,7 @@
 
 Name: kdebase4-runtime
 Summary: K Desktop Environment - Base Runtime
-Version: 4.4.92
+Version: 4.4.95
 Release: %mkrel 1
 Epoch: 1
 Group: Graphical desktop/KDE
