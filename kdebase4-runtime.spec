@@ -78,6 +78,7 @@ Suggests: htdig
 Suggests: kwallet-daemon
 Suggests: kdialog
 Suggests: gdb
+Suggests: cagibi
 Requires:  soprano-plugin-redland
 Requires:  polkit-kde-1
 Obsoletes: kdebase4-progs < 1:3.93.0-0.714129.2
