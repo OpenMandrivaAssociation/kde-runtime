@@ -9,7 +9,7 @@
 Name: kdebase4-runtime
 Summary: K Desktop Environment - Base Runtime
 Version: 4.5.0
-Release: %mkrel 2
+Release: %mkrel 3
 Epoch: 1
 Group: Graphical desktop/KDE
 License: GPL
@@ -32,7 +32,6 @@ Patch9: kdebase-runtime-nepomuk-strigi-smartfile.patch
 
 # Testing Patches 300 -> ...
 Patch300: kdebase-runtime-4.5-speakersetup.patch
-Patch301: kdebase-runtime-4.5-alsa-global-config.patch
 
 BuildRequires: kde4-macros
 BuildRequires: kdelibs4-devel >= 2:%version
@@ -318,7 +317,6 @@ browsing.
 %patch8 -p0
 %patch9 -p0 -b .nepomuk
 %patch300 -p1
-%patch301 -p1
 %build
 %cmake_kde4
 %make
