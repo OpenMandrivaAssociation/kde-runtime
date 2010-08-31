@@ -135,7 +135,6 @@ KDE  4  application  runtime  components.
 %_kde_bindir/kioclient
 %_kde_bindir/kmimetypefinder
 %_kde_bindir/plasmapkg
-%_kde_libdir/strigi/strigiindex_nepomukbackend.so
 %_kde_datadir/applications/kde4/knetattach.desktop
 %_kde_docdir/*/*/knetattach
 %_kde_bindir/knotify4
