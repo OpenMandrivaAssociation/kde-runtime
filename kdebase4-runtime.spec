@@ -11,7 +11,7 @@ Summary:  K  Desktop  Environment  -  Base  Runtime
 Version:  4.5.65
 Release:  %mkrel  3
 Epoch:  1
-Group:  Graphical  desktop/KDE
+Group:  Graphical desktop/KDE
 License:  GPL
 URL:  http://www.kde.org
 %if  %branch
