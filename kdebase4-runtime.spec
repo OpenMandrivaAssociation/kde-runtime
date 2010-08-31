@@ -1,116 +1,113 @@
-%define branch 0
-%{?_branch: %{expand: %%global branch 1}}
+%define  branch  1
+%{?_branch:  %{expand:  %%global  branch  1}}
 
 
-%if %branch
-%define kde_snapshot svn1138650
+%if  %branch
+%define  kde_snapshot  svn1165394
 %endif
 
-Name: kdebase4-runtime
-Summary: K Desktop Environment - Base Runtime
-Version: 4.5.0
-Release: %mkrel 3
-Epoch: 1
-Group: Graphical desktop/KDE
-License: GPL
-URL: http://www.kde.org
-%if %branch
-Source0: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdebase-runtime-%version%kde_snapshot.tar.bz2
+Name:  kdebase4-runtime
+Summary:  K  Desktop  Environment  -  Base  Runtime
+Version:  4.5.65
+Release:  %mkrel  3
+Epoch:  1
+Group:  Graphical  desktop/KDE
+License:  GPL
+URL:  http://www.kde.org
+%if  %branch
+Source0:  ftp://ftp.kde.org/pub/kde/stable/%version/src/kdebase-runtime-%version%kde_snapshot.tar.bz2
 %else
-Source0: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdebase-runtime-%version.tar.bz2
+Source0:  ftp://ftp.kde.org/pub/kde/stable/%version/src/kdebase-runtime-%version.tar.bz2
 %endif
-Patch0: kdebase-runtime-4.1.1-fix-htsearch-path.patch
-Patch1: kdebase-runtime-4.2.95-fix-desktop-files.patch
-Patch3: kdebase-runtime-nepomuk-strigi2.patch
-Patch5: kdebase-runtime-4.3.2-knotify-fix-cpu-charge.patch
-Patch6: kdebase-runtime-nepomuk-strigi-eventmonitor.patch
-Patch8: kdebase-runtime-4.4.1-use-mdv-icon.patch
-Patch9: kdebase-runtime-nepomuk-strigi-smartfile.patch
-# Branch patches 100 -> 199
+Patch0:  kdebase-runtime-4.1.1-fix-htsearch-path.patch
+Patch1:  kdebase-runtime-4.2.95-fix-desktop-files.patch
+Patch5:  kdebase-runtime-4.3.2-knotify-fix-cpu-charge.patch
+Patch8:  kdebase-runtime-4.4.1-use-mdv-icon.patch
+#  Branch  patches  100  ->  199
 
-# Trunk patches 200 -> 299
+#  Trunk  patches  200  ->  299
 
-# Testing Patches 300 -> ...
-Patch300: kdebase-runtime-4.5-speakersetup.patch
+#  Testing  Patches  300  ->  ...
+Patch300:  kdebase-runtime-4.5-speakersetup.patch
 
-BuildRequires: kde4-macros
-BuildRequires: kdelibs4-devel >= 2:%version
-BuildRequires: kdepimlibs4-devel >= 2:%version
-BuildRequires: strigi-devel >= 1:0.5.10-2
-BuildRequires: soprano-devel >= 2.3.67
-BuildRequires: fontconfig-devel >= 2.1-9mdk
-BuildRequires: pam-devel
-BuildRequires: freetype2-devel
-BuildRequires: libsasl-devel
-BuildRequires: openldap-devel
-BuildRequires: avahi-compat-libdns_sd-devel 
-BuildRequires: avahi-client-devel
-BuildRequires: libsmbclient-devel > 3.0
-BuildRequires: libieee1284-devel
-BuildRequires: OpenEXR-devel
-BuildRequires: hal-devel 
-BuildRequires: libusb-devel
-BuildRequires: libxml2-utils
-BuildRequires: GL-devel
-BuildRequires: bdftopcf
-BuildRequires: imake
-BuildRequires: libraw1394-devel
-BuildRequires: libxklavier-devel
-BuildRequires: lua-devel
-BuildRequires: bluez-devel
-BuildRequires: boost-devel
-BuildRequires: xrdb
-BuildRequires: qimageblitz-devel
-BuildRequires: pulseaudio-devel
-BuildRequires: openslp-devel 
-BuildRequires: ssh-devel >= 0.4.2
-BuildRequires: libxine-devel
-BuildRequires: libssh-devel >= 0.3.92
-BuildRequires: attica-devel
-BuildRequires: shared-desktop-ontologies-devel >= 0.4
-BuildRequires: libexiv-devel
-Requires: kdelibs4-core
-Requires: oxygen-icon-theme
-Suggests: kde4-l10n
-Suggests: hicolor-icon-theme
-Suggests: kde4-splash-mdv
-Suggests: htdig
-Suggests: kwallet-daemon
-Suggests: kdialog
-Suggests: gdb
-Suggests: cagibi
-Requires:  soprano-plugin-redland
-Requires:  polkit-kde-1
-Obsoletes: kdebase4-progs < 1:3.93.0-0.714129.2
-Obsoletes: kdebase4-core  < 1:3.93.0-0.714129.2
-Obsoletes: kdebase4-common <= 1:3.80.3
-Conflicts: kdebase4-workspace < 2:4.2.87-1
-Conflicts: kdelibs4-core < 4.1.70
-%if %mdkversion >= 201000
-Obsoletes: kdebase3 < 1:3.5.10-24
-Obsoletes: kdebase3-common < 1:3.5.10-24
-Obsoletes: kdebase3-progs < 1:3.5.10-24
-Obsoletes: kdebase3-konsole < 1:3.5.10-24
-Obsoletes: kdebase < 1:3.5.10-24
-Obsoletes: kdebase-common < 1:3.5.10-24
-Obsoletes: kdebase-progs < 1:3.5.10-24
-Obsoletes: kdebase-konsole < 1:3.5.10-24
-Obsoletes: krootwarning < 2:2008.1.1-10
-Obsoletes: krozat < 2:2008.1.6-5
-Obsoletes: ksplash-engine-moodin < 0.4.2-15
-Obsoletes: mdklaunchhelp < 2:2007-3
+BuildRequires:  kde4-macros
+BuildRequires:  kdelibs4-devel  >=  2:%version
+BuildRequires:  kdepimlibs4-devel  >=  2:%version
+BuildRequires:  strigi-devel  >=  1:0.5.10-2
+BuildRequires:  soprano-devel  >=  2.3.67
+BuildRequires:  fontconfig-devel  >=  2.1-9mdk
+BuildRequires:  pam-devel
+BuildRequires:  freetype2-devel
+BuildRequires:  libsasl-devel
+BuildRequires:  openldap-devel
+BuildRequires:  avahi-compat-libdns_sd-devel  
+BuildRequires:  avahi-client-devel
+BuildRequires:  libsmbclient-devel  >  3.0
+BuildRequires:  libieee1284-devel
+BuildRequires:  OpenEXR-devel
+BuildRequires:  hal-devel  
+BuildRequires:  libusb-devel
+BuildRequires:  libxml2-utils
+BuildRequires:  GL-devel
+BuildRequires:  bdftopcf
+BuildRequires:  imake
+BuildRequires:  libraw1394-devel
+BuildRequires:  libxklavier-devel
+BuildRequires:  lua-devel
+BuildRequires:  bluez-devel
+BuildRequires:  boost-devel
+BuildRequires:  xrdb
+BuildRequires:  qimageblitz-devel
+BuildRequires:  pulseaudio-devel
+BuildRequires:  openslp-devel  
+BuildRequires:  ssh-devel  >=  0.4.2
+BuildRequires:  libxine-devel
+BuildRequires:  libssh-devel  >=  0.3.92
+BuildRequires:  attica-devel
+BuildRequires:  shared-desktop-ontologies-devel  >=  0.4
+BuildRequires:  libexiv-devel
+Requires:  kdelibs4-core
+Requires:  oxygen-icon-theme
+Suggests:  kde4-l10n
+Suggests:  hicolor-icon-theme
+Suggests:  kde4-splash-mdv
+Suggests:  htdig
+Suggests:  kwallet-daemon
+Suggests:  kdialog
+Suggests:  gdb
+Suggests:  cagibi
+Requires:    soprano-plugin-redland
+Requires:    polkit-kde-1
+Obsoletes:  kdebase4-progs  <  1:3.93.0-0.714129.2
+Obsoletes:  kdebase4-core    <  1:3.93.0-0.714129.2
+Obsoletes:  kdebase4-common  <=  1:3.80.3
+Conflicts:  kdebase4-workspace  <  2:4.2.87-1
+Conflicts:  kdelibs4-core  <  4.1.70
+%if  %mdkversion  >=  201000
+Obsoletes:  kdebase3  <  1:3.5.10-24
+Obsoletes:  kdebase3-common  <  1:3.5.10-24
+Obsoletes:  kdebase3-progs  <  1:3.5.10-24
+Obsoletes:  kdebase3-konsole  <  1:3.5.10-24
+Obsoletes:  kdebase  <  1:3.5.10-24
+Obsoletes:  kdebase-common  <  1:3.5.10-24
+Obsoletes:  kdebase-progs  <  1:3.5.10-24
+Obsoletes:  kdebase-konsole  <  1:3.5.10-24
+Obsoletes:  krootwarning  <  2:2008.1.1-10
+Obsoletes:  krozat  <  2:2008.1.6-5
+Obsoletes:  ksplash-engine-moodin  <  0.4.2-15
+Obsoletes:  mdklaunchhelp  <  2:2007-3
 %endif
-Conflicts: digikam < 0.10.0-1.beta5.2
-Conflicts: kappfinder < 1:4.3.0
-Conflicts: dolphin < 1:4.3.0
-Conflicts: kdepim4-akonadi < 2:4.2.85-3
-Conflicts: nepomuk-scribo < 1:0.6.0-3
-Conflicts: kdelibs4-core <  2:4.4.86-1
+Conflicts:  digikam  <  0.10.0-1.beta5.2
+Conflicts:  kappfinder  <  1:4.3.0
+Conflicts:  dolphin  <  1:4.3.0
+Conflicts:  kdepim4-akonadi  <  2:4.2.85-3
+Conflicts:  nepomuk-scribo  <  1:0.6.0-3
+Conflicts:  kdelibs4-core  <    2:4.4.86-1
 
-BuildRoot: %_tmppath/%name-%version-%release-root
+BuildRoot:  %_tmppath/%name-%version-%release-root
 
 %description
-KDE 4 application runtime components.
+KDE  4  application  runtime  components.
 
 %files
 %defattr(-,root,root)
@@ -214,89 +211,89 @@ KDE 4 application runtime components.
 %_sysconfdir/dbus-1/system.d/org.kde.kcontrol.kcmremotewidgets.conf
 %_kde_datadir/dbus-1/system-services/org.kde.kcontrol.kcmremotewidgets.service
 %_kde_datadir/polkit-1/actions/org.kde.kcontrol.kcmremotewidgets.policy
-%exclude %_kde_iconsdir/hicolor/index.theme
-%exclude %_kde_libdir/kde4/kcm_phononxine.so
-%exclude %_kde_datadir/kde4/services/kcm_phononxine.desktop
+%exclude  %_kde_iconsdir/hicolor/index.theme
+%exclude  %_kde_libdir/kde4/kcm_phononxine.so
+%exclude  %_kde_datadir/kde4/services/kcm_phononxine.desktop
 
 #--------------------------------------------------------------
 
-%package -n phonon-xine-kcm 
-Summary:    Phonon Xine KCM
-Group: Development/KDE and Qt
+%package  -n  phonon-xine-kcm  
+Summary:        Phonon  Xine  KCM
+Group:  Development/KDE  and  Qt
 
-%description -n phonon-xine-kcm
-This package provide the KCM for Phonon Xine.
+%description  -n  phonon-xine-kcm
+This  package  provide  the  KCM  for  Phonon  Xine.
 
-%files -n phonon-xine-kcm
+%files  -n  phonon-xine-kcm
 %defattr(-,root,root)
 %_kde_libdir/kde4/kcm_phononxine.so
 %_kde_datadir/kde4/services/kcm_phononxine.desktop
 
 #--------------------------------------------------------------
 
-%package -n kwallet-daemon
-Summary: Kwallet daemon
-Group: Development/KDE and Qt
+%package  -n  kwallet-daemon
+Summary:  Kwallet  daemon
+Group:  Development/KDE  and  Qt
 
-%description -n kwallet-daemon
-Kwallet daemon.
+%description  -n  kwallet-daemon
+Kwallet  daemon.
 
-%files -n kwallet-daemon
+%files  -n  kwallet-daemon
 %defattr(-,root,root)
 %_kde_bindir/kwalletd
 %_kde_appsdir/kwalletd
 
 #--------------------------------------------------------------
 
-%define kwalletbackend_major 4
-%define libkwalletbackend %mklibname kwalletbackend %kwalletbackend_major
+%define  kwalletbackend_major  4
+%define  libkwalletbackend  %mklibname  kwalletbackend  %kwalletbackend_major
 
-%package -n %libkwalletbackend
-Summary: KDE 4 core library
-Group: System/Libraries
-Conflicts: %{_lib}kdecore5 >= 30000000:3.80.3
-Obsoletes: %{_lib}kwalletbackend5 < 3.93.0-0.714006.1
+%package  -n  %libkwalletbackend
+Summary:  KDE  4  core  library
+Group:  System/Libraries
+Conflicts:  %{_lib}kdecore5  >=  30000000:3.80.3
+Obsoletes:  %{_lib}kwalletbackend5  <  3.93.0-0.714006.1
 
-%description -n %libkwalletbackend
-KDE 4 core library.
+%description  -n  %libkwalletbackend
+KDE  4  core  library.
 
-%files -n %libkwalletbackend
+%files  -n  %libkwalletbackend
 %defattr(-,root,root)
 %_kde_libdir/libkwalletbackend.so.%{kwalletbackend_major}*
 
 #--------------------------------------------------------------
 
-%define molletnetwork_major 4
-%define libmolletnetwork %mklibname molletnetwork %molletnetwork_major
+%define  molletnetwork_major  4
+%define  libmolletnetwork  %mklibname  molletnetwork  %molletnetwork_major
 
-%package -n %libmolletnetwork
-Summary: KDE 4 core library
-Group: System/Libraries
+%package  -n  %libmolletnetwork
+Summary:  KDE  4  core  library
+Group:  System/Libraries
 
-%description -n %libmolletnetwork
-KDE 4 core library.
+%description  -n  %libmolletnetwork
+KDE  4  core  library.
 
-%files -n %libmolletnetwork
+%files  -n  %libmolletnetwork
 %defattr(-,root,root)
 %_kde_libdir/libmolletnetwork.so.%{molletnetwork_major}*
 
 #-----------------------------------------------------------------------------
 
-%package   devel
-Group:     Development/KDE and Qt
-Summary:   Header files and documentation for compiling KDE applications
-Requires:  kdelibs4-devel >= 2:4.2.96
-Requires:  kdelibs4-experimental-devel >= 4.2.96
-Requires:  %name = %epoch:%version
-Requires:  %libkwalletbackend = %epoch:%version
-Requires:  %libmolletnetwork = %epoch:%version
+%package      devel
+Group:          Development/KDE  and  Qt
+Summary:      Header  files  and  documentation  for  compiling  KDE  applications
+Requires:    kdelibs4-devel  >=  2:4.2.96
+Requires:    kdelibs4-experimental-devel  >=  4.2.96
+Requires:    %name  =  %epoch:%version
+Requires:    %libkwalletbackend  =  %epoch:%version
+Requires:    %libmolletnetwork  =  %epoch:%version
 
-%description devel
-This package includes the header files you will need to compile applications
-for KDE. Also included is the KDE API documentation in HTML format for easy
+%description  devel
+This  package  includes  the  header  files  you  will  need  to  compile  applications
+for  KDE.  Also  included  is  the  KDE  API  documentation  in  HTML  format  for  easy
 browsing.
 
-%files devel
+%files  devel
 %defattr(-,root,root,-)
 %{_kde_libdir}/libkwalletbackend.so
 %{_kde_libdir}/libmolletnetwork.so
@@ -305,27 +302,26 @@ browsing.
 #-----------------------------------------------------------------------------
 
 %prep
-%if %branch
-%setup -q -n kdebase-runtime-%version%kde_snapshot
+%if  %branch
+%setup  -q  -n  kdebase-runtime-%version%kde_snapshot
 %else
-%setup -q -n kdebase-runtime-%version
+%setup  -q  -n  kdebase-runtime-%version
 %endif
 
-#%patch0 -p1
-%patch1 -p0
-%patch5 -p1 -b .bug_49814
-%patch8 -p0
-%patch9 -p0 -b .nepomuk
-%patch300 -p1
+#%patch0  -p1
+%patch1  -p0
+%patch5  -p1  -b  .bug_49814
+%patch8  -p0
+#%patch300  -p1
 %build
 %cmake_kde4
 %make
 
 %install
-rm -fr %buildroot
+rm  -fr  %buildroot
 
-%makeinstall_std -C build
+%makeinstall_std  -C  build
 
 %clean
-rm -fr %buildroot
+rm  -fr  %buildroot
 
