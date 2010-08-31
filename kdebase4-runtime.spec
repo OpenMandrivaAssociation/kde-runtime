@@ -218,7 +218,7 @@ KDE  4  application  runtime  components.
 
 %package  -n  phonon-xine-kcm  
 Summary:        Phonon  Xine  KCM
-Group:  Development/KDE  and  Qt
+Group:  Development/KDE and Qt
 
 %description  -n  phonon-xine-kcm
 This  package  provide  the  KCM  for  Phonon  Xine.
@@ -232,7 +232,7 @@ This  package  provide  the  KCM  for  Phonon  Xine.
 
 %package  -n  kwallet-daemon
 Summary:  Kwallet  daemon
-Group:  Development/KDE  and  Qt
+Group:  Development/KDE and Qt
 
 %description  -n  kwallet-daemon
 Kwallet  daemon.
@@ -279,7 +279,7 @@ KDE  4  core  library.
 #-----------------------------------------------------------------------------
 
 %package      devel
-Group:          Development/KDE  and  Qt
+Group:          Development/KDE and Qt
 Summary:      Header  files  and  documentation  for  compiling  KDE  applications
 Requires:    kdelibs4-devel  >=  2:4.2.96
 Requires:    kdelibs4-experimental-devel  >=  4.2.96
