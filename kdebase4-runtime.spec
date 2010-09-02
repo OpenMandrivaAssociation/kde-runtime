@@ -169,6 +169,7 @@ KDE  4  application  runtime  components.
 %_kde_datadir/sounds
 %_kde_libdir/kde4/*
 %_kde_libdir/libkdeinit4_*
+%_kde_libdir/libnepomukcommon.so
 %_kde_libdir/kconf_update_bin/phonon_devicepreference_update
 %_kde_libdir/kconf_update_bin/phonon_deviceuids_update
 %_kde_appsdir/kcm_phonon
@@ -210,6 +211,9 @@ KDE  4  application  runtime  components.
 %_sysconfdir/dbus-1/system.d/org.kde.kcontrol.kcmremotewidgets.conf
 %_kde_datadir/dbus-1/system-services/org.kde.kcontrol.kcmremotewidgets.service
 %_kde_datadir/polkit-1/actions/org.kde.kcontrol.kcmremotewidgets.policy
+%doc %_kde_docdir/HTML/en/onlinehelp
+%_kde_datadir/ontology/kde/kuvo.ontology
+%_kde_datadir/ontology/kde/kuvo.trig
 %exclude  %_kde_iconsdir/hicolor/index.theme
 %exclude  %_kde_libdir/kde4/kcm_phononxine.so
 %exclude  %_kde_datadir/kde4/services/kcm_phononxine.desktop
