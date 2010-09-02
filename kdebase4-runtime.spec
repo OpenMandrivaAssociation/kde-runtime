@@ -3,13 +3,13 @@
 
 
 %if  %branch
-%define  kde_snapshot  svn1165394
+%define  kde_snapshot  svn1170578
 %endif
 
 Name:  kdebase4-runtime
 Summary:  K  Desktop  Environment  -  Base  Runtime
-Version:  4.5.65
-Release:  %mkrel  4
+Version:  4.5.67
+Release:  %mkrel 1
 Epoch:  1
 Group:  Graphical desktop/KDE
 License:  GPL
