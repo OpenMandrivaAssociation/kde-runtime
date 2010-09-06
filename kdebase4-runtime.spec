@@ -9,7 +9,7 @@
 Name:  kdebase4-runtime
 Summary:  K  Desktop  Environment  -  Base  Runtime
 Version:  4.5.67
-Release:  %mkrel 2
+Release:  %mkrel 3
 Epoch:  1
 Group:  Graphical desktop/KDE
 License:  GPL
@@ -83,20 +83,6 @@ Obsoletes:  kdebase4-core    <  1:3.93.0-0.714129.2
 Obsoletes:  kdebase4-common  <=  1:3.80.3
 Conflicts:  kdebase4-workspace  <  2:4.5.65-1
 Conflicts:  kdelibs4-core  <  4.1.70
-%if  %mdkversion  >=  201000
-Obsoletes:  kdebase3  <  1:3.5.10-24
-Obsoletes:  kdebase3-common  <  1:3.5.10-24
-Obsoletes:  kdebase3-progs  <  1:3.5.10-24
-Obsoletes:  kdebase3-konsole  <  1:3.5.10-24
-Obsoletes:  kdebase  <  1:3.5.10-24
-Obsoletes:  kdebase-common  <  1:3.5.10-24
-Obsoletes:  kdebase-progs  <  1:3.5.10-24
-Obsoletes:  kdebase-konsole  <  1:3.5.10-24
-Obsoletes:  krootwarning  <  2:2008.1.1-10
-Obsoletes:  krozat  <  2:2008.1.6-5
-Obsoletes:  ksplash-engine-moodin  <  0.4.2-15
-Obsoletes:  mdklaunchhelp  <  2:2007-3
-%endif
 Conflicts:  digikam  <  0.10.0-1.beta5.2
 Conflicts:  kappfinder  <  1:4.3.0
 Conflicts:  dolphin  <  1:4.3.0
@@ -311,11 +297,9 @@ browsing.
 %setup  -q  -n  kdebase-runtime-%version
 %endif
 
-#%patch0  -p1
 %patch1  -p0
 %patch5  -p1  -b  .bug_49814
 %patch8  -p0
-#%patch300  -p1
 %build
 %cmake_kde4
 %make
