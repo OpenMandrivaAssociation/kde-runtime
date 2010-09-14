@@ -284,6 +284,7 @@ browsing.
 
 %files devel
 %defattr(-,root,root,-)
+%{_kde_includedir}/*.h
 %{_kde_libdir}/libkwalletbackend.so
 %{_kde_libdir}/libmolletnetwork.so
 %{_kde_datadir}/dbus-1/interfaces/*
