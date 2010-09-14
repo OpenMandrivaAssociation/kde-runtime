@@ -44,6 +44,7 @@ BuildRequires: avahi-compat-libdns_sd-devel
 BuildRequires: avahi-client-devel
 BuildRequires: libsmbclient-devel > 3.0
 BuildRequires: libieee1284-devel
+BuildRequires: libcanberra-devel
 BuildRequires: OpenEXR-devel
 BuildRequires: hal-devel 
 BuildRequires: libusb-devel
