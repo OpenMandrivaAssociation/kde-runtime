@@ -2,13 +2,17 @@
 %{?_branch: %{expand: %%global branch 1}}
 
 %if %branch
-%define kde_snapshot svn1174542
+%define kde_snapshot svn1183366
 %endif
 
 Name: kdebase4-runtime
 Summary: K Desktop Environment - Base Runtime
-Version: 4.5.68
+Version: 4.5.71
+%if %branch
+Release: %mkrel -c %kde_snapshot 1
+%else
 Release: %mkrel 1
+%endif
 Epoch: 1
 Group: Graphical desktop/KDE
 License: GPL
@@ -28,45 +32,21 @@ Patch8: kdebase-runtime-4.4.1-use-mdv-icon.patch
 
 # Testing Patches 300 -> ...
 Patch300: kdebase-runtime-4.5-speakersetup.patch
-
-BuildRequires: kde4-macros
-BuildRequires: kdelibs4-devel >= 2:%version
-BuildRequires: kdepimlibs4-devel >= 2:%version
+BuildRequires: kdelibs4-devel >= 2:4.5.71
 BuildRequires: phonon-devel >= 2:4.4.3
 BuildRequires: strigi-devel >= 1:0.5.10-2
 BuildRequires: soprano-devel >= 2.3.67
-BuildRequires: fontconfig-devel >= 2.1-9mdk
-BuildRequires: pam-devel
-BuildRequires: freetype2-devel
-BuildRequires: libsasl-devel
-BuildRequires: openldap-devel
-BuildRequires: avahi-compat-libdns_sd-devel 
-BuildRequires: avahi-client-devel
-BuildRequires: libsmbclient-devel > 3.0
-BuildRequires: libieee1284-devel
-BuildRequires: libcanberra-devel
 BuildRequires: OpenEXR-devel
-BuildRequires: hal-devel 
-BuildRequires: libusb-devel
-BuildRequires: libxml2-utils
-BuildRequires: GL-devel
-BuildRequires: bdftopcf
-BuildRequires: imake
-BuildRequires: libraw1394-devel
-BuildRequires: libxklavier-devel
-BuildRequires: lua-devel
-BuildRequires: bluez-devel
-BuildRequires: boost-devel
-BuildRequires: xrdb
-BuildRequires: qimageblitz-devel
-BuildRequires: pulseaudio-devel
-BuildRequires: openslp-devel 
-BuildRequires: ssh-devel >= 0.4.2
-BuildRequires: libxine-devel
-BuildRequires: libssh-devel >= 0.3.92
+BuildRequires: libalsa-devel
 BuildRequires: attica-devel
-BuildRequires: shared-desktop-ontologies-devel >= 0.4
+BuildRequires: libxcursor-devel
+BuildRequires: libcanberra-devel
 BuildRequires: libexiv-devel
+BuildRequires: jpeg-devel
+BuildRequires: pulseaudio-devel
+BuildRequires: libsmbclient-devel
+BuildRequires: ssh-devel
+BuildRequires: libxine-devel
 Requires: kdelibs4-core
 Requires: oxygen-icon-theme
 Suggests: kde4-l10n
@@ -82,7 +62,7 @@ Requires: polkit-kde-1
 Obsoletes: kdebase4-progs < 1:3.93.0-0.714129.2
 Obsoletes: kdebase4-core < 1:3.93.0-0.714129.2
 Obsoletes: kdebase4-common <= 1:3.80.3
-Conflicts: kdebase4-workspace < 2:4.5.65-1
+Conflicts: kdebase4-workspace < 2:4.5.71
 Conflicts: kdelibs4-core < 4.1.70
 Conflicts: digikam < 0.10.0-1.beta5.2
 Conflicts: kappfinder < 1:4.3.0
@@ -98,112 +78,229 @@ KDE 4 application runtime components.
 
 %files
 %defattr(-,root,root)
-%_datadir/dbus-1/services/*
-%_kde_appsdir/drkonqi
-%_kde_appsdir/kcm_componentchooser
-%_kde_appsdir/kcmlocale
-%_kde_appsdir/kde
-%_kde_appsdir/kio_finger/kio_finger.css
-%_kde_appsdir/kio_finger/kio_finger.pl
-%_kde_appsdir/kio_info/kde-info2html
-%_kde_appsdir/kio_info/kde-info2html.conf
-%_kde_autostart/nepomukserver.desktop
-%_kde_bindir/kuiserver
-%_kde_bindir/ksvgtopng
+%_kde_sysconfdir/dbus-1/system.d/org.kde.kcontrol.kcmremotewidgets.conf
+%_kde_sysconfdir/xdg/menus/kde-information.menu
 %_kde_bindir/kcmshell4
-%_kde_bindir/kde4-menu
-%_kde_bindir/kdebugdialog
 %_kde_bindir/kde-cp
 %_kde_bindir/kde-mv
 %_kde_bindir/kde-open
+%_kde_bindir/kde4
+%_kde_bindir/kde4-menu
+%_kde_bindir/kdebugdialog
+%_kde_bindir/keditfiletype
 %_kde_bindir/kfile4
-%_kde_bindir/khotnewstuff4
+%_kde_bindir/kglobalaccel
+%_kde_bindir/khelpcenter
 %_kde_bindir/khotnewstuff-upload
+%_kde_bindir/khotnewstuff4
+%_kde_bindir/kiconfinder
 %_kde_bindir/kioclient
 %_kde_bindir/kmimetypefinder
-%_kde_bindir/plasmapkg
-%_kde_datadir/applications/kde4/knetattach.desktop
-%_kde_docdir/*/*/knetattach
 %_kde_bindir/knotify4
 %_kde_bindir/kquitapp
 %_kde_bindir/kreadconfig
 %_kde_bindir/kstart
+%_kde_bindir/ksvgtopng
 %_kde_bindir/ktraderclient
 %_kde_bindir/ktrash
+%_kde_bindir/kuiserver
 %_kde_bindir/kwriteconfig
-%_kde_bindir/kde4
-%_kde_bindir/kiconfinder
 %_kde_bindir/nepomukserver
 %_kde_bindir/nepomukservicestub
+%_kde_bindir/plasmapkg
 %_kde_bindir/solid-hardware
-%_kde_bindir/keditfiletype
-%_kde_bindir/kglobalaccel
-%_kde_sysconfdir/xdg/menus/kde-information.menu
-%_kde_datadir/applications/kde4/Help.desktop
-%_kde_datadir/config/khotnewstuff.knsrc
-%_kde_datadir/config/kshorturifilterrc
-%_kde_datadir/desktop-directories
-%_kde_datadir/kde4/services/*
-%_kde_datadir/kde4/servicetypes/*
-%_kde_appsdir/remoteview/smb-network.desktop
-%_kde_appsdir/remoteview/network.desktop
-%_kde_appsdir/kio_bookmarks
-%_kde_appsdir/kio_desktop
-%_kde_appsdir/kglobalaccel
-%_kde_datadir/locale/l10n/*/*
-%_kde_datadir/locale/l10n/*.desktop
-%_kde_datadir/locale/en_US
-%_kde_datadir/sounds
-%_kde_libdir/kde4/*
-%_kde_libdir/libkdeinit4_*
-%_kde_libdir/libnepomukcommon.so
 %_kde_libdir/kconf_update_bin/phonon_devicepreference_update
 %_kde_libdir/kconf_update_bin/phonon_deviceuids_update
-%_kde_appsdir/kcm_phonon
-%_kde_appsdir/kconf_update/devicepreference.upd
-%_kde_appsdir/libphonon
-%_kde_appsdir/phonon
-%_kde_bindir/khelpcenter
-%_kde_appsdir/khelpcenter
-%_kde_docdir/*/*/khelpcenter
-%_kde_docdir/*/*/kcontrol
-%_kde_docdir/*/*/kdesu
-%_kde_mandir/man1/kdesu.1*
-%_kde_mandir/man8/nepomukserver.8*
-%_kde_mandir/man8/nepomukservicestub.8*
-%_kde_docdir/*/*/kioslave
-%_kde_docdir/*/*/kdebugdialog
-%_kde_docdir/*/*/network
-%_kde_datadir/apps/kconf_update/kuriikwsfilter.upd
-%_kde_appsdir/konqueror/dirtree/remote/smb-network.desktop
-%_kde_appsdir/konqsidebartng/virtual_folders/remote/virtualfolder_network.desktop
-%_kde_datadir/apps/cmake/modules/*
-%_kde_datadir/config.kcfg/*
-%_kde_appsdir/ksmserver/windowmanagers
-%_kde_appsdir/nepomukstorage
-%_kde_appsdir/kio_docfilter
-%_kde_configdir/emoticons.knsrc
-%_kde_iconsdir/hicolor/*/*/*
-%_kde_datadir/emoticons/*
-%_kde_datadir/config/icons.knsrc
-%_kde_iconsdir/default.kde4
-%_kde_appsdir/desktoptheme/default
-%_kde_appsdir/desktoptheme/oxygen
-%_kde_datadir/mime/packages/network.xml
-%_kde_appsdir/nepomukstrigiservice
+%_kde_libdir/kde4/comicbookthumbnail.so
+%_kde_libdir/kde4/cursorthumbnail.so
+%_kde_libdir/kde4/djvuthumbnail.so
+%_kde_libdir/kde4/exrthumbnail.so
+%_kde_libdir/kde4/fixhosturifilter.so
+%_kde_libdir/kde4/htmlthumbnail.so
+%_kde_libdir/kde4/imagethumbnail.so
+%_kde_libdir/kde4/jpegthumbnail.so
+%_kde_libdir/kde4/kcm_attica.so
+%_kde_libdir/kde4/kcm_cgi.so
+%_kde_libdir/kde4/kcm_componentchooser.so
+%_kde_libdir/kde4/kcm_device_automounter.so
+%_kde_libdir/kde4/kcm_emoticons.so
+%_kde_libdir/kde4/kcm_filetypes.so
+%_kde_libdir/kde4/kcm_icons.so
+%_kde_libdir/kde4/kcm_kded.so
+%_kde_libdir/kde4/kcm_kdnssd.so
+%_kde_libdir/kde4/kcm_knotify.so
+%_kde_libdir/kde4/kcm_locale.so
+%_kde_libdir/kde4/kcm_nepomuk.so
+%_kde_libdir/kde4/kcm_phonon.so
+%_kde_libdir/kde4/kcm_trash.so
+%_kde_libdir/kde4/kcmspellchecking.so
+%_kde_libdir/kde4/kded_activitymanager.so
+%_kde_libdir/kde4/kded_desktopnotifier.so
+%_kde_libdir/kde4/kded_device_automounter.so
+%_kde_libdir/kde4/kded_kpasswdserver.so
+%_kde_libdir/kde4/kded_ktimezoned.so
+%_kde_libdir/kde4/kded_nepomuksearchmodule.so
+%_kde_libdir/kde4/kded_networkstatus.so
+%_kde_libdir/kde4/kded_networkwatcher.so
+%_kde_libdir/kde4/kded_phononserver.so
+%_kde_libdir/kde4/kded_remotedirnotify.so
+%_kde_libdir/kde4/kded_solidautoeject.so
+%_kde_libdir/kde4/kded_soliduiserver.so
+%_kde_libdir/kde4/kio_about.so
+%_kde_libdir/kde4/kio_applications.so
+%_kde_libdir/kde4/kio_archive.so
+%_kde_libdir/kde4/kio_bookmarks.so
+%_kde_libdir/kde4/kio_cgi.so
+%_kde_libdir/kde4/kio_desktop.so
+%_kde_libdir/kde4/kio_filter.so
+%_kde_libdir/kde4/kio_finger.so
+%_kde_libdir/kde4/kio_fish.so
+%_kde_libdir/kde4/kio_floppy.so
+%_kde_libdir/kde4/kio_info.so
+%_kde_libdir/kde4/kio_man.so
+%_kde_libdir/kde4/kio_nepomuk.so
+%_kde_libdir/kde4/kio_nepomuksearch.so
+%_kde_libdir/kde4/kio_network.so
+%_kde_libdir/kde4/kio_nfs.so
+%_kde_libdir/kde4/kio_remote.so
+%_kde_libdir/kde4/kio_settings.so
+%_kde_libdir/kde4/kio_sftp.so
+%_kde_libdir/kde4/kio_smb.so
+%_kde_libdir/kde4/kio_thumbnail.so
+%_kde_libdir/kde4/kio_timeline.so
+%_kde_libdir/kde4/kio_trash.so
+%_kde_libdir/kde4/kshorturifilter.so
+%_kde_libdir/kde4/kuriikwsfilter.so
+%_kde_libdir/kde4/kurisearchfilter.so
+%_kde_libdir/kde4/libkmanpart.so
+%_kde_libdir/kde4/librenaudioplugin.so
+%_kde_libdir/kde4/librenimageplugin.so
+%_kde_libdir/kde4/localdomainurifilter.so
+%_kde_libdir/kde4/nepomukactivitiesservice.so
+%_kde_libdir/kde4/nepomukfilewatch.so
+%_kde_libdir/kde4/nepomukqueryservice.so
+%_kde_libdir/kde4/nepomukremovablestorageservice.so
+%_kde_libdir/kde4/nepomukstorage.so
+%_kde_libdir/kde4/nepomukstrigiservice.so
+%_kde_libdir/kde4/plasma-kpart.so
+%_kde_libdir/kde4/plasma_appletscript_simple_javascript.so
+%_kde_libdir/kde4/plasma_containment_newspaper.so
+%_kde_libdir/kde4/plasma_dataenginescript_javascript.so
+%_kde_libdir/kde4/plasma_packagestructure_javascriptaddon.so
+%_kde_libdir/kde4/plasma_runnerscript_javascript.so
+%_kde_libdir/kde4/svgthumbnail.so
+%_kde_libdir/kde4/textthumbnail.so
+%_kde_libdir/kde4/windowsexethumbnail.so
+%_kde_libdir/kde4/windowsimagethumbnail.so
+%_kde_libdir/kde4/libexec
+%_kde_libdir/kde4/plugins
 %_kde_libdir/attica_kde.so
-%_kde_datadir/config/khotnewstuff_upload.knsrc
-%_kde_datadir/locale/currency
+%_kde_libdir/libkdeinit4_kcmshell4.so
+%_kde_libdir/libkdeinit4_kglobalaccel.so
+%_kde_libdir/libkdeinit4_khelpcenter.so
+%_kde_libdir/libkdeinit4_kuiserver.so
+%_kde_libdir/libkdeinit4_nepomukserver.so
+%_kde_libdir/libnepomukcommon.so
+%_kde_applicationsdir/*.desktop
+%_kde_appsdir/desktoptheme
+%_kde_appsdir/drkonqi
 %_kde_appsdir/hardwarenotifications
-%_sysconfdir/dbus-1/system.d/org.kde.kcontrol.kcmremotewidgets.conf
-%_kde_datadir/dbus-1/system-services/org.kde.kcontrol.kcmremotewidgets.service
-%_kde_datadir/polkit-1/actions/org.kde.kcontrol.kcmremotewidgets.policy
-%doc %_kde_docdir/HTML/en/onlinehelp
-%_kde_datadir/ontology/kde/kuvo.ontology
-%_kde_datadir/ontology/kde/kuvo.trig
-%exclude %_kde_iconsdir/hicolor/index.theme
-%exclude %_kde_libdir/kde4/kcm_phononxine.so
-%exclude %_kde_datadir/kde4/services/kcm_phononxine.desktop
+%_kde_appsdir/kcm_componentchooser
+%_kde_appsdir/kcm_phonon
+%_kde_appsdir/kcmlocale
+%_kde_appsdir/kconf_update/*.upd
+%_kde_appsdir/kde
+%_kde_appsdir/kglobalaccel
+%_kde_appsdir/khelpcenter
+%_kde_appsdir/kio_bookmarks
+%_kde_appsdir/kio_desktop
+%_kde_appsdir/kio_docfilter
+%_kde_appsdir/kio_finger
+%_kde_appsdir/kio_info
+%_kde_appsdir/konqsidebartng
+%_kde_appsdir/konqueror
+%_kde_appsdir/ksmserver
+%_kde_appsdir/libphonon
+%_kde_appsdir/nepomukstorage
+%_kde_appsdir/nepomukstrigiservice
+%_kde_appsdir/phonon
+%_kde_appsdir/remoteview
+%_kde_autostart/nepomukserver.desktop
+%_kde_datadir/config.kcfg/*.kcfg
+%_kde_configdir/*.knsrc
+%_kde_configdir/kshorturifilterrc
+%_kde_datadir/dbus-1/services/*.service
+%_kde_datadir/dbus-1/system-services/*.service
+%_kde_datadir/desktop-directories/*.directory
+%_kde_datadir/emoticons/kde4
+%_kde_iconsdir/default.kde4
+%_kde_iconsdir/*/*/*/*
+%_kde_services/*.protocol
+%_kde_services/comicbookthumbnail.desktop
+%_kde_services/componentchooser.desktop
+%_kde_services/cursorthumbnail.desktop
+%_kde_services/desktopthumbnail.desktop
+%_kde_services/device_automounter_kcm.desktop
+%_kde_services/directorythumbnail.desktop
+%_kde_services/djvuthumbnail.desktop
+%_kde_services/emoticons.desktop
+%_kde_services/exrthumbnail.desktop
+%_kde_services/filetypes.desktop
+%_kde_services/fixhosturifilter.desktop
+%_kde_services/htmlthumbnail.desktop
+%_kde_services/icons.desktop
+%_kde_services/imagethumbnail.desktop
+%_kde_services/jpegthumbnail.desktop
+%_kde_services/kcm_attica.desktop
+%_kde_services/kcm_kdnssd.desktop
+%_kde_services/kcm_nepomuk.desktop
+%_kde_services/kcm_phonon.desktop
+%_kde_services/kcmcgi.desktop
+%_kde_services/kcmkded.desktop
+%_kde_services/kcmnotify.desktop
+%_kde_services/kcmtrash.desktop
+%_kde_services/kglobalaccel.desktop
+%_kde_services/khelpcenter.desktop
+%_kde_services/kmanpart.desktop
+%_kde_services/knotify4.desktop
+%_kde_services/kshorturifilter.desktop
+%_kde_services/kuiserver.desktop
+%_kde_services/kuriikwsfilter.desktop
+%_kde_services/kurisearchfilter.desktop
+%_kde_services/language.desktop
+%_kde_services/localdomainurifilter.desktop
+%_kde_services/nepomukactivitiesservice.desktop
+%_kde_services/nepomukfilewatch.desktop
+%_kde_services/nepomukqueryservice.desktop
+%_kde_services/nepomukremovablestorageservice.desktop
+%_kde_services/nepomukstorage.desktop
+%_kde_services/nepomukstrigiservice.desktop
+%_kde_services/plasma-containment-newspaper.desktop
+%_kde_services/plasma-kpart.desktop
+%_kde_services/plasma-packagestructure-javascript-addon.desktop
+%_kde_services/plasma-scriptengine-applet-simple-javascript.desktop
+%_kde_services/plasma-scriptengine-dataengine-javascript.desktop
+%_kde_services/plasma-scriptengine-runner-javascript.desktop
+%_kde_services/renaudiodlg.desktop
+%_kde_services/renimagedlg.desktop
+%_kde_services/searchproviders
+%_kde_services/spellchecking.desktop
+%_kde_services/svgthumbnail.desktop
+%_kde_services/textthumbnail.desktop
+%_kde_services/windowsexethumbnail.desktop
+%_kde_services/windowsimagethumbnail.desktop
+%_kde_services/kded/*.desktop
+%_kde_servicetypes/*.desktop
+%_kde_datadir/locale/currency
+%_kde_datadir/locale/en_US/*
+%_kde_datadir/locale/l10n/*/*
+%_kde_datadir/locale/l10n/*.desktop
+%_kde_mandir/man?/*
+%_kde_datadir/mime/packages/*.xml
+%_kde_datadir/ontology/kde/*
+%_kde_datadir/polkit-1/actions/*.policy
+%_kde_datadir/sounds/*
+%doc %_kde_docdir/HTML/en/*
 
 #--------------------------------------------------------------
 
@@ -224,6 +321,7 @@ This package provide the KCM for Phonon Xine.
 %package -n kwallet-daemon
 Summary: Kwallet daemon
 Group: Development/KDE and Qt
+Conflicts: %{name} < 2:4.5.71
 
 %description -n kwallet-daemon
 Kwallet daemon.
@@ -231,7 +329,9 @@ Kwallet daemon.
 %files -n kwallet-daemon
 %defattr(-,root,root)
 %_kde_bindir/kwalletd
+%_kde_libdir/libkdeinit4_kwalletd.so
 %_kde_appsdir/kwalletd
+%_kde_services/kwalletd.desktop
 
 #--------------------------------------------------------------
 
@@ -289,6 +389,7 @@ browsing.
 %{_kde_libdir}/libkwalletbackend.so
 %{_kde_libdir}/libmolletnetwork.so
 %{_kde_datadir}/dbus-1/interfaces/*
+%{_kde_appsdir}/cmake/modules/*.cmake
 
 #-----------------------------------------------------------------------------
 
@@ -311,6 +412,8 @@ browsing.
 rm -fr %buildroot
 
 %makeinstall_std -C build
+
+rm -f %buildroot%_kde_iconsdir/hicolor/index.theme
 
 %clean
 rm -fr %buildroot
