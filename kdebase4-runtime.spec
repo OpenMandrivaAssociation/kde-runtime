@@ -372,8 +372,7 @@ KDE 4 core library.
 %package devel
 Group: Development/KDE and Qt
 Summary: Header files and documentation for compiling KDE applications
-Requires: kdelibs4-devel >= 2:4.2.96
-Requires: kdelibs4-experimental-devel >= 4.2.96
+Requires: kdelibs4-devel >= 2:4.5.71
 Requires: %name = %epoch:%version
 Requires: %libkwalletbackend = %epoch:%version
 Requires: %libmolletnetwork = %epoch:%version
