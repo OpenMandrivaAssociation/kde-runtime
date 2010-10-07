@@ -321,7 +321,7 @@ This package provide the KCM for Phonon Xine.
 %package -n kwallet-daemon
 Summary: Kwallet daemon
 Group: Development/KDE and Qt
-Conflicts: %{name} < 2:4.5.71
+Conflicts: %{name} < 1:4.5.71
 
 %description -n kwallet-daemon
 Kwallet daemon.
