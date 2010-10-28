@@ -183,6 +183,7 @@ KDE 4 application runtime components.
 %_kde_libdir/kde4/nepomukstorage.so
 %_kde_libdir/kde4/nepomukstrigiservice.so
 %_kde_libdir/kde4/plasma-kpart.so
+%_kde_libdir/kde4/plasma_appletscript_declarative.so
 %_kde_libdir/kde4/plasma_appletscript_simple_javascript.so
 %_kde_libdir/kde4/plasma_containment_newspaper.so
 %_kde_libdir/kde4/plasma_dataenginescript_javascript.so
@@ -192,6 +193,7 @@ KDE 4 application runtime components.
 %_kde_libdir/kde4/textthumbnail.so
 %_kde_libdir/kde4/windowsexethumbnail.so
 %_kde_libdir/kde4/windowsimagethumbnail.so
+%_kde_libdir/kde4/imports/org/kde/plasma
 %_kde_libdir/kde4/libexec
 %_kde_libdir/kde4/plugins
 %_kde_libdir/attica_kde.so
@@ -278,6 +280,7 @@ KDE 4 application runtime components.
 %_kde_services/plasma-containment-newspaper.desktop
 %_kde_services/plasma-kpart.desktop
 %_kde_services/plasma-packagestructure-javascript-addon.desktop
+%_kde_services/plasma-scriptengine-applet-declarative.desktop
 %_kde_services/plasma-scriptengine-applet-simple-javascript.desktop
 %_kde_services/plasma-scriptengine-dataengine-javascript.desktop
 %_kde_services/plasma-scriptengine-runner-javascript.desktop
