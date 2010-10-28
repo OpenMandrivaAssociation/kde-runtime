@@ -32,7 +32,7 @@ Patch8: kdebase-runtime-4.4.1-use-mdv-icon.patch
 
 # Testing Patches 300 -> ...
 Patch300: kdebase-runtime-4.5-speakersetup.patch
-BuildRequires: kdelibs4-devel >= 2:4.5.71
+BuildRequires: kdelibs4-devel >= 2:4.5.74
 BuildRequires: phonon-devel >= 2:4.4.3
 BuildRequires: strigi-devel >= 1:0.5.10-2
 BuildRequires: soprano-devel >= 2.3.67
