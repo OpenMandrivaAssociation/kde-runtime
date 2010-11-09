@@ -22,7 +22,7 @@ Source0: ftp://ftp.kde.org/pub/kde/unstable/%version/src/kdebase-runtime-%versio
 %else
 Source0: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdebase-runtime-%version.tar.bz2
 %endif
-Patch0: kdebase-runtime-4.1.1-fix-htsearch-path.patch
+Patch0: kdebase-runtime-4.5.74-fix-htsearch-path.patch
 Patch1: kdebase-runtime-4.2.95-fix-desktop-files.patch
 Patch5: kdebase-runtime-4.3.2-knotify-fix-cpu-charge.patch
 Patch8: kdebase-runtime-4.4.1-use-mdv-icon.patch
@@ -88,6 +88,7 @@ KDE 4 application runtime components.
 %_kde_bindir/kde4
 %_kde_bindir/kde4-menu
 %_kde_bindir/kdebugdialog
+%_kde_bindir/kdesu
 %_kde_bindir/keditfiletype
 %_kde_bindir/kfile4
 %_kde_bindir/kglobalaccel
@@ -403,6 +404,7 @@ browsing.
 %setup -q -n kdebase-runtime-%version
 %endif
 
+%patch0 -p1 -b .htsearch
 %patch1 -p0
 %patch5 -p1 -b .bug_49814
 %patch8 -p0
@@ -411,7 +413,7 @@ browsing.
 
 %build
 %cmake_kde4
-%make
+%make -j16
 
 %install
 rm -fr %buildroot
@@ -419,6 +421,9 @@ rm -fr %buildroot
 %makeinstall_std -C build
 
 rm -f %buildroot%_kde_iconsdir/hicolor/index.theme
+
+mkdir -p %{buildroot}%{_kde_bindir}
+ln -s %_kde_libdir/kde4/libexec/kdesu %{buildroot}%{_kde_bindir}/kdesu
 
 %clean
 rm -fr %buildroot
