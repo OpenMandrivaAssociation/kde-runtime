@@ -9,7 +9,7 @@ Name: kdebase4-runtime
 Summary: K Desktop Environment - Base Runtime
 Version: 4.5.74
 %if %branch
-Release: %mkrel -c %kde_snapshot 1
+Release: %mkrel -c %kde_snapshot 2
 %else
 Release: %mkrel 1
 %endif
@@ -32,6 +32,7 @@ Patch8: kdebase-runtime-4.4.1-use-mdv-icon.patch
 
 # Testing Patches 300 -> ...
 Patch300: kdebase-runtime-4.5-speakersetup.patch
+Patch301: kdebase-runtime-4.5.74-setgid-kdesud.patch
 BuildRequires: kdelibs4-devel >= 2:4.5.74
 BuildRequires: phonon-devel >= 2:4.4.3
 BuildRequires: strigi-devel >= 1:0.5.10-2
@@ -405,6 +406,8 @@ browsing.
 %patch1 -p0
 %patch5 -p1 -b .bug_49814
 %patch8 -p0
+
+%patch301 -p0
 
 %build
 %cmake_kde4
