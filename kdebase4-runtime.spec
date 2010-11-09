@@ -413,7 +413,7 @@ browsing.
 
 %build
 %cmake_kde4
-%make -j16
+%make
 
 %install
 rm -fr %buildroot
