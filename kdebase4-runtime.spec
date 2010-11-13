@@ -2,14 +2,14 @@
 %{?_branch: %{expand: %%global branch 1}}
 
 %if %branch
-%define kde_snapshot svn1190490
+%define kde_snapshot svn1196361
 %endif
 
 Name: kdebase4-runtime
 Summary: K Desktop Environment - Base Runtime
-Version: 4.5.74
+Version: 4.5.76
 %if %branch
-Release: %mkrel -c %kde_snapshot 2
+Release: %mkrel -c %kde_snapshot 1
 %else
 Release: %mkrel 1
 %endif
@@ -31,7 +31,6 @@ Patch8: kdebase-runtime-4.4.1-use-mdv-icon.patch
 # Trunk patches 200 -> 299
 
 # Testing Patches 300 -> ...
-Patch300: kdebase-runtime-4.5-speakersetup.patch
 Patch301: kdebase-runtime-4.5.74-setgid-kdesud.patch
 BuildRequires: kdelibs4-devel >= 2:4.5.74
 BuildRequires: phonon-devel >= 2:4.4.3
@@ -81,6 +80,7 @@ KDE 4 application runtime components.
 %defattr(-,root,root)
 %_kde_sysconfdir/dbus-1/system.d/org.kde.kcontrol.kcmremotewidgets.conf
 %_kde_sysconfdir/xdg/menus/kde-information.menu
+%_kde_bindir/kactivitymanagerd
 %_kde_bindir/kcmshell4
 %_kde_bindir/kde-cp
 %_kde_bindir/kde-mv
@@ -107,6 +107,7 @@ KDE 4 application runtime components.
 %_kde_bindir/ktrash
 %_kde_bindir/kuiserver
 %_kde_bindir/kwriteconfig
+%_kde_bindir/nepomukbackup
 %_kde_bindir/nepomukserver
 %_kde_bindir/nepomukservicestub
 %_kde_bindir/plasmapkg
@@ -120,6 +121,7 @@ KDE 4 application runtime components.
 %_kde_libdir/kde4/fixhosturifilter.so
 %_kde_libdir/kde4/htmlthumbnail.so
 %_kde_libdir/kde4/imagethumbnail.so
+%_kde_libdir/kde4/jpegrotatedthumbnail.so
 %_kde_libdir/kde4/jpegthumbnail.so
 %_kde_libdir/kde4/kcm_attica.so
 %_kde_libdir/kde4/kcm_cgi.so
@@ -136,7 +138,6 @@ KDE 4 application runtime components.
 %_kde_libdir/kde4/kcm_phonon.so
 %_kde_libdir/kde4/kcm_trash.so
 %_kde_libdir/kde4/kcmspellchecking.so
-%_kde_libdir/kde4/kded_activitymanager.so
 %_kde_libdir/kde4/kded_desktopnotifier.so
 %_kde_libdir/kde4/kded_device_automounter.so
 %_kde_libdir/kde4/kded_kpasswdserver.so
@@ -178,7 +179,7 @@ KDE 4 application runtime components.
 %_kde_libdir/kde4/librenaudioplugin.so
 %_kde_libdir/kde4/librenimageplugin.so
 %_kde_libdir/kde4/localdomainurifilter.so
-%_kde_libdir/kde4/nepomukactivitiesservice.so
+%_kde_libdir/kde4/nepomukbackupsync.so
 %_kde_libdir/kde4/nepomukfilewatch.so
 %_kde_libdir/kde4/nepomukqueryservice.so
 %_kde_libdir/kde4/nepomukremovablestorageservice.so
@@ -204,6 +205,7 @@ KDE 4 application runtime components.
 %_kde_libdir/libkdeinit4_khelpcenter.so
 %_kde_libdir/libkdeinit4_kuiserver.so
 %_kde_libdir/libkdeinit4_nepomukserver.so
+%_kde_libdir/libknotifyplugin.so
 %_kde_libdir/libnepomukcommon.so
 %_kde_applicationsdir/*.desktop
 %_kde_appsdir/desktoptheme
@@ -254,7 +256,9 @@ KDE 4 application runtime components.
 %_kde_services/htmlthumbnail.desktop
 %_kde_services/icons.desktop
 %_kde_services/imagethumbnail.desktop
+%_kde_services/jpegrotatedthumbnail.desktop
 %_kde_services/jpegthumbnail.desktop
+%_kde_services/kactivitymanagerd.desktop
 %_kde_services/kcm_attica.desktop
 %_kde_services/kcm_kdnssd.desktop
 %_kde_services/kcm_nepomuk.desktop
@@ -274,6 +278,7 @@ KDE 4 application runtime components.
 %_kde_services/language.desktop
 %_kde_services/localdomainurifilter.desktop
 %_kde_services/nepomukactivitiesservice.desktop
+%_kde_services/nepomukbackupsync.desktop
 %_kde_services/nepomukfilewatch.desktop
 %_kde_services/nepomukqueryservice.desktop
 %_kde_services/nepomukremovablestorageservice.desktop
@@ -297,7 +302,6 @@ KDE 4 application runtime components.
 %_kde_services/kded/*.desktop
 %_kde_servicetypes/*.desktop
 %_kde_datadir/locale/currency
-%_kde_datadir/locale/en_US/*
 %_kde_datadir/locale/l10n/*/*
 %_kde_datadir/locale/l10n/*.desktop
 %_kde_mandir/man?/*
@@ -372,6 +376,22 @@ KDE 4 core library.
 %defattr(-,root,root)
 %_kde_libdir/libmolletnetwork.so.%{molletnetwork_major}*
 
+#--------------------------------------------------------------
+
+%define nepomuksync_major 4
+%define libnepomuksync %mklibname nepomuksync %nepomuksync_major
+
+%package -n %libnepomuksync
+Summary: KDE 4 core library
+Group: System/Libraries
+
+%description -n %libnepomuksync
+KDE 4 core library.
+
+%files -n %libnepomuksync
+%defattr(-,root,root)
+%_kde_libdir/libnepomuksync.so.%{nepomuksync_major}*
+
 #-----------------------------------------------------------------------------
 
 %package devel
@@ -381,6 +401,7 @@ Requires: kdelibs4-devel >= 2:4.5.71
 Requires: %name = %epoch:%version
 Requires: %libkwalletbackend = %epoch:%version
 Requires: %libmolletnetwork = %epoch:%version
+Requires: %libnepomuksync = %epoch:%version
 
 %description devel
 This package includes the header files you will need to compile applications
@@ -390,8 +411,10 @@ browsing.
 %files devel
 %defattr(-,root,root,-)
 %{_kde_includedir}/*.h
+%{_kde_includedir}/nepomuk/*.h
 %{_kde_libdir}/libkwalletbackend.so
 %{_kde_libdir}/libmolletnetwork.so
+%{_kde_libdir}/libnepomuksync.so
 %{_kde_datadir}/dbus-1/interfaces/*
 %{_kde_appsdir}/cmake/modules/*.cmake
 
