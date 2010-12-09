@@ -11,7 +11,7 @@ Version: 4.5.85
 %if %branch
 Release: %mkrel -c %kde_snapshot 1
 %else
-Release: %mkrel 2
+Release: %mkrel 1
 %endif
 Epoch: 1
 Group: Graphical desktop/KDE
@@ -284,6 +284,7 @@ KDE 4 application runtime components.
 %_kde_services/nepomukremovablestorageservice.desktop
 %_kde_services/nepomukstorage.desktop
 %_kde_services/nepomukstrigiservice.desktop
+%_kde_services/nepomukontologyloader.desktop
 %_kde_services/plasma-containment-newspaper.desktop
 %_kde_services/plasma-kpart.desktop
 %_kde_services/plasma-packagestructure-javascript-addon.desktop
