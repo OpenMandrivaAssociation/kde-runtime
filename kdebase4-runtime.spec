@@ -7,7 +7,7 @@
 
 Name: kdebase4-runtime
 Summary: K Desktop Environment - Base Runtime
-Version: 4.5.90
+Version: 4.5.95
 %if %branch
 Release: %mkrel -c %kde_snapshot 1
 %else
