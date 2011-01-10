@@ -11,7 +11,7 @@ Version: 4.5.95
 %if %branch
 Release: %mkrel -c %kde_snapshot 1
 %else
-Release: %mkrel 1
+Release: %mkrel 2
 %endif
 Epoch: 1
 Group: Graphical desktop/KDE
@@ -27,7 +27,7 @@ Patch1: kdebase-runtime-4.2.95-fix-desktop-files.patch
 Patch5: kdebase-runtime-4.3.2-knotify-fix-cpu-charge.patch
 Patch8: kdebase-runtime-4.4.1-use-mdv-icon.patch
 # Branch patches 100 -> 199
-
+Patch100: kdebase-runtime-4.5.95-mdv-kioslave-trash-fix-kde#250977.patch
 # Trunk patches 200 -> 299
 
 # Testing Patches 300 -> ...
@@ -432,6 +432,8 @@ browsing.
 %patch1 -p0
 %patch5 -p1 -b .bug_49814
 %patch8 -p0
+
+%patch100 -p0
 
 %patch301 -p0
 
