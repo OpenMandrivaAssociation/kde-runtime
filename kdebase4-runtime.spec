@@ -239,7 +239,7 @@ KDE 4 application runtime components.
 %_kde_datadir/desktop-directories/*.directory
 %_kde_datadir/emoticons/kde4
 %_kde_iconsdir/default.kde4
-%_kde_iconsdir/*/*/apps/*
+%_kde_iconsdir/hicolor/*/apps/*
 %_kde_services/*.protocol
 %_kde_services/comicbookthumbnail.desktop
 %_kde_services/componentchooser.desktop
