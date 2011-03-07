@@ -11,7 +11,7 @@ Version: 4.6.1
 %if %branch
 Release: %mkrel -c %kde_snapshot 1
 %else
-Release: %mkrel 2
+Release: 2
 %endif
 Epoch: 1
 Group: Graphical desktop/KDE
