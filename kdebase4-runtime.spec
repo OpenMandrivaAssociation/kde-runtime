@@ -70,8 +70,6 @@ Conflicts: kdepim4-akonadi < 2:4.2.85-3
 Conflicts: nepomuk-scribo < 1:0.6.0-3
 Conflicts: kdelibs4-core < 2:4.4.86-1
 
-BuildRoot: %_tmppath/%name-%version-%release-root
-
 %description
 KDE 4 application runtime components.
 
