@@ -11,7 +11,7 @@ Version: 4.6.3
 %if %branch
 Release: 0.%kde_snapshot.1
 %else
-Release: 1
+Release: 2
 %endif
 Epoch: 1
 Group: Graphical desktop/KDE
@@ -28,13 +28,13 @@ Patch5: kdebase-runtime-4.3.2-knotify-fix-cpu-charge.patch
 Patch8: kdebase-runtime-4.4.1-use-mdv-icon.patch
 # Branch patches 100 -> 199
 # Trunk patches 200 -> 299
-
+Patch200: kdebase-runtime-4.6.3-nepomuk-sync-trunk.patch
 # Testing Patches 300 -> ...
 Patch301: kdebase-runtime-4.5.74-setgid-kdesud.patch
 BuildRequires: kdelibs4-devel >= 2:4.5.74
 BuildRequires: phonon-devel >= 2:4.4.3
 BuildRequires: strigi-devel >= 1:0.5.10-2
-BuildRequires: soprano-devel >= 2.3.67
+BuildRequires: soprano-devel >= 2.6.50
 BuildRequires: OpenEXR-devel
 BuildRequires: libalsa-devel
 BuildRequires: attica-devel
@@ -69,6 +69,8 @@ Conflicts: dolphin < 1:4.3.0
 Conflicts: kdepim4-akonadi < 2:4.2.85-3
 Conflicts: nepomuk-scribo < 1:0.6.0-3
 Conflicts: kdelibs4-core < 2:4.4.86-1
+
+BuildRoot: %_tmppath/%name-%version-%release-root
 
 %description
 KDE 4 application runtime components.
@@ -355,7 +357,6 @@ Obsoletes: %{_lib}kwalletbackend5 < 3.93.0-0.714006.1
 KDE 4 core library.
 
 %files -n %libkwalletbackend
-%defattr(-,root,root)
 %_kde_libdir/libkwalletbackend.so.%{kwalletbackend_major}*
 
 #--------------------------------------------------------------
@@ -428,7 +429,7 @@ browsing.
 %patch1 -p0
 %patch5 -p1 -b .bug_49814
 %patch8 -p0
-
+%patch200 -p1 -b nepomuk_trunk
 %patch301 -p0
 
 %build
