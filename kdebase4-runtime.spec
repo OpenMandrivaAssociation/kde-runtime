@@ -181,7 +181,6 @@ KDE 4 application runtime components.
 %_kde_libdir/kde4/nepomukbackupsync.so
 %_kde_libdir/kde4/nepomukfilewatch.so
 %_kde_libdir/kde4/nepomukqueryservice.so
-%_kde_libdir/kde4/nepomukremovablestorageservice.so
 %_kde_libdir/kde4/nepomukstorage.so
 %_kde_libdir/kde4/nepomukstrigiservice.so
 %_kde_libdir/kde4/plasma-kpart.so
