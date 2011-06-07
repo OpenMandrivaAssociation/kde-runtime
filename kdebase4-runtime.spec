@@ -109,6 +109,8 @@ KDE 4 application runtime components.
 %_kde_bindir/nepomukbackup
 %_kde_bindir/nepomukserver
 %_kde_bindir/nepomukservicestub
+%_kde_bindir/nepomukcontroller
+%_kde_bindir/nepomukindexer
 %_kde_bindir/plasmapkg
 %_kde_bindir/solid-hardware
 %_kde_libdir/kconf_update_bin/phonon_devicepreference_update
@@ -205,6 +207,7 @@ KDE 4 application runtime components.
 %_kde_libdir/libkdeinit4_nepomukserver.so
 %_kde_libdir/libknotifyplugin.so
 %_kde_libdir/libnepomukcommon.so
+%_kde_libdir/libnepomukdatamanagement.so
 %_kde_applicationsdir/*.desktop
 %_kde_appsdir/desktoptheme
 %_kde_appsdir/drkonqi
@@ -227,6 +230,7 @@ KDE 4 application runtime components.
 %_kde_appsdir/libphonon
 %_kde_appsdir/nepomukstorage
 %_kde_appsdir/nepomukstrigiservice
+%_kde_appsdir/nepomukfilewatch
 %_kde_appsdir/phonon
 %_kde_appsdir/remoteview
 %_kde_autostart/nepomukserver.desktop
@@ -409,6 +413,7 @@ browsing.
 %files devel
 %defattr(-,root,root,-)
 %{_kde_includedir}/*.h
+%{_kde_includedir}/nepomuk
 %{_kde_libdir}/libkwalletbackend.so
 %{_kde_libdir}/libmolletnetwork.so
 %{_kde_libdir}/libnepomuksync.so
