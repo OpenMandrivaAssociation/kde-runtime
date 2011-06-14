@@ -433,7 +433,7 @@ browsing.
 %patch1 -p0
 %patch5 -p1 -b .bug_49814
 %patch8 -p0
-#%patch200 -p1 -b nepomuk_trunk
+%patch200 -p1 -b nepomuk_trunk
 %patch301 -p0
 
 %build
