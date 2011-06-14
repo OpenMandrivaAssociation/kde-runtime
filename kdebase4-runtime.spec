@@ -169,7 +169,6 @@ KDE 4 application runtime components.
 %_kde_libdir/kde4/kio_remote.so
 %_kde_libdir/kde4/kio_settings.so
 %_kde_libdir/kde4/kio_sftp.so
-%_kde_libdir/kde4/kio_smb.so
 %_kde_libdir/kde4/kio_thumbnail.so
 %_kde_libdir/kde4/kio_timeline.so
 %_kde_libdir/kde4/kio_trash.so
@@ -225,7 +224,6 @@ KDE 4 application runtime components.
 %_kde_appsdir/kio_finger
 %_kde_appsdir/kio_info
 %_kde_appsdir/konqsidebartng
-%_kde_appsdir/konqueror
 %_kde_appsdir/ksmserver
 %_kde_appsdir/libphonon
 %_kde_appsdir/nepomukstorage
