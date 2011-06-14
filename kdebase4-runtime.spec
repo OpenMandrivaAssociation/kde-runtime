@@ -28,7 +28,7 @@ Patch5: kdebase-runtime-4.3.2-knotify-fix-cpu-charge.patch
 Patch8: kdebase-runtime-4.4.1-use-mdv-icon.patch
 # Branch patches 100 -> 199
 # Trunk patches 200 -> 299
-Patch200: kdebase-runtime-4.6.3-nepomuk-sync-trunk.patch
+Patch200: kdebase-runtime-4.6.4-nepomuk-sync-trunk.patch
 # Testing Patches 300 -> ...
 Patch301: kdebase-runtime-4.5.74-setgid-kdesud.patch
 BuildRequires: kdelibs4-devel >= 2:4.5.74
