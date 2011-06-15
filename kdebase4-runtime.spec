@@ -11,7 +11,7 @@ Version: 4.6.4
 %if %branch
 Release: 0.%kde_snapshot.1
 %else
-Release: 2
+Release: 3
 %endif
 Epoch: 1
 Group: Graphical desktop/KDE
@@ -29,6 +29,7 @@ Patch8: kdebase-runtime-4.4.1-use-mdv-icon.patch
 # Branch patches 100 -> 199
 # Trunk patches 200 -> 299
 Patch200: kdebase-runtime-4.6.4-nepomuk-sync-trunk.patch
+Patch201: kdebase-runtime-4.6.4-add-nepomukcontroller-autostart.patch
 # Testing Patches 300 -> ...
 Patch301: kdebase-runtime-4.5.74-setgid-kdesud.patch
 BuildRequires: kdelibs4-devel >= 2:4.5.74
@@ -432,6 +433,7 @@ browsing.
 %patch5 -p1 -b .bug_49814
 %patch8 -p0
 %patch200 -p1 -b nepomuk_trunk
+%patch201 -p1 -b autostart
 %patch301 -p0
 
 %build
