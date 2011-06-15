@@ -114,6 +114,7 @@ KDE 4 application runtime components.
 %_kde_bindir/nepomukindexer
 %_kde_bindir/plasmapkg
 %_kde_bindir/solid-hardware
+%_kde_datadir/autostart/nepomukcontroller.desktop
 %_kde_libdir/kconf_update_bin/phonon_devicepreference_update
 %_kde_libdir/kconf_update_bin/phonon_deviceuids_update
 %_kde_libdir/kde4/comicbookthumbnail.so
