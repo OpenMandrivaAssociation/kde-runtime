@@ -11,7 +11,7 @@ Version: 4.6.4
 %if %branch
 Release: 0.%kde_snapshot.1
 %else
-Release: 4
+Release: 5
 %endif
 Epoch: 1
 Group: Graphical desktop/KDE
@@ -27,6 +27,7 @@ Patch1: kdebase-runtime-4.2.95-fix-desktop-files.patch
 Patch5: kdebase-runtime-4.3.2-knotify-fix-cpu-charge.patch
 Patch8: kdebase-runtime-4.4.1-use-mdv-icon.patch
 Patch9: kdebase-runtime-4.6.4-do-not-show-homedesktop.patch
+Patch10: kdebase-runtime-4.6.4-do-not-copy-trash.patch
 # Branch patches 100 -> 199
 # Trunk patches 200 -> 299
 Patch200: kdebase-runtime-4.6.4-nepomuk-sync-trunk.patch
@@ -435,6 +436,7 @@ browsing.
 %patch5 -p1 -b .bug_49814
 %patch8 -p0
 %patch9 -p0
+%patch10 -p1
 %patch200 -p1 -b nepomuk_trunk
 %patch201 -p1 -b autostart
 %patch301 -p0
