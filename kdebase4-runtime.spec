@@ -7,20 +7,20 @@
 
 Name: kdebase4-runtime
 Summary: K Desktop Environment - Base Runtime
-Version: 4.6.4
+Version: 4.6.90
 %if %branch
 Release: 0.%kde_snapshot.1
 %else
-Release: 5
+Release: 1
 %endif
 Epoch: 1
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://www.kde.org
 %if %branch
-Source0: ftp://ftp.kde.org/pub/kde/unstable/%version/src/kdebase-runtime-%version%kde_snapshot.tar.bz2
+Source0: ftp://ftp.kde.org/pub/kde/unstable/%version/src/kde-runtime-%version%kde_snapshot.tar.bz2
 %else
-Source0: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdebase-runtime-%version.tar.bz2
+Source0: ftp://ftp.kde.org/pub/kde/stable/%version/src/kde-runtime-%version.tar.bz2
 %endif
 Patch0: kdebase-runtime-4.5.74-fix-htsearch-path.patch
 Patch1: kdebase-runtime-4.2.95-fix-desktop-files.patch
@@ -30,8 +30,6 @@ Patch9: kdebase-runtime-4.6.4-do-not-show-homedesktop.patch
 Patch10: kdebase-runtime-4.6.4-do-not-copy-trash.patch
 # Branch patches 100 -> 199
 # Trunk patches 200 -> 299
-Patch200: kdebase-runtime-4.6.4-nepomuk-sync-trunk.patch
-Patch201: kdebase-runtime-4.6.4-add-nepomukcontroller-autostart.patch
 # Testing Patches 300 -> ...
 Patch301: kdebase-runtime-4.5.74-setgid-kdesud.patch
 BuildRequires: kdelibs4-devel >= 2:4.5.74
@@ -426,9 +424,9 @@ browsing.
 
 %prep
 %if %branch
-%setup -q -n kdebase-runtime-%version%kde_snapshot
+%setup -q -n kde-runtime-%version%kde_snapshot
 %else
-%setup -q -n kdebase-runtime-%version
+%setup -q -n kde-runtime-%version
 %endif
 
 %patch0 -p1 -b .htsearch
@@ -437,8 +435,6 @@ browsing.
 %patch8 -p0
 %patch9 -p0
 %patch10 -p1
-%patch200 -p1 -b nepomuk_trunk
-%patch201 -p1 -b autostart
 %patch301 -p0
 
 %build
