@@ -113,6 +113,7 @@ KDE 4 application runtime components.
 %_kde_bindir/nepomukcontroller
 %_kde_bindir/nepomukindexer
 %_kde_bindir/plasmapkg
+%_kde_bindir/plasma-remote-helper
 %_kde_bindir/solid-hardware
 %_kde_datadir/autostart/nepomukcontroller.desktop
 %_kde_libdir/kconf_update_bin/phonon_devicepreference_update
@@ -124,7 +125,6 @@ KDE 4 application runtime components.
 %_kde_libdir/kde4/fixhosturifilter.so
 %_kde_libdir/kde4/htmlthumbnail.so
 %_kde_libdir/kde4/imagethumbnail.so
-#%_kde_libdir/kde4/jpegrotatedthumbnail.so
 %_kde_libdir/kde4/jpegthumbnail.so
 %_kde_libdir/kde4/kcm_attica.so
 %_kde_libdir/kde4/kcm_cgi.so
@@ -195,6 +195,8 @@ KDE 4 application runtime components.
 %_kde_libdir/kde4/plasma_runnerscript_javascript.so
 %_kde_libdir/kde4/svgthumbnail.so
 %_kde_libdir/kde4/textthumbnail.so
+%_kde_libdir/kde4/imports/org/kde/qtextracomponents/libqtextracomponentsplugin.so
+%_kde_libdir/kde4/imports/org/kde/qtextracomponents/qmldir
 %_kde_libdir/kde4/windowsexethumbnail.so
 %_kde_libdir/kde4/windowsimagethumbnail.so
 %_kde_libdir/kde4/imports/org/kde/plasma
@@ -258,7 +260,6 @@ KDE 4 application runtime components.
 %_kde_services/htmlthumbnail.desktop
 %_kde_services/icons.desktop
 %_kde_services/imagethumbnail.desktop
-#%_kde_services/jpegrotatedthumbnail.desktop
 %_kde_services/jpegthumbnail.desktop
 %_kde_services/kactivitymanagerd.desktop
 %_kde_services/kcm_attica.desktop
