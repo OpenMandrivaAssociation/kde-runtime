@@ -124,7 +124,7 @@ KDE 4 application runtime components.
 %_kde_libdir/kde4/fixhosturifilter.so
 %_kde_libdir/kde4/htmlthumbnail.so
 %_kde_libdir/kde4/imagethumbnail.so
-%_kde_libdir/kde4/jpegrotatedthumbnail.so
+#%_kde_libdir/kde4/jpegrotatedthumbnail.so
 %_kde_libdir/kde4/jpegthumbnail.so
 %_kde_libdir/kde4/kcm_attica.so
 %_kde_libdir/kde4/kcm_cgi.so
@@ -258,7 +258,7 @@ KDE 4 application runtime components.
 %_kde_services/htmlthumbnail.desktop
 %_kde_services/icons.desktop
 %_kde_services/imagethumbnail.desktop
-%_kde_services/jpegrotatedthumbnail.desktop
+#%_kde_services/jpegrotatedthumbnail.desktop
 %_kde_services/jpegthumbnail.desktop
 %_kde_services/kactivitymanagerd.desktop
 %_kde_services/kcm_attica.desktop
