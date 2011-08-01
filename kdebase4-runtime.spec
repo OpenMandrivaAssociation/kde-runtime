@@ -1,37 +1,19 @@
-%define branch 0
-%{?_branch: %{expand: %%global branch 1}}
-
-%if %branch
-%define kde_snapshot svn1198704
-%endif
-
 Name: kdebase4-runtime
 Summary: K Desktop Environment - Base Runtime
-Version: 4.6.90
-%if %branch
-Release: 0.%kde_snapshot.1
-%else
+Version: 4.7.40
 Release: 1
-%endif
 Epoch: 1
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://www.kde.org
-%if %branch
-Source0: ftp://ftp.kde.org/pub/kde/unstable/%version/src/kde-runtime-%version%kde_snapshot.tar.bz2
-%else
 Source0: ftp://ftp.kde.org/pub/kde/stable/%version/src/kde-runtime-%version.tar.bz2
-%endif
 Patch0: kdebase-runtime-4.5.74-fix-htsearch-path.patch
-Patch1: kdebase-runtime-4.2.95-fix-desktop-files.patch
 Patch5: kdebase-runtime-4.3.2-knotify-fix-cpu-charge.patch
 Patch8: kdebase-runtime-4.4.1-use-mdv-icon.patch
+
+#(nl) DO NOT REMOVE, NEEDED FOR MDV/ROSA DEFAULT DESKTOP
 Patch9: kdebase-runtime-4.6.4-do-not-show-homedesktop.patch
 Patch10: kdebase-runtime-4.6.4-do-not-copy-trash.patch
-# Branch patches 100 -> 199
-# Trunk patches 200 -> 299
-# Testing Patches 300 -> ...
-Patch301: kdebase-runtime-4.5.74-setgid-kdesud.patch
 BuildRequires: kdelibs4-devel >= 2:4.5.74
 BuildRequires: phonon-devel >= 2:4.4.3
 BuildRequires: strigi-devel >= 1:0.5.10-2
@@ -44,7 +26,7 @@ BuildRequires: libcanberra-devel
 BuildRequires: libexiv-devel
 BuildRequires: jpeg-devel
 BuildRequires: pulseaudio-devel
-#BuildRequires: libsmbclient-devel
+BuildRequires: libsmbclient-devel
 BuildRequires: ssh-devel
 BuildRequires: libxine-devel
 Requires: kdelibs4-core
@@ -115,6 +97,7 @@ KDE 4 application runtime components.
 %_kde_bindir/plasmapkg
 %_kde_bindir/plasma-remote-helper
 %_kde_bindir/solid-hardware
+%_kde_bindir/nepomuk-simpleresource-rcgen
 %_kde_datadir/autostart/nepomukcontroller.desktop
 %_kde_libdir/kconf_update_bin/phonon_devicepreference_update
 %_kde_libdir/kconf_update_bin/phonon_deviceuids_update
@@ -202,6 +185,12 @@ KDE 4 application runtime components.
 %_kde_libdir/kde4/imports/org/kde/plasma
 %_kde_libdir/kde4/libexec
 %_kde_libdir/kde4/plugins
+%_kde_libdir/kde4/activitymanager_plugin_dummy.so
+%_kde_libdir/kde4/activitymanager_plugin_nepomuk.so
+%_kde_libdir/kde4/activitymanager_plugin_slc.so
+%_kde_libdir/kde4/imports/org/kde/draganddrop/libdragdropplugin.so
+%_kde_libdir/kde4/imports/org/kde/draganddrop/qmldir
+%_kde_libdir/kde4/kio_smb.so
 %_kde_libdir/attica_kde.so
 %_kde_libdir/libkdeinit4_kcmshell4.so
 %_kde_libdir/libkdeinit4_kglobalaccel.so
@@ -235,6 +224,7 @@ KDE 4 application runtime components.
 %_kde_appsdir/nepomukfilewatch
 %_kde_appsdir/phonon
 %_kde_appsdir/remoteview
+%_kde_appsdir/konqueror/dirtree/remote/smb-network.desktop
 %_kde_autostart/nepomukserver.desktop
 %_kde_datadir/config.kcfg/*.kcfg
 %_kde_configdir/*.knsrc
@@ -303,6 +293,9 @@ KDE 4 application runtime components.
 %_kde_services/textthumbnail.desktop
 %_kde_services/windowsexethumbnail.desktop
 %_kde_services/windowsimagethumbnail.desktop
+%_kde_services/activitymanager-plugin-dummy.desktop
+%_kde_services/activitymanager-plugin-nepomuk.desktop
+%_kde_services/activitymanager-plugin-slc.desktop
 %_kde_services/kded/*.desktop
 %_kde_servicetypes/*.desktop
 %_kde_datadir/locale/currency
@@ -424,19 +417,13 @@ browsing.
 #-----------------------------------------------------------------------------
 
 %prep
-%if %branch
-%setup -q -n kde-runtime-%version%kde_snapshot
-%else
 %setup -q -n kde-runtime-%version
-%endif
 
 %patch0 -p1 -b .htsearch
-%patch1 -p0
 %patch5 -p1 -b .bug_49814
 %patch8 -p0
 %patch9 -p0
 %patch10 -p1
-%patch301 -p0
 
 %build
 %cmake_kde4
