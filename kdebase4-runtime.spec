@@ -1,7 +1,7 @@
 Name: kdebase4-runtime
 Summary: K Desktop Environment - Base Runtime
 Version: 4.7.41
-Release: 1
+Release: 2
 Epoch: 1
 Group: Graphical desktop/KDE
 License: GPL
@@ -14,6 +14,9 @@ Patch8: kdebase-runtime-4.4.1-use-mdv-icon.patch
 #(nl) DO NOT REMOVE, NEEDED FOR MDV/ROSA DEFAULT DESKTOP
 Patch9: kdebase-runtime-4.6.4-do-not-show-homedesktop.patch
 Patch10: kdebase-runtime-4.6.4-do-not-copy-trash.patch
+#(nl) Plasma active patches
+Patch1000: active-development-4.7-diff.patch
+
 BuildRequires: kdelibs4-devel >= 2:4.5.74
 BuildRequires: phonon-devel >= 2:4.4.3
 BuildRequires: strigi-devel >= 1:0.5.10-2
@@ -31,6 +34,7 @@ BuildRequires: ssh-devel
 BuildRequires: libxine-devel
 Requires: kdelibs4-core
 Requires: oxygen-icon-theme
+Requires: libkactivities 
 Suggests: kde4-l10n
 Suggests: hicolor-icon-theme
 Suggests: kde4-splash-mdv
@@ -62,7 +66,6 @@ KDE 4 application runtime components.
 %defattr(-,root,root)
 %_kde_sysconfdir/dbus-1/system.d/org.kde.kcontrol.kcmremotewidgets.conf
 %_kde_sysconfdir/xdg/menus/kde-information.menu
-%_kde_bindir/kactivitymanagerd
 %_kde_bindir/kcmshell4
 %_kde_bindir/kde-cp
 %_kde_bindir/kde-mv
@@ -185,9 +188,6 @@ KDE 4 application runtime components.
 %_kde_libdir/kde4/imports/org/kde/plasma
 %_kde_libdir/kde4/libexec
 %_kde_libdir/kde4/plugins
-%_kde_libdir/kde4/activitymanager_plugin_dummy.so
-%_kde_libdir/kde4/activitymanager_plugin_nepomuk.so
-%_kde_libdir/kde4/activitymanager_plugin_slc.so
 %_kde_libdir/kde4/imports/org/kde/draganddrop/libdragdropplugin.so
 %_kde_libdir/kde4/imports/org/kde/draganddrop/qmldir
 %_kde_libdir/kde4/kio_smb.so
@@ -251,7 +251,6 @@ KDE 4 application runtime components.
 %_kde_services/icons.desktop
 %_kde_services/imagethumbnail.desktop
 %_kde_services/jpegthumbnail.desktop
-%_kde_services/kactivitymanagerd.desktop
 %_kde_services/kcm_attica.desktop
 %_kde_services/kcm_kdnssd.desktop
 %_kde_services/kcm_nepomuk.desktop
@@ -270,7 +269,6 @@ KDE 4 application runtime components.
 %_kde_services/kurisearchfilter.desktop
 %_kde_services/language.desktop
 %_kde_services/localdomainurifilter.desktop
-%_kde_services/nepomukactivitiesservice.desktop
 %_kde_services/nepomukbackupsync.desktop
 %_kde_services/nepomukfilewatch.desktop
 %_kde_services/nepomukqueryservice.desktop
@@ -293,9 +291,6 @@ KDE 4 application runtime components.
 %_kde_services/textthumbnail.desktop
 %_kde_services/windowsexethumbnail.desktop
 %_kde_services/windowsimagethumbnail.desktop
-%_kde_services/activitymanager-plugin-dummy.desktop
-%_kde_services/activitymanager-plugin-nepomuk.desktop
-%_kde_services/activitymanager-plugin-slc.desktop
 %_kde_services/kded/*.desktop
 %_kde_servicetypes/*.desktop
 %_kde_datadir/locale/currency
@@ -424,6 +419,7 @@ browsing.
 %patch8 -p0
 %patch9 -p0
 %patch10 -p1
+%patch1000 -p1
 
 %build
 %cmake_kde4
