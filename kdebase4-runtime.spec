@@ -276,6 +276,7 @@ KDE 4 application runtime components.
 %_kde_services/nepomukstorage.desktop
 %_kde_services/nepomukstrigiservice.desktop
 %_kde_services/nepomukontologyloader.desktop
+%_kde_services/nepomukactivitiesservice.desktop
 %_kde_services/plasma-containment-newspaper.desktop
 %_kde_services/plasma-kpart.desktop
 %_kde_services/plasma-packagestructure-javascript-addon.desktop
