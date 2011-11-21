@@ -14,8 +14,6 @@ Patch8: kdebase-runtime-4.4.1-use-mdv-icon.patch
 #(nl) DO NOT REMOVE, NEEDED FOR MDV/ROSA DEFAULT DESKTOP
 Patch9: kdebase-runtime-4.6.4-do-not-show-homedesktop.patch
 Patch10: kdebase-runtime-4.6.4-do-not-copy-trash.patch
-#(nl) Plasma active patches
-Patch1000: active-development-4.7-diff.patch
 
 BuildRequires: kdelibs4-devel >= 2:4.5.74
 BuildRequires: phonon-devel >= 2:4.4.3
@@ -420,7 +418,6 @@ browsing.
 %patch8 -p0
 %patch9 -p0
 %patch10 -p1
-%patch1000 -p1
 
 %build
 %cmake_kde4
