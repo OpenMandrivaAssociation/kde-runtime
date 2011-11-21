@@ -30,6 +30,7 @@ BuildRequires: pulseaudio-devel
 BuildRequires: libsmbclient-devel
 BuildRequires: ssh-devel
 BuildRequires: libxine-devel
+BuildRequires: automoc4
 Requires: kdelibs4-core
 Requires: oxygen-icon-theme
 Requires: libkactivities 
