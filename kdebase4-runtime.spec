@@ -170,7 +170,6 @@ KDE 4 application runtime components.
 %_kde_libdir/kde4/nepomukfilewatch.so
 %_kde_libdir/kde4/nepomukqueryservice.so
 %_kde_libdir/kde4/nepomukstorage.so
-%_kde_libdir/kde4/nepomukstrigiservice.so
 %_kde_libdir/kde4/plasma-kpart.so
 %_kde_libdir/kde4/plasma_appletscript_declarative.so
 %_kde_libdir/kde4/plasma_appletscript_simple_javascript.so
@@ -219,7 +218,6 @@ KDE 4 application runtime components.
 %_kde_appsdir/ksmserver
 %_kde_appsdir/libphonon
 %_kde_appsdir/nepomukstorage
-%_kde_appsdir/nepomukstrigiservice
 %_kde_appsdir/nepomukfilewatch
 %_kde_appsdir/phonon
 %_kde_appsdir/remoteview
