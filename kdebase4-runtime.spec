@@ -151,6 +151,7 @@ KDE 4 application runtime components.
 %_kde_libdir/kde4/kio_man.so
 %_kde_libdir/kde4/kio_nepomuk.so
 %_kde_libdir/kde4/kio_nepomuksearch.so
+%_kde_libdir/kde4/nepomukfileindexer.so
 %_kde_libdir/kde4/kio_network.so
 %_kde_libdir/kde4/kio_nfs.so
 %_kde_libdir/kde4/kio_remote.so
@@ -188,6 +189,7 @@ KDE 4 application runtime components.
 %_kde_libdir/kde4/plugins
 %_kde_libdir/kde4/imports/org/kde/draganddrop/libdragdropplugin.so
 %_kde_libdir/kde4/imports/org/kde/draganddrop/qmldir
+%_kde_libdir/kde4/platformimports
 %_kde_libdir/kde4/kio_smb.so
 %_kde_libdir/attica_kde.so
 %_kde_libdir/libkdeinit4_kcmshell4.so
@@ -219,6 +221,7 @@ KDE 4 application runtime components.
 %_kde_appsdir/libphonon
 %_kde_appsdir/nepomukstorage
 %_kde_appsdir/nepomukfilewatch
+%_kde_appsdir/fileindexerservice
 %_kde_appsdir/phonon
 %_kde_appsdir/remoteview
 %_kde_appsdir/konqueror/dirtree/remote/smb-network.desktop
@@ -274,6 +277,7 @@ KDE 4 application runtime components.
 %_kde_services/nepomukstrigiservice.desktop
 %_kde_services/nepomukontologyloader.desktop
 %_kde_services/nepomukactivitiesservice.desktop
+%_kde_services/nepomukfileindexer.desktop
 %_kde_services/plasma-containment-newspaper.desktop
 %_kde_services/plasma-kpart.desktop
 %_kde_services/plasma-packagestructure-javascript-addon.desktop
