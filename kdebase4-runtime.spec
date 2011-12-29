@@ -1,7 +1,7 @@
 Name: kdebase4-runtime
 Summary: K Desktop Environment - Base Runtime
 Version: 4.7.90
-Release: 1
+Release: 2
 Epoch: 1
 Group: Graphical desktop/KDE
 License: GPL
@@ -62,9 +62,12 @@ BuildRoot: %_tmppath/%name-%version-%release-root
 KDE 4 application runtime components.
 
 %files
-%defattr(-,root,root)
-%_kde_sysconfdir/dbus-1/system.d/org.kde.kcontrol.kcmremotewidgets.conf
-%_kde_sysconfdir/xdg/menus/kde-information.menu
+%{_sysconfdir}/dbus-1/system.d/org.kde.kcontrol.kcmremotewidgets.conf
+%{_sysconfdir}/xdg/menus/kde-information.menu
+%{_datadir}/dbus-1/interfaces/*.xml
+%{_datadir}/dbus-1/*services/*.service
+%{_datadir}/polkit-1/actions/*.policy
+#
 %_kde_bindir/kcmshell4
 %_kde_bindir/kde-cp
 %_kde_bindir/kde-mv
@@ -229,8 +232,6 @@ KDE 4 application runtime components.
 %_kde_datadir/config.kcfg/*.kcfg
 %_kde_configdir/*.knsrc
 %_kde_configdir/kshorturifilterrc
-%_kde_datadir/dbus-1/services/*.service
-%_kde_datadir/dbus-1/system-services/*.service
 %_kde_datadir/desktop-directories/*.directory
 %_kde_datadir/emoticons/kde4
 %_kde_iconsdir/default.kde4
@@ -301,7 +302,6 @@ KDE 4 application runtime components.
 %_kde_mandir/man?/*
 %_kde_datadir/mime/packages/*.xml
 %_kde_datadir/ontology/kde/*
-%_kde_datadir/polkit-1/actions/*.policy
 %_kde_datadir/sounds/*
 %doc %_kde_docdir/HTML/en/*
 
@@ -315,7 +315,6 @@ Group: Development/KDE and Qt
 This package provide the KCM for Phonon Xine.
 
 %files -n phonon-xine-kcm
-%defattr(-,root,root)
 %_kde_libdir/kde4/kcm_phononxine.so
 %_kde_datadir/kde4/services/kcm_phononxine.desktop
 
@@ -330,7 +329,6 @@ Conflicts: %{name} < 1:4.5.71
 Kwallet daemon.
 
 %files -n kwallet-daemon
-%defattr(-,root,root)
 %_kde_bindir/kwalletd
 %_kde_libdir/libkdeinit4_kwalletd.so
 %_kde_appsdir/kwalletd
@@ -366,7 +364,6 @@ Group: System/Libraries
 KDE 4 core library.
 
 %files -n %libmolletnetwork
-%defattr(-,root,root)
 %_kde_libdir/libmolletnetwork.so.%{molletnetwork_major}*
 
 #--------------------------------------------------------------
@@ -382,7 +379,6 @@ Group: System/Libraries
 KDE 4 core library.
 
 %files -n %libnepomuksync
-%defattr(-,root,root)
 %_kde_libdir/libnepomuksync.so.%{nepomuksync_major}*
 
 #-----------------------------------------------------------------------------
@@ -402,13 +398,11 @@ for KDE. Also included is the KDE API documentation in HTML format for easy
 browsing.
 
 %files devel
-%defattr(-,root,root,-)
 %{_kde_includedir}/*.h
 %{_kde_includedir}/nepomuk
 %{_kde_libdir}/libkwalletbackend.so
 %{_kde_libdir}/libmolletnetwork.so
 %{_kde_libdir}/libnepomuksync.so
-%{_kde_datadir}/dbus-1/interfaces/*
 %{_kde_appsdir}/cmake/modules/*.cmake
 
 #-----------------------------------------------------------------------------
@@ -428,14 +422,9 @@ browsing.
 
 %install
 rm -fr %buildroot
-
 %makeinstall_std -C build
 
 rm -f %buildroot%_kde_iconsdir/hicolor/index.theme
 
 mkdir -p %{buildroot}%{_kde_bindir}
 ln -s %_kde_libdir/kde4/libexec/kdesu %{buildroot}%{_kde_bindir}/kdesu
-
-%clean
-rm -fr %buildroot
-
