@@ -190,7 +190,6 @@ KDE 4 application runtime components.
 %_kde_libdir/kde4/imports/org/kde/plasma
 %_kde_libdir/kde4/libexec
 %_kde_libdir/kde4/plugins
-%_kde_libdir/kde4/imports/org/kde/draganddrop/libdragdropplugin.so
 %_kde_libdir/kde4/imports/org/kde/draganddrop/qmldir
 %_kde_libdir/kde4/platformimports
 %_kde_libdir/kde4/kio_smb.so
