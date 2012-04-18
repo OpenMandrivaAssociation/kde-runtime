@@ -202,7 +202,6 @@ KDE 4 application runtime components.
 %{_kde_libdir}/libkdeinit4_nepomukserver.so
 %{_kde_libdir}/libknotifyplugin.so
 %{_kde_libdir}/libnepomukcommon.so
-%{_kde_libdir}/libnepomukdatamanagement.so
 %{_kde_applicationsdir}/*.desktop
 %{_kde_appsdir}/desktoptheme
 %{_kde_appsdir}/drkonqi
@@ -383,6 +382,21 @@ KDE 4 core library.
 
 #-----------------------------------------------------------------------------
 
+%define nepomukdatamanagement_major 4
+%define libnepomukdatamanagement %mklibname nepomukdatamanagement %nepomukdatamanagement_major
+
+%package -n %libnepomukdatamanagement
+Summary: KDE4 core library
+Group: System/Libraries
+
+%description -n %libnepomukdatamanagement
+KDE 4 core library.
+
+%files -n %libnepomukdatamanagement
+%_kde_libdir/libnepomukdatamanagement.so.%{nepomukdatamanagement_major}*
+
+#------------------------------------------------------------------------------
+
 %package devel
 Group:		Development/KDE and Qt
 Summary:	Header files and documentation for compiling KDE applications
@@ -391,6 +405,7 @@ Requires:	%{name} = %{EVRD}
 Requires:	%{libkwalletbackend} = %{EVRD}
 Requires:	%{libmolletnetwork} = %{EVRD}
 Requires:	%{libnepomuksync} = %{EVRD}
+Requires:       %{libnepomukdatamanagement} = %{EVRD}
 
 %description devel
 This package includes the header files you will need to compile applications
@@ -403,6 +418,7 @@ browsing.
 %{_kde_libdir}/libkwalletbackend.so
 %{_kde_libdir}/libmolletnetwork.so
 %{_kde_libdir}/libnepomuksync.so
+%{_kde_libdir}/libnepomukdatamanagement.so
 %{_kde_appsdir}/cmake/modules/*.cmake
 
 #-----------------------------------------------------------------------------
