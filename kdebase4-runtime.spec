@@ -1,12 +1,12 @@
 Name:		kdebase4-runtime
 Summary:	K Desktop Environment - Base Runtime
-Version: 4.8.4
-Release: 1
+Version:	4.8.95
+Release:	1
 Epoch:		1
 Group:		Graphical desktop/KDE
 License:	GPL
 URL:		http://www.kde.org
-Source0:	ftp://ftp.kde.org/pub/kde/stable/%version/src/kde-runtime-%version.tar.xz
+Source0:	ftp://ftp.kde.org/pub/kde/unstable/%{version}/src/kde-runtime-%{version}.tar.xz
 Patch0:		kdebase-runtime-4.5.74-fix-htsearch-path.patch
 Patch5:		kdebase-runtime-4.3.2-knotify-fix-cpu-charge.patch
 Patch8:		kdebase-runtime-4.4.1-use-mdv-icon.patch
@@ -15,14 +15,19 @@ Patch8:		kdebase-runtime-4.4.1-use-mdv-icon.patch
 Patch9:		kdebase-runtime-4.6.4-do-not-show-homedesktop.patch
 Patch10:	kdebase-runtime-4.6.4-do-not-copy-trash.patch
 
-Patch11:	kdebase-runtime-4.8.0-knetattachxdg.patch
+Patch100:	kdebase-runtime-4.8.0-knetattachxdg.patch
+Patch101:	kde-runtime-4.8.2-l10n-ru.patch
+Patch102:	kde-runtime-4.8.2-save-i18n-settings.patch
 
-BuildRequires:	kdelibs4-devel >= 2:4.5.74
-BuildRequires:	phonon-devel >= 2:4.4.3
-BuildRequires:	strigi-devel >= 1:0.5.10-2
-BuildRequires:	soprano-devel >= 2.6.50
+BuildRequires:	kdelibs4-devel
+BuildRequires:	kdepimlibs4-devel
+BuildRequires:	nepomuk-core-devel
+BuildRequires:	pkgconfig(libkactivities)
+BuildRequires:	phonon-devel
+BuildRequires:	strigi-devel
+BuildRequires:	soprano-devel
 BuildRequires:	OpenEXR-devel
-BuildRequires:	libalsa-devel
+BuildRequires:	pkgconfig(alsa)
 BuildRequires:	attica-devel
 BuildRequires:	libxcursor-devel
 BuildRequires:	libcanberra-devel
@@ -33,6 +38,7 @@ BuildRequires:	libsmbclient-devel
 BuildRequires:	ssh-devel
 BuildRequires:	libxine-devel
 BuildRequires:	automoc4
+
 Requires:	kdelibs4-core
 Requires:	oxygen-icon-theme
 Requires:	libkactivities
@@ -46,17 +52,8 @@ Suggests:	gdb
 Suggests:	cagibi
 Requires:	soprano-plugin-redland
 Requires:	polkit-kde-1
-Obsoletes:	kdebase4-progs < 1:3.93.0-0.714129.2
-Obsoletes:	kdebase4-core < 1:3.93.0-0.714129.2
-Obsoletes:	kdebase4-common <= 1:3.80.3
 Conflicts:	kdebase4-workspace < 2:4.5.71
-Conflicts:	kdelibs4-core < 4.1.70
-Conflicts:	digikam < 0.10.0-1.beta5.2
-Conflicts:	kappfinder < 1:4.3.0
-Conflicts:	dolphin < 1:4.3.0
-Conflicts:	kdepim4-akonadi < 2:4.2.85-3
 Conflicts:	nepomuk-scribo < 1:0.6.0-3
-Conflicts:	kdelibs4-core < 2:4.4.86-1
 
 %description
 KDE 4 application runtime components.
@@ -94,16 +91,11 @@ KDE 4 application runtime components.
 %{_kde_bindir}/ktrash
 %{_kde_bindir}/kuiserver
 %{_kde_bindir}/kwriteconfig
-%{_kde_bindir}/nepomukbackup
-%{_kde_bindir}/nepomukserver
-%{_kde_bindir}/nepomukservicestub
 %{_kde_bindir}/nepomukcontroller
-%{_kde_bindir}/nepomukindexer
 %{_kde_bindir}/plasmapkg
 %{_kde_bindir}/plasma-remote-helper
 %{_kde_bindir}/solid-hardware
-%{_kde_bindir}/nepomuk-simpleresource-rcgen
-%_kde_datadir/autostart/nepomukcontroller.desktop
+%{_kde_datadir}/autostart/nepomukcontroller.desktop
 %{_kde_libdir}/kconf_update_bin/phonon_devicepreference_update
 %{_kde_libdir}/kconf_update_bin/phonon_deviceuids_update
 %{_kde_libdir}/kde4/comicbookthumbnail.so
@@ -137,6 +129,7 @@ KDE 4 application runtime components.
 %{_kde_libdir}/kde4/kded_networkstatus.so
 %{_kde_libdir}/kde4/kded_networkwatcher.so
 %{_kde_libdir}/kde4/kded_phononserver.so
+%{_kde_libdir}/kde4/kded_recentdocumentsnotifier.so
 %{_kde_libdir}/kde4/kded_remotedirnotify.so
 %{_kde_libdir}/kde4/kded_solidautoeject.so
 %{_kde_libdir}/kde4/kded_soliduiserver.so
@@ -154,9 +147,9 @@ KDE 4 application runtime components.
 %{_kde_libdir}/kde4/kio_man.so
 %{_kde_libdir}/kde4/kio_nepomuk.so
 %{_kde_libdir}/kde4/kio_nepomuksearch.so
-%{_kde_libdir}/kde4/nepomukfileindexer.so
 %{_kde_libdir}/kde4/kio_network.so
 %{_kde_libdir}/kde4/kio_nfs.so
+%{_kde_libdir}/kde4/kio_recentdocuments.so
 %{_kde_libdir}/kde4/kio_remote.so
 %{_kde_libdir}/kde4/kio_settings.so
 %{_kde_libdir}/kde4/kio_sftp.so
@@ -170,10 +163,6 @@ KDE 4 application runtime components.
 %{_kde_libdir}/kde4/librenaudioplugin.so
 %{_kde_libdir}/kde4/librenimageplugin.so
 %{_kde_libdir}/kde4/localdomainurifilter.so
-%{_kde_libdir}/kde4/nepomukbackupsync.so
-%{_kde_libdir}/kde4/nepomukfilewatch.so
-%{_kde_libdir}/kde4/nepomukqueryservice.so
-%{_kde_libdir}/kde4/nepomukstorage.so
 %{_kde_libdir}/kde4/plasma-kpart.so
 %{_kde_libdir}/kde4/plasma_appletscript_declarative.so
 %{_kde_libdir}/kde4/plasma_appletscript_simple_javascript.so
@@ -192,6 +181,10 @@ KDE 4 application runtime components.
 %{_kde_libdir}/kde4/plugins
 %{_kde_libdir}/kde4/imports/org/kde/draganddrop/qmldir
 %{_kde_libdir}/kde4/imports/org/kde/draganddrop/libdraganddropplugin.so
+%{_kde_libdir}/kde4/imports/org/kde/runnermodel/qmldir
+%{_kde_libdir}/kde4/imports/org/kde/runnermodel/librunnermodelplugin.so
+%{_kde_libdir}/kde4/imports/org/kde/locale/qmldir
+%{_kde_libdir}/kde4/imports/org/kde/locale/liblocalebindingsplugin.so
 %{_kde_libdir}/kde4/platformimports
 %{_kde_libdir}/kde4/kio_smb.so
 %{_kde_libdir}/attica_kde.so
@@ -199,9 +192,7 @@ KDE 4 application runtime components.
 %{_kde_libdir}/libkdeinit4_kglobalaccel.so
 %{_kde_libdir}/libkdeinit4_khelpcenter.so
 %{_kde_libdir}/libkdeinit4_kuiserver.so
-%{_kde_libdir}/libkdeinit4_nepomukserver.so
 %{_kde_libdir}/libknotifyplugin.so
-%{_kde_libdir}/libnepomukcommon.so
 %{_kde_applicationsdir}/*.desktop
 %{_kde_appsdir}/desktoptheme
 %{_kde_appsdir}/drkonqi
@@ -221,13 +212,9 @@ KDE 4 application runtime components.
 %{_kde_appsdir}/konqsidebartng
 %{_kde_appsdir}/ksmserver
 %{_kde_appsdir}/libphonon
-%{_kde_appsdir}/nepomukstorage
-%{_kde_appsdir}/nepomukfilewatch
-%{_kde_appsdir}/fileindexerservice
 %{_kde_appsdir}/phonon
 %{_kde_appsdir}/remoteview
 %{_kde_appsdir}/konqueror/dirtree/remote/smb-network.desktop
-%{_kde_autostart}/nepomukserver.desktop
 %{_kde_datadir}/config.kcfg/*.kcfg
 %{_kde_configdir}/*.knsrc
 %{_kde_configdir}/kshorturifilterrc
@@ -269,15 +256,6 @@ KDE 4 application runtime components.
 %{_kde_services}/kurisearchfilter.desktop
 %{_kde_services}/language.desktop
 %{_kde_services}/localdomainurifilter.desktop
-%{_kde_services}/nepomukbackupsync.desktop
-%{_kde_services}/nepomukfilewatch.desktop
-%{_kde_services}/nepomukqueryservice.desktop
-%{_kde_services}/nepomukremovablestorageservice.desktop
-%{_kde_services}/nepomukstorage.desktop
-%{_kde_services}/nepomukstrigiservice.desktop
-%{_kde_services}/nepomukontologyloader.desktop
-%{_kde_services}/nepomukactivitiesservice.desktop
-%{_kde_services}/nepomukfileindexer.desktop
 %{_kde_services}/plasma-containment-newspaper.desktop
 %{_kde_services}/plasma-kpart.desktop
 %{_kde_services}/plasma-packagestructure-javascript-addon.desktop
@@ -300,13 +278,12 @@ KDE 4 application runtime components.
 %{_kde_datadir}/locale/l10n/*.desktop
 %{_kde_mandir}/man?/*
 %{_kde_datadir}/mime/packages/*.xml
-%{_kde_datadir}/ontology/kde/*
 %{_kde_datadir}/sounds/*
 %doc %{_kde_docdir}/HTML/en/*
 
 #--------------------------------------------------------------
 
-%package -n phonon-xine-kcm 
+%package -n phonon-xine-kcm
 Summary:	Phonon Xine KCM
 Group:		Development/KDE and Qt
 
@@ -341,8 +318,6 @@ Kwallet daemon.
 %package -n %{libkwalletbackend}
 Summary:	KDE 4 core library
 Group:		System/Libraries
-Conflicts:	%{_lib}kdecore5 >= 30000000:3.80.3
-Obsoletes:	%{_lib}kwalletbackend5 < 3.93.0-0.714006.1
 
 %description -n %{libkwalletbackend}
 KDE 4 core library.
@@ -367,45 +342,13 @@ KDE 4 core library.
 
 #--------------------------------------------------------------
 
-%define nepomuksync_major 4
-%define libnepomuksync %mklibname nepomuksync %{nepomuksync_major}
-
-%package -n %{libnepomuksync}
-Summary:	KDE 4 core library
-Group:		System/Libraries
-
-%description -n %{libnepomuksync}
-KDE 4 core library.
-
-%files -n %{libnepomuksync}
-%{_kde_libdir}/libnepomuksync.so.%{nepomuksync_major}*
-
-#-----------------------------------------------------------------------------
-
-%define nepomukdatamanagement_major 4
-%define libnepomukdatamanagement %mklibname nepomukdatamanagement %nepomukdatamanagement_major
-
-%package -n %libnepomukdatamanagement
-Summary: KDE4 core library
-Group: System/Libraries
-
-%description -n %libnepomukdatamanagement
-KDE 4 core library.
-
-%files -n %libnepomukdatamanagement
-%_kde_libdir/libnepomukdatamanagement.so.%{nepomukdatamanagement_major}*
-
-#------------------------------------------------------------------------------
-
 %package devel
 Group:		Development/KDE and Qt
 Summary:	Header files and documentation for compiling KDE applications
-Requires:	kdelibs4-devel >= 2:4.5.71
+Requires:	kdelibs4-devel
 Requires:	%{name} = %{EVRD}
 Requires:	%{libkwalletbackend} = %{EVRD}
 Requires:	%{libmolletnetwork} = %{EVRD}
-Requires:	%{libnepomuksync} = %{EVRD}
-Requires:       %{libnepomukdatamanagement} = %{EVRD}
 
 %description devel
 This package includes the header files you will need to compile applications
@@ -414,11 +357,8 @@ browsing.
 
 %files devel
 %{_kde_includedir}/*.h
-%{_kde_includedir}/nepomuk
 %{_kde_libdir}/libkwalletbackend.so
 %{_kde_libdir}/libmolletnetwork.so
-%{_kde_libdir}/libnepomuksync.so
-%{_kde_libdir}/libnepomukdatamanagement.so
 %{_kde_appsdir}/cmake/modules/*.cmake
 
 #-----------------------------------------------------------------------------
@@ -431,17 +371,19 @@ browsing.
 %patch8 -p0
 %patch9 -p0
 %patch10 -p1
-%patch11 -p1
+%patch100 -p1
+%patch101 -p1
+%patch102 -p1
 
 %build
 %cmake_kde4
 %make
 
 %install
-%__rm -fr %{buildroot}
 %makeinstall_std -C build
 
-%__rm -f %{buildroot}%{_kde_iconsdir}/hicolor/index.theme
+rm -f %{buildroot}%{_kde_iconsdir}/hicolor/index.theme
 
-%__mkdir_p %{buildroot}%{_kde_bindir}
-%__ln_s %{_kde_libdir}/kde4/libexec/kdesu %{buildroot}%{_kde_bindir}/kdesu
+mkdir -p %{buildroot}%{_kde_bindir}
+ln -s %{_kde_libdir}/kde4/libexec/kdesu %{buildroot}%{_kde_bindir}/kdesu
+
