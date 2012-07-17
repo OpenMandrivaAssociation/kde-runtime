@@ -1,7 +1,7 @@
 Name:		kdebase4-runtime
 Summary:	K Desktop Environment - Base Runtime
-Version: 4.8.97
-Release: 1
+Version:	4.8.97
+Release:	2
 Epoch:		1
 Group:		Graphical desktop/KDE
 License:	GPL
@@ -22,22 +22,23 @@ Patch102:	kde-runtime-4.8.2-save-i18n-settings.patch
 BuildRequires:	kdelibs4-devel
 BuildRequires:	kdepimlibs4-devel
 BuildRequires:	nepomuk-core-devel
-BuildRequires:	pkgconfig(libkactivities)
-BuildRequires:	phonon-devel
-BuildRequires:	strigi-devel
-BuildRequires:	soprano-devel
-BuildRequires:	OpenEXR-devel
-BuildRequires:	pkgconfig(alsa)
-BuildRequires:	attica-devel
-BuildRequires:	libxcursor-devel
-BuildRequires:	libcanberra-devel
-BuildRequires:	libexiv-devel
 BuildRequires:	jpeg-devel
-BuildRequires:	pulseaudio-devel
-BuildRequires:	libsmbclient-devel
 BuildRequires:	ssh-devel
-BuildRequires:	libxine-devel
 BuildRequires:	automoc4
+BuildRequires:	pkgconfig(alsa)
+BuildRequires:	pkgconfig(exiv2)
+BuildRequires:	pkgconfig(libattica)
+BuildRequires:	pkgconfig(libcanberra)
+BuildRequires:	pkgconfig(libkactivities)
+BuildRequires:	pkgconfig(libpulse)
+BuildRequires:	pkgconfig(libstreams)
+BuildRequires:	pkgconfig(libxine)
+BuildRequires:	pkgconfig(NetworkManager)
+BuildRequires:	pkgconfig(OpenEXR)
+BuildRequires:	pkgconfig(phonon)
+BuildRequires:	pkgconfig(smbclient)
+BuildRequires:	pkgconfig(soprano)
+BuildRequires:	pkgconfig(xcursor)
 
 Requires:	kdelibs4-core
 Requires:	oxygen-icon-theme
@@ -95,7 +96,7 @@ KDE 4 application runtime components.
 %{_kde_bindir}/plasmapkg
 %{_kde_bindir}/plasma-remote-helper
 %{_kde_bindir}/solid-hardware
-%{_kde_datadir}/autostart/nepomukcontroller.desktop
+%{_kde_autostart}/nepomukcontroller.desktop
 %{_kde_libdir}/kconf_update_bin/phonon_devicepreference_update
 %{_kde_libdir}/kconf_update_bin/phonon_deviceuids_update
 %{_kde_libdir}/kde4/comicbookthumbnail.so
