@@ -6,7 +6,7 @@ Epoch:		1
 Group:		Graphical desktop/KDE
 License:	GPL
 URL:		http://www.kde.org
-Source0:	ftp://ftp.kde.org/pub/kde/unstable/%{version}/src/kde-runtime-%{version}.tar.xz
+Source0:	ftp://ftp.kde.org/pub/kde/stable/%{version}/src/kde-runtime-%{version}.tar.xz
 Patch0:		kdebase-runtime-4.5.74-fix-htsearch-path.patch
 Patch5:		kdebase-runtime-4.3.2-knotify-fix-cpu-charge.patch
 Patch8:		kdebase-runtime-4.4.1-use-mdv-icon.patch
