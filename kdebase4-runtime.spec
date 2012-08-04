@@ -1,7 +1,7 @@
 Name:		kdebase4-runtime
 Summary:	K Desktop Environment - Base Runtime
-Version:	4.8.97
-Release:	2
+Version: 4.9.0
+Release: 1
 Epoch:		1
 Group:		Graphical desktop/KDE
 License:	GPL
