@@ -25,6 +25,7 @@ BuildRequires:	nepomuk-core-devel
 BuildRequires:	jpeg-devel
 BuildRequires:	ssh-devel
 BuildRequires:	automoc4
+BuildRequires:	openslp-devel
 BuildRequires:	pkgconfig(alsa)
 BuildRequires:	pkgconfig(exiv2)
 BuildRequires:	pkgconfig(libattica)
