@@ -40,7 +40,6 @@ BuildRequires:	pkgconfig(phonon)
 BuildRequires:	pkgconfig(smbclient)
 BuildRequires:	pkgconfig(soprano)
 BuildRequires:	pkgconfig(xcursor)
-BuildRequires:  pkgconfig(libntrack)
 BuildRequires:  pkgconfig(libtirpc)
 
 Requires:	kdelibs4-core
