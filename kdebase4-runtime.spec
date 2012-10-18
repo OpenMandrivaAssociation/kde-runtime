@@ -18,6 +18,7 @@ Patch10:	kdebase-runtime-4.6.4-do-not-copy-trash.patch
 Patch100:	kdebase-runtime-4.8.0-knetattachxdg.patch
 Patch101:	kde-runtime-4.8.2-l10n-ru.patch
 Patch102:	kde-runtime-4.8.2-save-i18n-settings.patch
+Patch103:         kdebase-runtime-4.9.2-tirpc.patch
 
 BuildRequires:	kdelibs4-devel
 BuildRequires:	kdepimlibs4-devel
@@ -38,6 +39,7 @@ BuildRequires:	pkgconfig(NetworkManager)
 BuildRequires:	pkgconfig(OpenEXR)
 BuildRequires:	pkgconfig(phonon)
 BuildRequires:	pkgconfig(smbclient)
+
 BuildRequires:	pkgconfig(soprano)
 BuildRequires:	pkgconfig(xcursor)
 BuildRequires:  pkgconfig(libtirpc)
@@ -377,9 +379,10 @@ browsing.
 %patch100 -p1
 #%patch101 -p1
 %patch102 -p1
+%patch103 -p1
 
 %build
-%cmake_kde4
+%cmake_kde4 
 %make
 
 %install
