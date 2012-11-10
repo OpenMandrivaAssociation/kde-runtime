@@ -1,0 +1,109 @@
+diff -Nuar kde-runtime-4.8.2/kcontrol/locale/kcmlocale.cpp kde-runtime-4.8.2_new/kcontrol/locale/kcmlocale.cpp
+--- kde-runtime-4.8.2/kcontrol/locale/kcmlocale.cpp	2012-01-02 23:51:22.000000000 +0400
++++ kde-runtime-4.8.2_new/kcontrol/locale/kcmlocale.cpp	2012-05-04 19:41:49.720293235 +0400
+@@ -22,10 +22,14 @@
+ 
+ #include "kcmlocale.h"
+ 
++#include <QDir>
++#include <QDBusInterface>
+ #include <QListWidget>
+ #include <QListWidgetItem>
+ #include <QPrinter>
+ #include <QTimer>
++#include <QSettings>
++#include <QLocale>
+ 
+ #include <KAboutData>
+ #include <KActionSelector>
+@@ -642,12 +646,44 @@
+     copyCalendarSettings( &m_userCalendarSettings, &m_kcmCalendarSettings );
+ }
+ 
++void KCMLocale::saveI18nSettings()
++{
++    QString path = QDir::homePath() + "/.i18n";
++
++    QSettings m_i18nUserSettings(path, QSettings::IniFormat, this);
++    QString languages = m_kcmSettings.readEntry( "Language", QString() );
++
++    QStringList list = languages.split(':');
++    if( !list.size() )
++        return;
++
++    QLocale loc(list[0]);
++    const QString value = loc.bcp47Name().replace('-', '_')  + ".UTF-8";
++
++    m_i18nUserSettings.setValue("LC_TELEPHONE", value);
++    m_i18nUserSettings.setValue("LC_CTYPE", value);
++    m_i18nUserSettings.setValue("LANGUAGE", value);
++    m_i18nUserSettings.setValue("LC_MONETARY", value);
++    m_i18nUserSettings.setValue("LC_ADDRESS", value);
++    m_i18nUserSettings.setValue("LC_COLLATE", value);
++    m_i18nUserSettings.setValue("LC_NAME", value);
++    m_i18nUserSettings.setValue("LC_NUMERIC", value);
++    m_i18nUserSettings.setValue("LC_MEASUREMENT", value);
++    m_i18nUserSettings.setValue("LC_TIME", value);
++    m_i18nUserSettings.setValue("LANG", value);
++    m_i18nUserSettings.setValue("LC_IDENTIFICATION", value);
++    m_i18nUserSettings.setValue("LC_MESSAGES", value);
++
++    m_i18nUserSettings.sync();
++}
++
+ void KCMLocale::save()
+ {
+     m_userConfig->sync();
+ 
+     // rebuild the date base if language was changed
+     if ( m_currentTranslations != m_kcmSettings.readEntry( "Language", QString() ) ) {
++        saveI18nSettings();
+         KMessageBox::information(this, ki18n("Changed language settings apply only to "
+                                             "newly started applications.\nTo change the "
+                                             "language of all programs, you will have to "
+@@ -655,6 +691,8 @@
+                                 ki18n("Applying Language Settings").toString(m_kcmLocale),
+                                 QLatin1String("LanguageChangesApplyOnlyToNewlyStartedPrograms"));
+         KBuildSycocaProgressDialog::rebuildKSycoca(this);
++        QDBusInterface ksmServer( "org.kde.ksmserver", "/KSMServer", "org.kde.KSMServerInterface" );
++        ksmServer.call("logout", 1, 0, 3);
+     }
+ 
+     load();
+@@ -3338,7 +3376,7 @@
+     m_ui->m_labelBinaryUnitSample->setText( ki18nc("Example test for binary unit dialect",
+                                                    "Example: 2000 bytes equals %1")
+                                                   .subs( m_kcmLocale->formatByteSize( 2000, 2 ) )
+-                                                  .toString( m_kcmLocale ) );
++                                            .toString( m_kcmLocale ) );
+ }
+ 
+ QString KCMLocale::posixToUserTime( const QString &posixFormat ) const
+diff -Nuar kde-runtime-4.8.2/kcontrol/locale/kcmlocale.h kde-runtime-4.8.2_new/kcontrol/locale/kcmlocale.h
+--- kde-runtime-4.8.2/kcontrol/locale/kcmlocale.h	2011-07-27 22:36:15.000000000 +0400
++++ kde-runtime-4.8.2_new/kcontrol/locale/kcmlocale.h	2012-05-04 19:27:45.142614508 +0400
+@@ -275,6 +275,9 @@
+     void initBinaryUnitDialect();
+     void setBinaryUnitDialect( int newValue );
+ 
++    //User i18n settings
++    void saveI18nSettings();
++
+ private Q_SLOTS:
+ 
+     void updateSample();
+@@ -432,6 +435,7 @@
+     KSharedConfigPtr m_kcmConfig;
+     KConfigGroup m_kcmSettings;
+     KConfigGroup m_kcmCalendarSettings;
++
+     // The currently saved user config/settings
+     // This is used to check if anything has changed, but never saved
+     KSharedConfigPtr m_currentConfig;
+@@ -480,4 +484,4 @@
+     Ui::KCMLocaleWidget *m_ui;
+ };
+ 
+-#endif //KCMLOCALE_H
+\ No newline at end of file
++#endif //KCMLOCALE_H

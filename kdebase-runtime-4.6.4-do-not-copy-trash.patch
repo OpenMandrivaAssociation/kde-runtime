@@ -1,0 +1,16 @@
+diff --git a/kioslave/desktop/kio_desktop.cpp b/kioslave/desktop/kio_desktop.cpp
+index db3b8a6..29c2a28 100644
+--- a/kioslave/desktop/kio_desktop.cpp
++++ b/kioslave/desktop/kio_desktop.cpp
+@@ -105,8 +105,9 @@ void DesktopProtocol::checkLocalInstall()
+                     desktopPath + "/.directory");
+ 
+         // Copy the trash link
+-        QFile::copy(KStandardDirs::locate("data", "kio_desktop/directory.trash"),
+-                    desktopPath + "/trash.desktop");
++        // In Mandriva we do not want to have the trash in the desktop
++        //QFile::copy(KStandardDirs::locate("data", "kio_desktop/directory.trash"),
++        //            desktopPath + "/trash.desktop");
+  
+         // Copy the desktop links
+         const QStringList links = KGlobal::dirs()->findAllResources("data", "kio_desktop/DesktopLinks/*",

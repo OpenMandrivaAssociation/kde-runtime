@@ -1,0 +1,11 @@
+diff -urN kde-runtime-4.8.0/knetattach/knetattach.desktop kde-runtime-4.8.0-patched/knetattach/knetattach.desktop
+--- kde-runtime-4.8.0/knetattach/knetattach.desktop	2012-01-04 06:37:58.000000000 +1100
++++ kde-runtime-4.8.0-patched/knetattach/knetattach.desktop	2012-03-05 21:59:45.435415960 +1100
+@@ -184,6 +184,6 @@
+ Type=Application
+ Terminal=false
+ X-KDE-StartupNotify=true
+-Categories=Qt;KDE;Network;RemoteAccess;
++Categories=Qt;KDE;System;RemoteAccess;
+ X-DocPath=knetattach/index.html
+ OnlyShowIn=KDE;

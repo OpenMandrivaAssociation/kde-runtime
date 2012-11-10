@@ -1,0 +1,11 @@
+--- kdebase-runtime-4.5.74svn1190490/khelpcenter/searchhandlers/khc_htsearch.pl.orig	2010-11-09 16:43:10.000000000 +0100
++++ kdebase-runtime-4.5.74svn1190490/khelpcenter/searchhandlers/khc_htsearch.pl	2010-11-09 16:43:27.000000000 +0100
+@@ -8,7 +8,7 @@
+ use open IO => ':utf8';
+ use open ':std';
+ 
+-my $htsearchpath="/srv/www/cgi-bin/htsearch";
++my $htsearchpath="/usr/bin/htsearch";
+ my $config;
+ my $format;
+ my $method;

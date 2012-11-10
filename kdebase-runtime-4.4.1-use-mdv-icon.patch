@@ -1,0 +1,12 @@
+Index: kioslave/desktop/Home.desktop
+===================================================================
+--- kioslave/desktop/Home.desktop	(révision 1104288)
++++ kioslave/desktop/Home.desktop	(copie de travail)
+@@ -178,6 +178,6 @@
+ GenericName[zh_CN]=个人文件
+ GenericName[zh_TW]=個人檔案
+ URL[$e]=$HOME
+-Icon=user-home
++Icon=home-mdk
+ Type=Link
+ 

@@ -1,0 +1,11 @@
+--- kde-runtime-4.9.2/kioslave/CMakeLists.txt~	2012-10-18 16:53:14.779073592 +0100
++++ kde-runtime-4.9.2/kioslave/CMakeLists.txt	2012-10-18 16:47:23.515059381 +0100
+@@ -44,7 +44,7 @@
+    add_subdirectory( floppy )
+    add_subdirectory( finger )
+    add_subdirectory( man )
+-   check_include_files(rpc/rpc.h HAVE_RPC_RPC_H)
++   check_include_files(rpc/types.h HAVE_RPC_RPC_H)
+    macro_log_feature(HAVE_RPC_RPC_H "rpc library" "library routines for remote procedure calls" "" FALSE "" "Needed to build the NFS kioslave")
+    if(HAVE_RPC_RPC_H)
+      add_subdirectory( nfs )  
