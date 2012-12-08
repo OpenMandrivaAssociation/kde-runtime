@@ -1,0 +1,2 @@
+# False positives on internal libraries
+addFilter("E: non-versioned-file-in-library-package")

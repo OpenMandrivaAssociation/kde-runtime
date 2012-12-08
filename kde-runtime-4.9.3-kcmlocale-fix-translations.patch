@@ -1,0 +1,40 @@
+diff --git a/kcontrol/locale/kcmlocale.cpp b/kcontrol/locale/kcmlocale.cpp
+index bd66341..b8ad375 100644
+--- a/kcontrol/locale/kcmlocale.cpp
++++ b/kcontrol/locale/kcmlocale.cpp
+@@ -571,7 +571,7 @@ void KCMLocale::mergeSettings()
+     if ( m_kcmTranslations.count() >= 1 ) {
+         locale = m_kcmTranslations.first();
+     } else {
+-        locale = "en_US";
++        locale = KGlobal::locale()->language();
+     }
+ 
+     m_cConfig->setLocale( locale );
+@@ -590,7 +590,11 @@ void KCMLocale::mergeSettings()
+     // Need to set the language of the KLocale first, so when we pass the config into the setCountry
+     // call the implicit setLocale() will find the languages match and not force a reparse of the
+     // non-existent settings file, losing all our settings in the process.
+-    m_defaultLocale->setLanguage( m_kcmTranslations );
++    if (m_kcmTranslations.isEmpty())
++        m_defaultLocale->setLanguage( QStringList(KGlobal::locale()->language()) );
++    else
++        m_defaultLocale->setLanguage( m_kcmTranslations );
++
+     m_defaultLocale->setCountry( m_defaultSettings.readEntry( "Country", QString() ), m_defaultConfig.data() );
+     m_defaultSettings.writeEntry( "DayPeriod1",
+                                   amPeriod( m_defaultLocale->dayPeriodText( QTime( 0, 0, 0 ), KLocale::LongName ),
+@@ -622,7 +626,12 @@ void KCMLocale::mergeSettings()
+     // Need to set the language of the KLocale first, so when we pass the config into the setCountry
+     // call the implicit setLocale() will find the languages match and not force a reparse of the
+     // non-existent settings file, losing all our settings in the process.
+-    m_kcmLocale->setLanguage( m_kcmTranslations );
++
++    if (m_kcmTranslations.isEmpty())
++        m_kcmLocale->setLanguage( QStringList(KGlobal::locale()->language()) );
++    else
++        m_kcmLocale->setLanguage( m_kcmTranslations );
++
+     m_kcmLocale->setCountry( m_kcmSettings.readEntry( "Country", QString() ), m_kcmConfig.data() );
+ }
+ 
