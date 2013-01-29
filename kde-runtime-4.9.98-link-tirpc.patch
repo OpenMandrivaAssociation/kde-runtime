@@ -1,0 +1,11 @@
+--- kde-runtime-4.9.98/kioslave/nfs/CMakeLists.txt.bero	2013-01-29 01:29:38.452894537 +0100
++++ kde-runtime-4.9.98/kioslave/nfs/CMakeLists.txt	2013-01-29 01:29:50.296753117 +0100
+@@ -4,7 +4,7 @@ set(kio_nfs_PART_SRCS kio_nfs.cpp mount_
+ kde4_add_plugin(kio_nfs ${kio_nfs_PART_SRCS})
+ 
+ 
+-target_link_libraries(kio_nfs   ${KDE4_KIO_LIBS})
++target_link_libraries(kio_nfs   ${KDE4_KIO_LIBS} tirpc)
+ 
+ install(TARGETS kio_nfs  DESTINATION ${PLUGIN_INSTALL_DIR} )
+ 

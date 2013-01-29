@@ -1,14 +1,21 @@
 Name:		kdebase4-runtime
 Summary:	K Desktop Environment - Base Runtime
-Version:	4.9.4
+Version:	4.9.98
 Release:	1
 Epoch:		1
 Group:		Graphical desktop/KDE
 License:	GPL
 URL:		http://www.kde.org
-Source0:	ftp://ftp.kde.org/pub/kde/stable/%{version}/src/kde-runtime-%{version}.tar.xz
+%define is_beta %(if test `echo %version |cut -d. -f3` -ge 70; then echo -n 1; else echo -n 0; fi)
+%if %is_beta
+%define ftpdir unstable
+%else
+%define ftpdir stable
+%endif
+Source0:	ftp://ftp.kde.org/pub/kde/%ftpdir/%{version}/src/kde-runtime-%{version}.tar.xz
 Source1:	kdebase4-runtime.rpmlintrc
 Patch0:		kdebase-runtime-4.5.74-fix-htsearch-path.patch
+Patch1:		kde-runtime-4.9.98-link-tirpc.patch
 Patch5:		kdebase-runtime-4.3.2-knotify-fix-cpu-charge.patch
 Patch8:		kdebase-runtime-4.4.1-use-mdv-icon.patch
 
@@ -21,7 +28,7 @@ Patch101:	kde-runtime-4.9.0-l10n-ru.patch
 Patch102:	kde-runtime-4.8.2-save-i18n-settings.patch
 Patch103:	kde-runtime-4.9.3-kcmlocale-fix-translations.patch
 
-BuildRequires:	kdelibs4-devel
+BuildRequires:	kdelibs4-devel >= 6:4.9.98-2
 BuildRequires:	kdepimlibs4-devel
 BuildRequires:	nepomuk-core-devel
 BuildRequires:	jpeg-devel
@@ -34,13 +41,15 @@ BuildRequires:	pkgconfig(libcanberra)
 BuildRequires:	pkgconfig(libkactivities)
 BuildRequires:	pkgconfig(libpulse)
 BuildRequires:	pkgconfig(libstreams)
-BuildRequires:	pkgconfig(libxine)
 BuildRequires:	pkgconfig(NetworkManager)
 BuildRequires:	pkgconfig(OpenEXR)
 BuildRequires:	pkgconfig(phonon)
 BuildRequires:	pkgconfig(smbclient)
 BuildRequires:	pkgconfig(soprano)
 BuildRequires:	pkgconfig(xcursor)
+BuildRequires:	pkgconfig(libtirpc)
+BuildRequires:	pkgconfig(libntrack-qt4) ntrack-devel
+BuildRequires:	openslp-devel
 
 Requires:	kdelibs4-core
 Requires:	oxygen-icon-theme
@@ -156,6 +165,7 @@ KDE 4 application runtime components.
 %{_kde_libdir}/kde4/kio_remote.so
 %{_kde_libdir}/kde4/kio_settings.so
 %{_kde_libdir}/kde4/kio_sftp.so
+%{_kde_libdir}/kde4/kio_tags.so
 %{_kde_libdir}/kde4/kio_thumbnail.so
 %{_kde_libdir}/kde4/kio_timeline.so
 %{_kde_libdir}/kde4/kio_trash.so
@@ -286,19 +296,6 @@ KDE 4 application runtime components.
 
 #--------------------------------------------------------------
 
-%package -n phonon-xine-kcm
-Summary:	Phonon Xine KCM
-Group:		Development/KDE and Qt
-
-%description -n phonon-xine-kcm
-This package provide the KCM for Phonon Xine.
-
-%files -n phonon-xine-kcm
-%{_kde_libdir}/kde4/kcm_phononxine.so
-%{_kde_datadir}/kde4/services/kcm_phononxine.desktop
-
-#--------------------------------------------------------------
-
 %package -n kwallet-daemon
 Summary:	Kwallet daemon
 Group:		Development/KDE and Qt
@@ -370,6 +367,7 @@ browsing.
 %setup -q -n kde-runtime-%{version}
 
 %patch0 -p1 -b .htsearch
+%patch1 -p1 -b .tirpclinkage~
 %patch5 -p1 -b .bug_49814
 %patch8 -p0
 %patch9 -p0
