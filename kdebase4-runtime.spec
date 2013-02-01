@@ -28,7 +28,7 @@ Patch101:	kde-runtime-4.9.0-l10n-ru.patch
 Patch102:	kde-runtime-4.8.2-save-i18n-settings.patch
 Patch103:	kde-runtime-4.9.3-kcmlocale-fix-translations.patch
 
-BuildRequires:	kdelibs4-devel >= 6:4.9.98-2
+BuildRequires:	kdelibs4-devel >= 5:4.9.98-2
 BuildRequires:	kdepimlibs4-devel
 BuildRequires:	nepomuk-core-devel
 BuildRequires:	jpeg-devel
