@@ -1,6 +1,6 @@
 Name:		kdebase4-runtime
 Summary:	K Desktop Environment - Base Runtime
-Version:	4.10.0
+Version:	4.10.1
 Release:	1
 Epoch:		1
 Group:		Graphical desktop/KDE
@@ -390,6 +390,9 @@ mkdir -p %{buildroot}%{_kde_bindir}
 ln -s %{_kde_libdir}/kde4/libexec/kdesu %{buildroot}%{_kde_bindir}/kdesu
 
 %changelog
+* Sat Mar 09 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.10.1-1
+- New version 4.10.1
+
 * Thu Feb 07 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.10.0-1
 - New version 4.10.0
 - Add kde-runtime-4.9.98-link-tirpc patch (bero)
