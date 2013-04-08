@@ -1,0 +1,12 @@
+diff -urN kde-runtime-4.10.2/kdesu/kdesu/kdesu.cpp kde-runtime-4.10.2-patched/kdesu/kdesu/kdesu.cpp
+--- kde-runtime-4.10.2/kdesu/kdesu/kdesu.cpp	2013-03-01 17:34:47.355077103 +1100
++++ kde-runtime-4.10.2-patched/kdesu/kdesu/kdesu.cpp	2013-04-09 01:22:22.000000000 +1100
+@@ -380,7 +380,7 @@
+ #endif
+         KDEsuDialog dlg(user, auth_user, keep && !terminal, icon, withIgnoreButton);
+         if (prompt)
+-            dlg.addCommentLine(i18n("Command:"), command);
++            dlg.addCommentLine(i18n("Command:"), QFile::decodeName(command));
+         if (defKeep)
+             dlg.setKeepPassword(true);
+ 

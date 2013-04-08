@@ -1,7 +1,7 @@
 Name:		kdebase4-runtime
 Summary:	K Desktop Environment - Base Runtime
 Version:	4.10.2
-Release:	1
+Release:	2
 Epoch:		1
 Group:		Graphical desktop/KDE
 License:	GPL
@@ -16,6 +16,8 @@ Source0:	ftp://ftp.kde.org/pub/kde/%{ftpdir}/%{version}/src/kde-runtime-%{versio
 Source1:	kdebase4-runtime.rpmlintrc
 Patch0:		kdebase-runtime-4.5.74-fix-htsearch-path.patch
 Patch1:		kde-runtime-4.9.98-link-tirpc.patch
+# See http://bugs.rosalinux.ru/show_bug.cgi?id=1902
+Patch2:		kde-runtime-4.10.2-kdesu-encoding.patch
 Patch5:		kdebase-runtime-4.3.2-knotify-fix-cpu-charge.patch
 Patch8:		kdebase-runtime-4.4.1-use-mdv-icon.patch
 
@@ -368,6 +370,7 @@ browsing.
 
 %patch0 -p1 -b .htsearch
 %patch1 -p1 -b .tirpclinkage~
+%patch2 -p1 -b .kdesu~
 %patch5 -p1 -b .bug_49814
 %patch8 -p0
 %patch9 -p0
@@ -390,6 +393,9 @@ mkdir -p %{buildroot}%{_kde_bindir}
 ln -s %{_kde_libdir}/kde4/libexec/kdesu %{buildroot}%{_kde_bindir}/kdesu
 
 %changelog
+* Mon Apr 08 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.10.2-2
+- Add kdesu-encoding patch to fix Rosa bug 1902
+
 * Wed Apr 03 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.10.2-1
 - New version 4.10.2
 
