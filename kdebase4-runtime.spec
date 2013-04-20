@@ -1,7 +1,7 @@
 Name:		kdebase4-runtime
 Summary:	K Desktop Environment - Base Runtime
 Version:	4.10.2
-Release:	2
+Release:	3
 Epoch:		1
 Group:		Graphical desktop/KDE
 License:	GPL
@@ -50,7 +50,8 @@ BuildRequires:	pkgconfig(smbclient)
 BuildRequires:	pkgconfig(soprano)
 BuildRequires:	pkgconfig(xcursor)
 BuildRequires:	pkgconfig(libtirpc)
-BuildRequires:	pkgconfig(libntrack-qt4) ntrack-devel
+BuildRequires:	pkgconfig(libntrack-qt4)
+BuildRequires:	ntrack-devel
 BuildRequires:	openslp-devel
 
 Requires:	kdelibs4-core
@@ -66,7 +67,7 @@ Suggests:	gdb
 Suggests:	cagibi
 Requires:	soprano-plugin-redland
 Requires:	polkit-kde-1
-Conflicts:	kdebase4-workspace < 2:4.5.71
+Conflicts:	kdebase4-workspace < 2:4.10.0
 Conflicts:	nepomuk-scribo < 1:0.6.0-3
 
 %description
@@ -393,6 +394,9 @@ mkdir -p %{buildroot}%{_kde_bindir}
 ln -s %{_kde_libdir}/kde4/libexec/kdesu %{buildroot}%{_kde_bindir}/kdesu
 
 %changelog
+* Sat Apr 20 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.10.2-3
+- Adjust Conflicts with kdebase4-workspace to avoid file conflict (plasmapkg.1.xz)
+
 * Mon Apr 08 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.10.2-2
 - Add kdesu-encoding patch to fix Rosa bug 1902
 
