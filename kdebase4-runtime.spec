@@ -1,12 +1,12 @@
-Name:		kdebase4-runtime
 Summary:	K Desktop Environment - Base Runtime
-Version:	4.10.3
+Name:		kdebase4-runtime
+Version:	4.10.4
 Release:	1
 Epoch:		1
 Group:		Graphical desktop/KDE
 License:	GPL
-URL:		http://www.kde.org
-%define is_beta %(if test `echo %version |cut -d. -f3` -ge 70; then echo -n 1; else echo -n 0; fi)
+Url:		http://www.kde.org
+%define is_beta %(if test `echo %{version} |cut -d. -f3` -ge 70; then echo -n 1; else echo -n 0; fi)
 %if %{is_beta}
 %define ftpdir unstable
 %else
@@ -30,12 +30,14 @@ Patch101:	kde-runtime-4.10.0-l10n-ru.patch
 Patch102:	kde-runtime-4.8.2-save-i18n-settings.patch
 Patch103:	kde-runtime-4.9.3-kcmlocale-fix-translations.patch
 
+BuildRequires:	automoc4
+BuildRequires:	jpeg-devel
 BuildRequires:	kdelibs4-devel >= 5:4.9.98-2
 BuildRequires:	kdepimlibs4-devel
 BuildRequires:	nepomuk-core-devel
-BuildRequires:	jpeg-devel
+BuildRequires:	ntrack-devel
+BuildRequires:	openslp-devel
 BuildRequires:	ssh-devel
-BuildRequires:	automoc4
 BuildRequires:	pkgconfig(alsa)
 BuildRequires:	pkgconfig(exiv2)
 BuildRequires:	pkgconfig(libattica)
@@ -51,8 +53,6 @@ BuildRequires:	pkgconfig(soprano)
 BuildRequires:	pkgconfig(xcursor)
 BuildRequires:	pkgconfig(libtirpc)
 BuildRequires:	pkgconfig(libntrack-qt4)
-BuildRequires:	ntrack-devel
-BuildRequires:	openslp-devel
 
 Requires:	kdelibs4-core
 Requires:	oxygen-icon-theme
@@ -394,6 +394,9 @@ mkdir -p %{buildroot}%{_kde_bindir}
 ln -s %{_kde_libdir}/kde4/libexec/kdesu %{buildroot}%{_kde_bindir}/kdesu
 
 %changelog
+* Wed Jun 05 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.10.4-1
+- New version 4.10.4
+
 * Tue May 07 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.10.3-1
 - New version 4.10.3
 
