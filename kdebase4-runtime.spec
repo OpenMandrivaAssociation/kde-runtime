@@ -1,7 +1,7 @@
 Summary:	K Desktop Environment - Base Runtime
 Name:		kdebase4-runtime
-Version:	4.10.4
-Release:	2
+Version:	4.10.5
+Release:	1
 Epoch:		1
 Group:		Graphical desktop/KDE
 License:	GPL
@@ -396,6 +396,9 @@ mkdir -p %{buildroot}%{_kde_bindir}
 ln -s %{_kde_libdir}/kde4/libexec/kdesu %{buildroot}%{_kde_bindir}/kdesu
 
 %changelog
+* Wed Jul 03 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.10.5-1
+- New version 4.10.5
+
 * Wed Jun 19 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.10.4-2
 - Add kcm-attica-network-error patch to handle network errors in KCM Attica
 
