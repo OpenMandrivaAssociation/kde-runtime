@@ -1,6 +1,6 @@
-diff -urN kde-runtime-4.10.0/kcontrol/componentchooser/componentchooser.desktop kde-runtime-4.10.0-patched/kcontrol/componentchooser/componentchooser.desktop
---- kde-runtime-4.10.0/kcontrol/componentchooser/componentchooser.desktop	2013-01-24 08:47:19.000000000 +1100
-+++ kde-runtime-4.10.0-patched/kcontrol/componentchooser/componentchooser.desktop	2013-02-08 23:33:53.640813580 +1100
+diff -urN kde-runtime-4.11.0/kcontrol/componentchooser/componentchooser.desktop kde-runtime-4.11.0-patched/kcontrol/componentchooser/componentchooser.desktop
+--- kde-runtime-4.11.0/kcontrol/componentchooser/componentchooser.desktop	2013-07-10 09:47:02.000000000 +1100
++++ kde-runtime-4.11.0-patched/kcontrol/componentchooser/componentchooser.desktop	2013-08-15 15:20:04.794904770 +1100
 @@ -161,7 +161,7 @@
  Comment[pt]=Escolha os componentes predefinidos para os vários serviços
  Comment[pt_BR]=Escolha os componentes padrão para vários serviços
@@ -10,9 +10,9 @@ diff -urN kde-runtime-4.10.0/kcontrol/componentchooser/componentchooser.desktop 
  Comment[se]=Vállje bálválusaid standárdosiid
  Comment[si]=විවිධ සේවාවන් වලට පෙරනිමි සංරචක පෙන්වන්න
  Comment[sk]=Vyberte štandardné komponenty pre rôzne služby
-diff -urN kde-runtime-4.10.0/khelpcenter/kcmhelpcenter.desktop kde-runtime-4.10.0-patched/khelpcenter/kcmhelpcenter.desktop
---- kde-runtime-4.10.0/khelpcenter/kcmhelpcenter.desktop	2013-01-24 08:47:20.000000000 +1100
-+++ kde-runtime-4.10.0-patched/khelpcenter/kcmhelpcenter.desktop	2013-02-08 23:33:53.642313583 +1100
+diff -urN kde-runtime-4.11.0/khelpcenter/kcmhelpcenter.desktop kde-runtime-4.11.0-patched/khelpcenter/kcmhelpcenter.desktop
+--- kde-runtime-4.11.0/khelpcenter/kcmhelpcenter.desktop	2013-07-10 09:47:02.000000000 +1100
++++ kde-runtime-4.11.0-patched/khelpcenter/kcmhelpcenter.desktop	2013-08-15 15:20:04.794904770 +1100
 @@ -164,7 +164,7 @@
  Comment[pt]=Configuração e geração do índice de pesquisa do centro de ajuda
  Comment[pt_BR]=Configuração e geração do índice de busca do centro de ajuda
@@ -22,9 +22,9 @@ diff -urN kde-runtime-4.10.0/khelpcenter/kcmhelpcenter.desktop kde-runtime-4.10.
  Comment[se]=Veahkkeguovddáža ohcanindeavssa heiveheapmi ja ráhkadeapmi
  Comment[si]=උදව් මධ්‍යස්ථාන සූචිය සැකසීම හා ජනනය
  Comment[sk]=Nastavenie a generovanie indexu pre pomocníka
-diff -urN kde-runtime-4.10.0/kioslave/cgi/kcmcgi/kcmcgi.desktop kde-runtime-4.10.0-patched/kioslave/cgi/kcmcgi/kcmcgi.desktop
---- kde-runtime-4.10.0/kioslave/cgi/kcmcgi/kcmcgi.desktop	2013-01-24 08:47:20.000000000 +1100
-+++ kde-runtime-4.10.0-patched/kioslave/cgi/kcmcgi/kcmcgi.desktop	2013-02-08 23:33:53.642813584 +1100
+diff -urN kde-runtime-4.11.0/kioslave/cgi/kcmcgi/kcmcgi.desktop kde-runtime-4.11.0-patched/kioslave/cgi/kcmcgi/kcmcgi.desktop
+--- kde-runtime-4.11.0/kioslave/cgi/kcmcgi/kcmcgi.desktop	2013-07-10 09:47:02.000000000 +1100
++++ kde-runtime-4.11.0-patched/kioslave/cgi/kcmcgi/kcmcgi.desktop	2013-08-15 15:20:04.794904770 +1100
 @@ -164,7 +164,7 @@
  Comment[pt]=Configuração do KIO slave de CGIs
  Comment[pt_BR]=Configurar o KIO slave de CGIs
@@ -34,9 +34,9 @@ diff -urN kde-runtime-4.10.0/kioslave/cgi/kcmcgi/kcmcgi.desktop kde-runtime-4.10
  Comment[se]=Heivet CGI-KIO-šláva
  Comment[si]=CGI KIO වහලා සකසන්න
  Comment[sk]=Nastavenie CGI KIO klienta
-diff -urN kde-runtime-4.10.0/kurifilter-plugins/ikws/searchproviders/cpan.desktop kde-runtime-4.10.0-patched/kurifilter-plugins/ikws/searchproviders/cpan.desktop
---- kde-runtime-4.10.0/kurifilter-plugins/ikws/searchproviders/cpan.desktop	2013-01-24 08:47:28.000000000 +1100
-+++ kde-runtime-4.10.0-patched/kurifilter-plugins/ikws/searchproviders/cpan.desktop	2013-02-08 23:33:53.642813584 +1100
+diff -urN kde-runtime-4.11.0/kurifilter-plugins/ikws/searchproviders/cpan.desktop kde-runtime-4.11.0-patched/kurifilter-plugins/ikws/searchproviders/cpan.desktop
+--- kde-runtime-4.11.0/kurifilter-plugins/ikws/searchproviders/cpan.desktop	2013-07-10 09:47:02.000000000 +1100
++++ kde-runtime-4.11.0-patched/kurifilter-plugins/ikws/searchproviders/cpan.desktop	2013-08-15 15:20:04.795904790 +1100
 @@ -66,7 +66,7 @@
  Name[pt]=CPAN - Comprehensive Perl Archive Network
  Name[pt_BR]=CPAN - Rede Compreensiva de Arquivos de Perl
@@ -46,9 +46,9 @@ diff -urN kde-runtime-4.10.0/kurifilter-plugins/ikws/searchproviders/cpan.deskto
  Name[se]=CPAN – Perl-vuorká: «Comprehensive Perl Archive Network»
  Name[si]=CPAN - විචක්‍ෂණ Perl සංරක්‍ෂක ජාලය
  Name[sk]=CPAN - Comprehensive Perl Archive Network
-diff -urN kde-runtime-4.10.0/kurifilter-plugins/ikws/searchproviders/ctan.desktop kde-runtime-4.10.0-patched/kurifilter-plugins/ikws/searchproviders/ctan.desktop
---- kde-runtime-4.10.0/kurifilter-plugins/ikws/searchproviders/ctan.desktop	2013-01-24 08:47:22.000000000 +1100
-+++ kde-runtime-4.10.0-patched/kurifilter-plugins/ikws/searchproviders/ctan.desktop	2013-02-08 23:33:53.642813584 +1100
+diff -urN kde-runtime-4.11.0/kurifilter-plugins/ikws/searchproviders/ctan.desktop kde-runtime-4.11.0-patched/kurifilter-plugins/ikws/searchproviders/ctan.desktop
+--- kde-runtime-4.11.0/kurifilter-plugins/ikws/searchproviders/ctan.desktop	2013-08-08 01:59:56.000000000 +1100
++++ kde-runtime-4.11.0-patched/kurifilter-plugins/ikws/searchproviders/ctan.desktop	2013-08-15 15:20:04.795904790 +1100
 @@ -66,7 +66,7 @@
  Name[pt]=CTAN - Comprehensive TeX Archive Network
  Name[pt_BR]=CTAN - Rede Compreensiva de Arquivos de TeX
@@ -58,9 +58,9 @@ diff -urN kde-runtime-4.10.0/kurifilter-plugins/ikws/searchproviders/ctan.deskto
  Name[se]=CTAN – TeX-vuorká: «Comprehensive TeX Archive Network»
  Name[si]=CTAN - Comprehensive TeX Archive Network
  Name[sk]=CTAN - Comprehensive TeX Archive Network
-diff -urN kde-runtime-4.10.0/kurifilter-plugins/ikws/searchproviders/nl-telephone.desktop kde-runtime-4.10.0-patched/kurifilter-plugins/ikws/searchproviders/nl-telephone.desktop
---- kde-runtime-4.10.0/kurifilter-plugins/ikws/searchproviders/nl-telephone.desktop	2013-01-24 08:47:22.000000000 +1100
-+++ kde-runtime-4.10.0-patched/kurifilter-plugins/ikws/searchproviders/nl-telephone.desktop	2013-02-08 23:33:53.643313585 +1100
+diff -urN kde-runtime-4.11.0/kurifilter-plugins/ikws/searchproviders/nl-telephone.desktop kde-runtime-4.11.0-patched/kurifilter-plugins/ikws/searchproviders/nl-telephone.desktop
+--- kde-runtime-4.11.0/kurifilter-plugins/ikws/searchproviders/nl-telephone.desktop	2013-08-08 01:59:56.000000000 +1100
++++ kde-runtime-4.11.0-patched/kurifilter-plugins/ikws/searchproviders/nl-telephone.desktop	2013-08-15 15:20:04.795904790 +1100
 @@ -63,7 +63,7 @@
  Name[pt]=Motor de Busca de Lista Telefónica
  Name[pt_BR]=Provedor de busca de guia telefônico
@@ -70,9 +70,9 @@ diff -urN kde-runtime-4.10.0/kurifilter-plugins/ikws/searchproviders/nl-telephon
  Name[se]=Ohcanmotor telefonkatalogaid várás
  Name[si]=දුරකථන පොත් සෙවුම් සැපයුම් කරු
  Name[sk]=Hľadanie v telefónnom zozname
-diff -urN kde-runtime-4.10.0/kurifilter-plugins/ikws/searchproviders/rfc.desktop kde-runtime-4.10.0-patched/kurifilter-plugins/ikws/searchproviders/rfc.desktop
---- kde-runtime-4.10.0/kurifilter-plugins/ikws/searchproviders/rfc.desktop	2013-01-24 08:47:22.000000000 +1100
-+++ kde-runtime-4.10.0-patched/kurifilter-plugins/ikws/searchproviders/rfc.desktop	2013-02-08 23:33:53.643313585 +1100
+diff -urN kde-runtime-4.11.0/kurifilter-plugins/ikws/searchproviders/rfc.desktop kde-runtime-4.11.0-patched/kurifilter-plugins/ikws/searchproviders/rfc.desktop
+--- kde-runtime-4.11.0/kurifilter-plugins/ikws/searchproviders/rfc.desktop	2013-08-08 01:59:56.000000000 +1100
++++ kde-runtime-4.11.0-patched/kurifilter-plugins/ikws/searchproviders/rfc.desktop	2013-08-15 15:20:04.795904790 +1100
 @@ -64,7 +64,7 @@
  Name[pt]=Pedidos de Comentários do IETF
  Name[pt_BR]=Requisições de comentários IETF
@@ -82,9 +82,9 @@ diff -urN kde-runtime-4.10.0/kurifilter-plugins/ikws/searchproviders/rfc.desktop
  Name[se]=IETF Requests for Comments
  Name[si]=ප්‍රතිචාර සඳහා IETF ඉල්ලීම්
  Name[sk]=IETF Requests for Comments
-diff -urN kde-runtime-4.10.0/phonon/kded-module/phononserver.desktop kde-runtime-4.10.0-patched/phonon/kded-module/phononserver.desktop
---- kde-runtime-4.10.0/phonon/kded-module/phononserver.desktop	2013-01-24 08:47:26.000000000 +1100
-+++ kde-runtime-4.10.0-patched/phonon/kded-module/phononserver.desktop	2013-02-08 23:33:53.643313585 +1100
+diff -urN kde-runtime-4.11.0/phonon/kded-module/phononserver.desktop kde-runtime-4.11.0-patched/phonon/kded-module/phononserver.desktop
+--- kde-runtime-4.11.0/phonon/kded-module/phononserver.desktop	2013-07-10 09:47:02.000000000 +1100
++++ kde-runtime-4.11.0-patched/phonon/kded-module/phononserver.desktop	2013-08-15 15:20:04.795904790 +1100
 @@ -54,7 +54,7 @@
  Name[pt]=Política de Som
  Name[pt_BR]=Política de som
@@ -93,10 +93,10 @@ diff -urN kde-runtime-4.10.0/phonon/kded-module/phononserver.desktop kde-runtime
 +Name[ru]=Правила доступа к звуковым устройствам
  Name[si]=ශ්‍රව්‍ය ප්‍රතිපත්තිය
  Name[sk]=Politika zvuku
- Name[sl]=Pravila za zvok
-diff -urN kde-runtime-4.10.0/plasma/scriptengines/javascript/data/plasma-scriptengine-runner-javascript.desktop kde-runtime-4.10.0-patched/plasma/scriptengines/javascript/data/plasma-scriptengine-runner-javascript.desktop
---- kde-runtime-4.10.0/plasma/scriptengines/javascript/data/plasma-scriptengine-runner-javascript.desktop	2013-01-24 08:47:26.000000000 +1100
-+++ kde-runtime-4.10.0-patched/plasma/scriptengines/javascript/data/plasma-scriptengine-runner-javascript.desktop	2013-02-08 23:33:53.643313585 +1100
+ Name[sl]=Pravilnik za zvok
+diff -urN kde-runtime-4.11.0/plasma/scriptengines/javascript/data/plasma-scriptengine-runner-javascript.desktop kde-runtime-4.11.0-patched/plasma/scriptengines/javascript/data/plasma-scriptengine-runner-javascript.desktop
+--- kde-runtime-4.11.0/plasma/scriptengines/javascript/data/plasma-scriptengine-runner-javascript.desktop	2013-07-10 09:47:02.000000000 +1100
++++ kde-runtime-4.11.0-patched/plasma/scriptengines/javascript/data/plasma-scriptengine-runner-javascript.desktop	2013-08-15 15:20:04.796904808 +1100
 @@ -134,7 +134,7 @@
  Comment[pt]=Execução de JavaScript
  Comment[pt_BR]=Mecanismo JavaScript
@@ -105,10 +105,10 @@ diff -urN kde-runtime-4.10.0/plasma/scriptengines/javascript/data/plasma-scripte
 +Comment[ru]=Модуль запуска JavaScript
  Comment[si]=JavaScript Runner
  Comment[sk]=Spúšťač JavaScriptu
- Comment[sl]=Zaganjalnik javascripta
-diff -urN kde-runtime-4.10.0/platforms/win/kwinstartmenu/winstartmenu.desktop kde-runtime-4.10.0-patched/platforms/win/kwinstartmenu/winstartmenu.desktop
---- kde-runtime-4.10.0/platforms/win/kwinstartmenu/winstartmenu.desktop	2013-01-24 08:47:26.000000000 +1100
-+++ kde-runtime-4.10.0-patched/platforms/win/kwinstartmenu/winstartmenu.desktop	2013-02-08 23:33:53.643813586 +1100
+ Comment[sl]=Zaganjalnik JavaScripta
+diff -urN kde-runtime-4.11.0/platforms/win/kwinstartmenu/winstartmenu.desktop kde-runtime-4.11.0-patched/platforms/win/kwinstartmenu/winstartmenu.desktop
+--- kde-runtime-4.11.0/platforms/win/kwinstartmenu/winstartmenu.desktop	2013-08-06 23:44:01.000000000 +1100
++++ kde-runtime-4.11.0-patched/platforms/win/kwinstartmenu/winstartmenu.desktop	2013-08-15 15:20:04.796904808 +1100
 @@ -58,7 +58,7 @@
  Name[pt]=Módulo do Menu Inicial do Windows no KDED
  Name[pt_BR]=Módulo do "Menu Inciar" do Windows para o KDED
@@ -127,10 +127,10 @@ diff -urN kde-runtime-4.10.0/platforms/win/kwinstartmenu/winstartmenu.desktop kd
  Comment[se]=Govašlávkestagaid doarjja
  Comment[si]=කෙටිමං අයිකන සහාය
  Comment[sk]=Podpora ikon skratiek
-diff -urN kde-runtime-4.10.0/solid-device-automounter/kded/device_automounter.desktop kde-runtime-4.10.0-patched/solid-device-automounter/kded/device_automounter.desktop
---- kde-runtime-4.10.0/solid-device-automounter/kded/device_automounter.desktop	2013-01-24 08:47:27.000000000 +1100
-+++ kde-runtime-4.10.0-patched/solid-device-automounter/kded/device_automounter.desktop	2013-02-08 23:33:53.643813586 +1100
-@@ -55,7 +55,7 @@
+diff -urN kde-runtime-4.11.0/solid-device-automounter/kded/device_automounter.desktop kde-runtime-4.11.0-patched/solid-device-automounter/kded/device_automounter.desktop
+--- kde-runtime-4.11.0/solid-device-automounter/kded/device_automounter.desktop	2013-07-10 09:47:02.000000000 +1100
++++ kde-runtime-4.11.0-patched/solid-device-automounter/kded/device_automounter.desktop	2013-08-15 15:20:04.796904808 +1100
+@@ -56,7 +56,7 @@
  Name[pt]=Montagem Automática dos Dispositivos Removíveis
  Name[pt_BR]=Montagem automática de dispositivos removíveis
  Name[ro]=Montator automat de dispozitive amovibile

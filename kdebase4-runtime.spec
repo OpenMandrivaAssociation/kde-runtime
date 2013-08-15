@@ -27,7 +27,7 @@ Patch9:		kdebase-runtime-4.6.4-do-not-show-homedesktop.patch
 Patch10:	kdebase-runtime-4.6.4-do-not-copy-trash.patch
 
 Patch100:	kdebase-runtime-4.8.0-knetattachxdg.patch
-Patch101:	kde-runtime-4.10.0-l10n-ru.patch
+Patch101:	kde-runtime-4.11.0-l10n-ru.patch
 Patch102:	kde-runtime-4.8.2-save-i18n-settings.patch
 Patch103:	kde-runtime-4.9.3-kcmlocale-fix-translations.patch
 
@@ -398,6 +398,7 @@ ln -s %{_kde_libdir}/kde4/libexec/kdesu %{buildroot}%{_kde_bindir}/kdesu
 %changelog
 * Wed Aug 14 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.11.0-1
 - New version 4.11.0
+- Re-diff l10n-ru patch
 
 * Wed Jul 03 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.10.5-1
 - New version 4.10.5
