@@ -107,11 +107,9 @@ KDE 4 application runtime components.
 %{_kde_bindir}/ktrash
 %{_kde_bindir}/kuiserver
 %{_kde_bindir}/kwriteconfig
-%{_kde_bindir}/nepomukcontroller
 %{_kde_bindir}/plasmapkg
 %{_kde_bindir}/plasma-remote-helper
 %{_kde_bindir}/solid-hardware
-%{_kde_autostart}/nepomukcontroller.desktop
 %{_kde_libdir}/kconf_update_bin/phonon_devicepreference_update
 %{_kde_libdir}/kconf_update_bin/phonon_deviceuids_update
 %{_kde_libdir}/kde4/comicbookthumbnail.so
@@ -189,19 +187,21 @@ KDE 4 application runtime components.
 %{_kde_libdir}/kde4/plasma_runnerscript_javascript.so
 %{_kde_libdir}/kde4/svgthumbnail.so
 %{_kde_libdir}/kde4/textthumbnail.so
-%{_kde_libdir}/kde4/imports/org/kde/qtextracomponents/libqtextracomponentsplugin.so
-%{_kde_libdir}/kde4/imports/org/kde/qtextracomponents/qmldir
 %{_kde_libdir}/kde4/windowsexethumbnail.so
 %{_kde_libdir}/kde4/windowsimagethumbnail.so
-%{_kde_libdir}/kde4/imports/org/kde/plasma
 %{_kde_libdir}/kde4/libexec
 %{_kde_libdir}/kde4/plugins
+%{_kde_libdir}/kde4/imports/org/kde/dirmodel/qmldir
+%{_kde_libdir}/kde4/imports/org/kde/dirmodel/libdirmodelplugin.so
 %{_kde_libdir}/kde4/imports/org/kde/draganddrop/qmldir
 %{_kde_libdir}/kde4/imports/org/kde/draganddrop/libdraganddropplugin.so
-%{_kde_libdir}/kde4/imports/org/kde/runnermodel/qmldir
-%{_kde_libdir}/kde4/imports/org/kde/runnermodel/librunnermodelplugin.so
 %{_kde_libdir}/kde4/imports/org/kde/locale/qmldir
 %{_kde_libdir}/kde4/imports/org/kde/locale/liblocalebindingsplugin.so
+%{_kde_libdir}/kde4/imports/org/kde/plasma
+%{_kde_libdir}/kde4/imports/org/kde/qtextracomponents/libqtextracomponentsplugin.so
+%{_kde_libdir}/kde4/imports/org/kde/qtextracomponents/qmldir
+%{_kde_libdir}/kde4/imports/org/kde/runnermodel/qmldir
+%{_kde_libdir}/kde4/imports/org/kde/runnermodel/librunnermodelplugin.so
 %{_kde_libdir}/kde4/platformimports
 %{_kde_libdir}/kde4/kio_smb.so
 %{_kde_libdir}/attica_kde.so
@@ -243,6 +243,7 @@ KDE 4 application runtime components.
 %{_kde_services}/comicbookthumbnail.desktop
 %{_kde_services}/componentchooser.desktop
 %{_kde_services}/cursorthumbnail.desktop
+%{_kde_services}/desktop-search.desktop
 %{_kde_services}/desktopthumbnail.desktop
 %{_kde_services}/device_automounter_kcm.desktop
 %{_kde_services}/directorythumbnail.desktop
@@ -280,6 +281,7 @@ KDE 4 application runtime components.
 %{_kde_services}/plasma-scriptengine-applet-simple-javascript.desktop
 %{_kde_services}/plasma-scriptengine-dataengine-javascript.desktop
 %{_kde_services}/plasma-scriptengine-runner-javascript.desktop
+%{_kde_services}/qimageioplugins/webp.desktop
 %{_kde_services}/renaudiodlg.desktop
 %{_kde_services}/renimagedlg.desktop
 %{_kde_services}/searchproviders
@@ -399,6 +401,7 @@ ln -s %{_kde_libdir}/kde4/libexec/kdesu %{buildroot}%{_kde_bindir}/kdesu
 * Wed Aug 14 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.11.0-1
 - New version 4.11.0
 - Re-diff l10n-ru patch
+- Update files list
 
 * Wed Jul 03 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.10.5-1
 - New version 4.10.5
