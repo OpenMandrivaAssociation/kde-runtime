@@ -44,16 +44,17 @@ BuildRequires:	pkgconfig(exiv2)
 BuildRequires:	pkgconfig(libattica)
 BuildRequires:	pkgconfig(libcanberra)
 BuildRequires:	pkgconfig(libkactivities)
+BuildRequires:	pkgconfig(libntrack-qt4)
 BuildRequires:	pkgconfig(libpulse)
 BuildRequires:	pkgconfig(libstreams)
+BuildRequires:	pkgconfig(libtirpc)
+BuildRequires:	pkgconfig(libwebp)
 BuildRequires:	pkgconfig(NetworkManager)
 BuildRequires:	pkgconfig(OpenEXR)
 BuildRequires:	pkgconfig(phonon)
 BuildRequires:	pkgconfig(smbclient)
 BuildRequires:	pkgconfig(soprano)
 BuildRequires:	pkgconfig(xcursor)
-BuildRequires:	pkgconfig(libtirpc)
-BuildRequires:	pkgconfig(libntrack-qt4)
 
 Requires:	kdelibs4-core
 Requires:	oxygen-icon-theme
@@ -401,6 +402,7 @@ ln -s %{_kde_libdir}/kde4/libexec/kdesu %{buildroot}%{_kde_bindir}/kdesu
 * Wed Aug 14 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.11.0-1
 - New version 4.11.0
 - Re-diff l10n-ru patch
+- Add pkgconfig(libwebp) to BuildRequires
 - Update files list
 
 * Wed Jul 03 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.10.5-1
