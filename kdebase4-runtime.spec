@@ -1,6 +1,6 @@
 Summary:	K Desktop Environment - Base Runtime
 Name:		kdebase4-runtime
-Version:	4.11.0
+Version:	4.11.1
 Release:	1
 Epoch:		1
 Group:		Graphical desktop/KDE
@@ -399,6 +399,9 @@ mkdir -p %{buildroot}%{_kde_bindir}
 ln -s %{_kde_libdir}/kde4/libexec/kdesu %{buildroot}%{_kde_bindir}/kdesu
 
 %changelog
+* Tue Sep 03 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.11.1-1
+- New version 4.11.1
+
 * Wed Aug 14 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.11.0-1
 - New version 4.11.0
 - Re-diff l10n-ru patch
