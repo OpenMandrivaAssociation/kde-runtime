@@ -1,7 +1,7 @@
 Summary:	K Desktop Environment - Base Runtime
 Name:		kdebase4-runtime
 Version:	4.11.1
-Release:	1
+Release:	2
 Epoch:		1
 Group:		Graphical desktop/KDE
 License:	GPL
@@ -30,6 +30,10 @@ Patch100:	kdebase-runtime-4.8.0-knetattachxdg.patch
 Patch101:	kde-runtime-4.11.0-l10n-ru.patch
 Patch102:	kde-runtime-4.8.2-save-i18n-settings.patch
 Patch103:	kde-runtime-4.9.3-kcmlocale-fix-translations.patch
+
+# Backports
+# Fix issue with taskbar double click windows switching, fixed in 4.11.2
+Patch200:	0001-Discard-the-recorded-events-in-the-item-local-handle.patch
 
 BuildRequires:	automoc4
 BuildRequires:	jpeg-devel
@@ -386,6 +390,8 @@ browsing.
 %patch102 -p1
 %patch103 -p1
 
+%patch200 -p1
+
 %build
 %cmake_kde4
 %make
@@ -399,6 +405,9 @@ mkdir -p %{buildroot}%{_kde_bindir}
 ln -s %{_kde_libdir}/kde4/libexec/kdesu %{buildroot}%{_kde_bindir}/kdesu
 
 %changelog
+* Wed Sep 25 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.11.1-2
+- Backport patch200 from upstream to fix double click taskbar issue
+
 * Tue Sep 03 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.11.1-1
 - New version 4.11.1
 
