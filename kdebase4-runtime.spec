@@ -1,7 +1,7 @@
 Summary:	K Desktop Environment - Base Runtime
 Name:		kdebase4-runtime
-Version:	4.11.1
-Release:	2
+Version:	4.11.2
+Release:	1
 Epoch:		1
 Group:		Graphical desktop/KDE
 License:	GPL
@@ -405,6 +405,9 @@ mkdir -p %{buildroot}%{_kde_bindir}
 ln -s %{_kde_libdir}/kde4/libexec/kdesu %{buildroot}%{_kde_bindir}/kdesu
 
 %changelog
+* Wed Oct 02 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.11.2-1
+- New version 4.11.2
+
 * Wed Sep 25 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.11.1-2
 - Backport patch200 from upstream to fix double click taskbar issue
 
