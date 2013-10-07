@@ -388,8 +388,6 @@ browsing.
 %patch102 -p1
 %patch103 -p1
 
-%patch200 -p1
-
 %build
 %cmake_kde4
 %make
