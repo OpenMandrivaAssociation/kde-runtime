@@ -32,8 +32,6 @@ Patch102:	kde-runtime-4.8.2-save-i18n-settings.patch
 Patch103:	kde-runtime-4.9.3-kcmlocale-fix-translations.patch
 
 # Backports
-# Fix issue with taskbar double click windows switching, fixed in 4.11.2
-Patch200:	0001-Discard-the-recorded-events-in-the-item-local-handle.patch
 
 BuildRequires:	automoc4
 BuildRequires:	jpeg-devel
@@ -407,6 +405,7 @@ ln -s %{_kde_libdir}/kde4/libexec/kdesu %{buildroot}%{_kde_bindir}/kdesu
 %changelog
 * Wed Oct 02 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.11.2-1
 - New version 4.11.2
+- Drop temporary upstream patch200
 
 * Wed Sep 25 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.11.1-2
 - Backport patch200 from upstream to fix double click taskbar issue
