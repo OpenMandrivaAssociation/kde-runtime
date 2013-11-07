@@ -1,10 +1,10 @@
 Summary:	K Desktop Environment - Base Runtime
 Name:		kdebase4-runtime
 Version:	4.11.3
-Release:	1
+Release:	2
 Epoch:		1
 Group:		Graphical desktop/KDE
-License:	GPL
+License:	GPLv2+
 Url:		http://www.kde.org
 %define is_beta %(if test `echo %{version} |cut -d. -f3` -ge 70; then echo -n 1; else echo -n 0; fi)
 %if %{is_beta}
@@ -61,16 +61,17 @@ BuildRequires:	pkgconfig(xcursor)
 Requires:	kdelibs4-core
 Requires:	oxygen-icon-theme
 Requires:	libkactivities
-Suggests:	kde4-l10n
-Suggests:	hicolor-icon-theme
-Suggests:	kde4-splash-mdv
-Suggests:	htdig
-Suggests:	kwallet-daemon
-Suggests:	kdialog
-Suggests:	gdb
-Suggests:	cagibi
-Requires:	soprano-plugin-redland
 Requires:	polkit-kde-1
+Requires:	soprano-plugin-redland
+Suggests:	cagibi
+Suggests:	djvulibre
+Suggests:	gdb
+Suggests:	hicolor-icon-theme
+Suggests:	htdig
+Suggests:	kde4-l10n
+Suggests:	kde4-splash-mdv
+Suggests:	kdialog
+Suggests:	kwallet-daemon
 Conflicts:	kdebase4-workspace < 2:4.10.0
 Conflicts:	nepomuk-scribo < 1:0.6.0-3
 
@@ -401,8 +402,9 @@ mkdir -p %{buildroot}%{_kde_bindir}
 ln -s %{_kde_libdir}/kde4/libexec/kdesu %{buildroot}%{_kde_bindir}/kdesu
 
 %changelog
-* Wed Nov 06 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.11.3-1
+* Wed Nov 06 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.11.3-2
 - New version 4.11.3
+- Add djvulibre to Suggests to make djvu thumbnails work
 
 * Wed Oct 02 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.11.2-1
 - New version 4.11.2
