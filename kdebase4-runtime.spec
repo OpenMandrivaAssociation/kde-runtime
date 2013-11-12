@@ -70,7 +70,6 @@ Suggests:	cagibi
 Suggests:	djvulibre
 Suggests:	gdb
 Suggests:	hicolor-icon-theme
-Suggests:	htdig
 Suggests:	kde4-l10n
 Suggests:	kde4-splash-mdv
 Suggests:	kdialog
@@ -409,6 +408,7 @@ ln -s %{_kde_libdir}/kde4/libexec/kdesu %{buildroot}%{_kde_bindir}/kdesu
 %changelog
 * Tue Nov 12 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.11.3-3
 - Add pulse patch to fix issue with missing video capture devices in Phonon
+- Don't suggest htdig because we don't have it
 
 * Wed Nov 06 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.11.3-2
 - New version 4.11.3
