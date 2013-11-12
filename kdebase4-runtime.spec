@@ -1,7 +1,7 @@
 Summary:	K Desktop Environment - Base Runtime
 Name:		kdebase4-runtime
 Version:	4.11.3
-Release:	2
+Release:	3
 Epoch:		1
 Group:		Graphical desktop/KDE
 License:	GPLv2+
@@ -32,6 +32,9 @@ Patch102:	kde-runtime-4.8.2-save-i18n-settings.patch
 Patch103:	kde-runtime-4.9.3-kcmlocale-fix-translations.patch
 
 # Backports
+# Revert http://quickgit.kde.org/?p=kde-runtime.git&a=commitdiff&h=9c061a16753e8801f157842107cdc19bd06c4533
+# to fix issue with missing video capture devices in Phonon
+Patch200:	kde-runtime-4.11.3-pulse.patch
 
 BuildRequires:	automoc4
 BuildRequires:	jpeg-devel
@@ -389,6 +392,8 @@ browsing.
 %patch102 -p1
 %patch103 -p1
 
+%patch200 -p1 -R
+
 %build
 %cmake_kde4
 %make
@@ -402,6 +407,9 @@ mkdir -p %{buildroot}%{_kde_bindir}
 ln -s %{_kde_libdir}/kde4/libexec/kdesu %{buildroot}%{_kde_bindir}/kdesu
 
 %changelog
+* Tue Nov 12 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.11.3-3
+- Add pulse patch to fix issue with missing video capture devices in Phonon
+
 * Wed Nov 06 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.11.3-2
 - New version 4.11.3
 - Add djvulibre to Suggests to make djvu thumbnails work

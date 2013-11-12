@@ -1,0 +1,69 @@
+From: Harald Sitter <sitter@kde.org>
+Date: Wed, 03 Jul 2013 21:32:49 +0000
+Subject: Use Phonon::PulseSupport to prevent device detection with PulseAudio
+X-Git-Tag: v4.10.95
+X-Git-Url: http://quickgit.kde.org/?p=kde-runtime.git&a=commitdiff&h=9c061a16753e8801f157842107cdc19bd06c4533
+---
+Use Phonon::PulseSupport to prevent device detection with PulseAudio
+
+Previously whenever a device changed phononserver would rescan the
+devices and display a pointless window informing the user about the
+device removal. This is no longer the desired default experience as
+we now recommend PulseAudio which handles device mapping and caching
+for us.
+
+Ths is wrong for two reasons.
+a) With PA scanning Alsa/OSS for devices is just wrong, because we are not
+going to use them anyway
+b) The Phonon KCM with PA does not even visually present the Solid based
+device cache as PA overrides everything there.
+So in short whatever the user did with the notificaton window it had no
+impact on anything as the cache was not used anyway and updating the cache
+was pointless for the very same reason.
+
+Now phononserver will check on the fly whether PA is active and if so,
+refuse to scan for devices. This however has the disadvantage that now
+phononserver actually becomes a PA client getting continous (noop)
+updates about device/stream changes as we repeatedly check activity
+just in case PA explodes and we actually need to update the cache.
+
+In the long run this ought to be a one time check though as PA
+auto-restarts unless something went terribly wrong, for the time being
+continous checks seem less invasive to the runtime experience.
+
+BUG: 321036
+---
+
+
+--- a/phonon/kded-module/phononserver.cpp
++++ b/phonon/kded-module/phononserver.cpp
+@@ -40,6 +40,7 @@
+ #include <QtDBus/QDBusMessage>
+ #include <QtDBus/QDBusMetaType>
+ #include <QtCore/QVariant>
++#include <phonon/pulsesupport.h>
+ #include <Solid/AudioInterface>
+ #include <Solid/GenericInterface>
+ #include <Solid/Device>
+@@ -381,9 +382,17 @@
+ 
+ void PhononServer::findDevices()
+ {
+-    KConfigGroup globalConfigGroup(m_config, "Globals");
+-    //const int cacheVersion = globalConfigGroup.readEntry("CacheVersion", 0);
+-    // cacheVersion 1 is KDE 4.1, 0 is KDE 4.0
++    if (Phonon::PulseSupport *pulse = Phonon::PulseSupport::getInstance()) {
++        // NOTE: This is relying on internal behavior....
++        //       enable internally simply sets a bool that is later && with the
++        //       actually PA activity.
++        //       Should this function ever start doing more, this will break horribly.
++        pulse->enable();
++        if (pulse->isActive()) {
++            kDebug(601) << "Not looking for devices as Phonon::PulseSupport is active.";
++            return;
++        }
++    }
+ 
+     // Fetch the full list of audio and video devices from Solid
+     const QList<Solid::Device> &solidAudioDevices =
+
