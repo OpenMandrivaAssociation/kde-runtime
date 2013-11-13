@@ -1,0 +1,63 @@
+diff -urN kde-runtime-4.11.3/kcontrol/knotify/knotify.cpp kde-runtime-4.11.3-patched/kcontrol/knotify/knotify.cpp
+--- kde-runtime-4.11.3/kcontrol/knotify/knotify.cpp	2013-06-29 04:12:33.000000000 +1100
++++ kde-runtime-4.11.3-patched/kcontrol/knotify/knotify.cpp	2013-11-13 22:34:18.836474541 +1100
+@@ -40,6 +40,7 @@
+ #include <kurlrequester.h>
+ 
+ #include "ui_playersettings.h"
++#include <phonon/pulsesupport.h>
+ 
+ static const int COL_FILENAME = 1;
+ 
+@@ -238,7 +239,19 @@
+     m_ui->cbExternal->setChecked( useExternal );
+     m_ui->reqExternal->setUrl( config.readPathEntry( "External player", QString() ) );
+     m_ui->volumeSlider->setValue( config.readEntry( "Volume", 100 ) );
+-
++    if (Phonon::PulseSupport *pulse = Phonon::PulseSupport::getInstance()) {
++	// NOTE: This is relying on internal behavior....
++	//       enable internally simply sets a bool that is later && with the
++	//       actually PA activity.
++	//       Should this function ever start doing more, this will break horribly.
++	pulse->enable();
++	if (pulse->isActive()) {
++	    m_ui->volumeSlider->hide();
++	    m_ui->textLabel2->hide();
++	    m_ui->textLabel3->hide();
++	    m_ui->textLabel4->hide();
++	}
++    }
+     if ( !m_ui->cbExternal->isChecked() )
+     {
+         m_ui->cbNone->setChecked( config.readEntry( "No sound", false ) );
+diff -urN kde-runtime-4.11.3/knotify/notifybysound.cpp kde-runtime-4.11.3-patched/knotify/notifybysound.cpp
+--- kde-runtime-4.11.3/knotify/notifybysound.cpp	2013-06-29 04:12:33.000000000 +1100
++++ kde-runtime-4.11.3-patched/knotify/notifybysound.cpp	2013-11-13 22:00:28.199054853 +1100
+@@ -50,6 +50,7 @@
+ #include <phonon/mediaobject.h>
+ #include <phonon/path.h>
+ #include <phonon/audiooutput.h>
++#include <phonon/pulsesupport.h>
+ 
+ struct Player
+ {
+@@ -187,8 +188,17 @@
+ 	{
+ 		d->playerMode = Private::NoSound;
+ 	}
+-	// load default volume
+-	setVolume( cg.readEntry( "Volume", 100 ) );
++	if (Phonon::PulseSupport *pulse = Phonon::PulseSupport::getInstance()) {
++	// NOTE: This is relying on internal behavior....
++	//       enable internally simply sets a bool that is later && with the
++	//       actually PA activity.
++	//       Should this function ever start doing more, this will break horribly.
++		pulse->enable();
++		if (!pulse->isActive()) {
++			// load default volume
++			setVolume( cg.readEntry( "Volume", 100 ) );
++		}
++	}
+ }
+ 
+ 

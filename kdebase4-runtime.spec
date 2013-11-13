@@ -1,7 +1,7 @@
 Summary:	K Desktop Environment - Base Runtime
 Name:		kdebase4-runtime
 Version:	4.11.3
-Release:	3
+Release:	4
 Epoch:		1
 Group:		Graphical desktop/KDE
 License:	GPLv2+
@@ -30,6 +30,9 @@ Patch100:	kdebase-runtime-4.8.0-knetattachxdg.patch
 Patch101:	kde-runtime-4.11.0-l10n-ru.patch
 Patch102:	kde-runtime-4.8.2-save-i18n-settings.patch
 Patch103:	kde-runtime-4.9.3-kcmlocale-fix-translations.patch
+# Fix knotify settings overwriting pulse volume
+# These settings make sense only when pulseaudio is not used
+Patch104:	kde-runtime-4.11.3-knotify-volume.patch
 
 # Backports
 # Revert http://quickgit.kde.org/?p=kde-runtime.git&a=commitdiff&h=9c061a16753e8801f157842107cdc19bd06c4533
@@ -390,6 +393,7 @@ browsing.
 %patch101 -p1
 %patch102 -p1
 %patch103 -p1
+%patch104 -p1
 
 %patch200 -p1 -R
 
@@ -406,6 +410,9 @@ mkdir -p %{buildroot}%{_kde_bindir}
 ln -s %{_kde_libdir}/kde4/libexec/kdesu %{buildroot}%{_kde_bindir}/kdesu
 
 %changelog
+* Wed Nov 13 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.11.3-4
+- Add knotify-volume patch to fix knotify settings overwriting pulse volume
+
 * Tue Nov 12 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.11.3-3
 - Add pulse patch to fix issue with missing video capture devices in Phonon
 - Don't suggest htdig because we don't have it
