@@ -1,7 +1,7 @@
 Summary:	K Desktop Environment - Base Runtime
 Name:		kdebase4-runtime
 Version:	4.11.3
-Release:	4
+Release:	5
 Epoch:		1
 Group:		Graphical desktop/KDE
 License:	GPLv2+
@@ -19,6 +19,7 @@ Patch1:		kde-runtime-4.9.98-link-tirpc.patch
 # See http://bugs.rosalinux.ru/show_bug.cgi?id=1902
 Patch2:		kde-runtime-4.10.2-kdesu-encoding.patch
 Patch3:		kde-runtime-4.10.4-kcm-attica-network-error.patch
+Patch4:		kde-runtime-4.11.3-save-i18n-settings.patch
 Patch5:		kdebase-runtime-4.3.2-knotify-fix-cpu-charge.patch
 Patch8:		kdebase-runtime-4.4.1-use-mdv-icon.patch
 
@@ -28,7 +29,6 @@ Patch10:	kdebase-runtime-4.6.4-do-not-copy-trash.patch
 
 Patch100:	kdebase-runtime-4.8.0-knetattachxdg.patch
 Patch101:	kde-runtime-4.11.0-l10n-ru.patch
-Patch102:	kde-runtime-4.8.2-save-i18n-settings.patch
 Patch103:	kde-runtime-4.9.3-kcmlocale-fix-translations.patch
 # Fix knotify settings overwriting pulse volume
 # These settings make sense only when pulseaudio is not used
@@ -385,13 +385,13 @@ browsing.
 %patch1 -p1 -b .tirpclinkage~
 %patch3 -p1 -b .kcm_attica~
 %patch2 -p1 -b .kdesu~
+%patch4 -p1 -b .save_i18n~
 %patch5 -p1 -b .bug_49814
 %patch8 -p0
 %patch9 -p0
 %patch10 -p1
 %patch100 -p1
 %patch101 -p1
-%patch102 -p1
 %patch103 -p1
 %patch104 -p1
 
@@ -410,6 +410,9 @@ mkdir -p %{buildroot}%{_kde_bindir}
 ln -s %{_kde_libdir}/kde4/libexec/kdesu %{buildroot}%{_kde_bindir}/kdesu
 
 %changelog
+* Mon Nov 18 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.11.3-5
+- Update save-i18n-settings patch to use QFile instead of QSettings (OMDV #317)
+
 * Wed Nov 13 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.11.3-4
 - Add knotify-volume patch to fix knotify settings overwriting pulse volume
 

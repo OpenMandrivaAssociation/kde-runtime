@@ -1,7 +1,7 @@
-diff -Nuar kde-runtime-4.8.2/kcontrol/locale/kcmlocale.cpp kde-runtime-4.8.2_new/kcontrol/locale/kcmlocale.cpp
---- kde-runtime-4.8.2/kcontrol/locale/kcmlocale.cpp	2012-01-02 23:51:22.000000000 +0400
-+++ kde-runtime-4.8.2_new/kcontrol/locale/kcmlocale.cpp	2012-05-04 19:41:49.720293235 +0400
-@@ -22,10 +22,14 @@
+diff -urN kde-runtime-4.11.3/kcontrol/locale/kcmlocale.cpp kde-runtime-4.11.3-patched/kcontrol/locale/kcmlocale.cpp
+--- kde-runtime-4.11.3/kcontrol/locale/kcmlocale.cpp	2013-08-29 03:59:56.000000000 +1100
++++ kde-runtime-4.11.3-patched/kcontrol/locale/kcmlocale.cpp	2013-11-19 02:27:39.043073893 +1100
+@@ -22,10 +22,13 @@
  
  #include "kcmlocale.h"
  
@@ -11,20 +11,20 @@ diff -Nuar kde-runtime-4.8.2/kcontrol/locale/kcmlocale.cpp kde-runtime-4.8.2_new
  #include <QListWidgetItem>
  #include <QPrinter>
  #include <QTimer>
-+#include <QSettings>
 +#include <QLocale>
  
  #include <KAboutData>
  #include <KActionSelector>
-@@ -642,12 +646,44 @@
+@@ -642,12 +645,45 @@
      copyCalendarSettings( &m_userCalendarSettings, &m_kcmCalendarSettings );
  }
  
 +void KCMLocale::saveI18nSettings()
 +{
 +    QString path = QDir::homePath() + "/.i18n";
++    QFile m_i18nUserSettings(path);
++    m_i18nUserSettings.open(QIODevice::WriteOnly);
 +
-+    QSettings m_i18nUserSettings(path, QSettings::IniFormat, this);
 +    QString languages = m_kcmSettings.readEntry( "Language", QString() );
 +
 +    QStringList list = languages.split(':');
@@ -34,21 +34,21 @@ diff -Nuar kde-runtime-4.8.2/kcontrol/locale/kcmlocale.cpp kde-runtime-4.8.2_new
 +    QLocale loc(list[0]);
 +    const QString value = loc.bcp47Name().replace('-', '_')  + ".UTF-8";
 +
-+    m_i18nUserSettings.setValue("LC_TELEPHONE", value);
-+    m_i18nUserSettings.setValue("LC_CTYPE", value);
-+    m_i18nUserSettings.setValue("LANGUAGE", value);
-+    m_i18nUserSettings.setValue("LC_MONETARY", value);
-+    m_i18nUserSettings.setValue("LC_ADDRESS", value);
-+    m_i18nUserSettings.setValue("LC_COLLATE", value);
-+    m_i18nUserSettings.setValue("LC_NAME", value);
-+    m_i18nUserSettings.setValue("LC_NUMERIC", value);
-+    m_i18nUserSettings.setValue("LC_MEASUREMENT", value);
-+    m_i18nUserSettings.setValue("LC_TIME", value);
-+    m_i18nUserSettings.setValue("LANG", value);
-+    m_i18nUserSettings.setValue("LC_IDENTIFICATION", value);
-+    m_i18nUserSettings.setValue("LC_MESSAGES", value);
++    m_i18nUserSettings.write("LC_TELEPHONE=" + value.toAscii() + "\n");
++    m_i18nUserSettings.write("LC_CTYPE=" + value.toAscii() + "\n");
++    m_i18nUserSettings.write("LANGUAGE=" + value.toAscii() + "\n");
++    m_i18nUserSettings.write("LC_MONETARY=" + value.toAscii() + "\n");
++    m_i18nUserSettings.write("LC_ADDRESS=" + value.toAscii() + "\n");
++    m_i18nUserSettings.write("LC_COLLATE=" + value.toAscii() + "\n");
++    m_i18nUserSettings.write("LC_NAME=" + value.toAscii() + "\n");
++    m_i18nUserSettings.write("LC_NUMERIC=" + value.toAscii() + "\n");
++    m_i18nUserSettings.write("LC_MEASUREMENT=" + value.toAscii() + "\n");
++    m_i18nUserSettings.write("LC_TIME=" + value.toAscii() + "\n");
++    m_i18nUserSettings.write("LANG=" + value.toAscii() + "\n");
++    m_i18nUserSettings.write("LC_IDENTIFICATION=" + value.toAscii() + "\n");
++    m_i18nUserSettings.write("LC_MESSAGES=" + value.toAscii() + "\n");
 +
-+    m_i18nUserSettings.sync();
++    m_i18nUserSettings.close();
 +}
 +
  void KCMLocale::save()
@@ -70,18 +70,9 @@ diff -Nuar kde-runtime-4.8.2/kcontrol/locale/kcmlocale.cpp kde-runtime-4.8.2_new
      }
  
      load();
-@@ -3338,7 +3376,7 @@
-     m_ui->m_labelBinaryUnitSample->setText( ki18nc("Example test for binary unit dialect",
-                                                    "Example: 2000 bytes equals %1")
-                                                   .subs( m_kcmLocale->formatByteSize( 2000, 2 ) )
--                                                  .toString( m_kcmLocale ) );
-+                                            .toString( m_kcmLocale ) );
- }
- 
- QString KCMLocale::posixToUserTime( const QString &posixFormat ) const
-diff -Nuar kde-runtime-4.8.2/kcontrol/locale/kcmlocale.h kde-runtime-4.8.2_new/kcontrol/locale/kcmlocale.h
---- kde-runtime-4.8.2/kcontrol/locale/kcmlocale.h	2011-07-27 22:36:15.000000000 +0400
-+++ kde-runtime-4.8.2_new/kcontrol/locale/kcmlocale.h	2012-05-04 19:27:45.142614508 +0400
+diff -urN kde-runtime-4.11.3/kcontrol/locale/kcmlocale.h kde-runtime-4.11.3-patched/kcontrol/locale/kcmlocale.h
+--- kde-runtime-4.11.3/kcontrol/locale/kcmlocale.h	2013-06-29 04:12:33.000000000 +1100
++++ kde-runtime-4.11.3-patched/kcontrol/locale/kcmlocale.h	2013-11-19 02:27:47.288197456 +1100
 @@ -275,6 +275,9 @@
      void initBinaryUnitDialect();
      void setBinaryUnitDialect( int newValue );
@@ -100,10 +91,3 @@ diff -Nuar kde-runtime-4.8.2/kcontrol/locale/kcmlocale.h kde-runtime-4.8.2_new/k
      // The currently saved user config/settings
      // This is used to check if anything has changed, but never saved
      KSharedConfigPtr m_currentConfig;
-@@ -480,4 +484,4 @@
-     Ui::KCMLocaleWidget *m_ui;
- };
- 
--#endif //KCMLOCALE_H
-\ No newline at end of file
-+#endif //KCMLOCALE_H
