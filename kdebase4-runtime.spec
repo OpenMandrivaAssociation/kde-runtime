@@ -1,7 +1,7 @@
 Summary:	K Desktop Environment - Base Runtime
 Name:		kdebase4-runtime
-Version:	4.11.3
-Release:	6
+Version:	4.11.4
+Release:	1
 Epoch:		1
 Group:		Graphical desktop/KDE
 License:	GPLv2+
@@ -409,6 +409,9 @@ mkdir -p %{buildroot}%{_kde_bindir}
 ln -s %{_kde_libdir}/kde4/libexec/kdesu %{buildroot}%{_kde_bindir}/kdesu
 
 %changelog
+* Wed Dec 04 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.11.4-1
+- New version 4.11.4
+
 * Tue Nov 19 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.11.3-6
 - Use canberra patch instead of knotify-volume patch
 
