@@ -73,7 +73,6 @@ Suggests:	djvulibre
 Suggests:	gdb
 Suggests:	hicolor-icon-theme
 Suggests:	kde4-l10n
-Suggests:	kde4-splash-mdv
 Suggests:	kdialog
 Suggests:	kwallet-daemon
 Conflicts:	kdebase4-workspace < 2:4.10.0
@@ -411,6 +410,7 @@ ln -s %{_kde_libdir}/kde4/libexec/kdesu %{buildroot}%{_kde_bindir}/kdesu
 %changelog
 * Wed Dec 04 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.11.4-1
 - New version 4.11.4
+- Don't suggest kde4-splash-mdv
 
 * Tue Nov 19 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.11.3-6
 - Use canberra patch instead of knotify-volume patch
