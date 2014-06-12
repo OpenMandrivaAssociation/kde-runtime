@@ -45,7 +45,6 @@ BuildRequires:	kdepimlibs4-devel
 BuildRequires:	nepomuk-core-devel
 BuildRequires:	ntrack-devel
 BuildRequires:	openslp-devel
-BuildRequires:	ssh-devel
 BuildRequires:	pkgconfig(alsa)
 BuildRequires:	pkgconfig(exiv2)
 BuildRequires:	pkgconfig(libattica)
@@ -53,6 +52,7 @@ BuildRequires:	pkgconfig(libcanberra)
 BuildRequires:	pkgconfig(libkactivities)
 BuildRequires:	pkgconfig(libntrack-qt4)
 BuildRequires:	pkgconfig(libpulse)
+BuildRequires:	pkgconfig(libssh) >= 0.6.0
 BuildRequires:	pkgconfig(libstreams)
 BuildRequires:	pkgconfig(libtirpc)
 BuildRequires:	pkgconfig(libwebp)
@@ -410,6 +410,7 @@ ln -s %{_kde_libdir}/kde4/libexec/kdesu %{buildroot}%{_kde_bindir}/kdesu
 %changelog
 * Wed Jun 11 2014 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.13.2-1
 - New version 4.13.2
+- Build requires libssh at least 0.6.0
 
 * Wed Apr 02 2014 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.12.4-1
 - New version 4.12.4
