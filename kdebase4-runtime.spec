@@ -1,6 +1,6 @@
 Summary:	K Desktop Environment - Base Runtime
 Name:		kdebase4-runtime
-Version:	4.12.4
+Version:	4.13.2
 Release:	1
 Epoch:		1
 Group:		Graphical desktop/KDE
@@ -45,7 +45,6 @@ BuildRequires:	kdepimlibs4-devel
 BuildRequires:	nepomuk-core-devel
 BuildRequires:	ntrack-devel
 BuildRequires:	openslp-devel
-BuildRequires:	ssh-devel
 BuildRequires:	pkgconfig(alsa)
 BuildRequires:	pkgconfig(exiv2)
 BuildRequires:	pkgconfig(libattica)
@@ -53,6 +52,7 @@ BuildRequires:	pkgconfig(libcanberra)
 BuildRequires:	pkgconfig(libkactivities)
 BuildRequires:	pkgconfig(libntrack-qt4)
 BuildRequires:	pkgconfig(libpulse)
+BuildRequires:	pkgconfig(libssh) >= 0.6.0
 BuildRequires:	pkgconfig(libstreams)
 BuildRequires:	pkgconfig(libtirpc)
 BuildRequires:	pkgconfig(libwebp)
@@ -138,7 +138,6 @@ KDE 4 application runtime components.
 %{_kde_libdir}/kde4/kcm_kdnssd.so
 %{_kde_libdir}/kde4/kcm_knotify.so
 %{_kde_libdir}/kde4/kcm_locale.so
-%{_kde_libdir}/kde4/kcm_nepomuk.so
 %{_kde_libdir}/kde4/kcm_phonon.so
 %{_kde_libdir}/kde4/kcm_trash.so
 %{_kde_libdir}/kde4/kcmspellchecking.so
@@ -146,7 +145,6 @@ KDE 4 application runtime components.
 %{_kde_libdir}/kde4/kded_device_automounter.so
 %{_kde_libdir}/kde4/kded_kpasswdserver.so
 %{_kde_libdir}/kde4/kded_ktimezoned.so
-%{_kde_libdir}/kde4/kded_nepomuksearchmodule.so
 %{_kde_libdir}/kde4/kded_networkstatus.so
 %{_kde_libdir}/kde4/kded_networkwatcher.so
 %{_kde_libdir}/kde4/kded_phononserver.so
@@ -166,17 +164,13 @@ KDE 4 application runtime components.
 %{_kde_libdir}/kde4/kio_floppy.so
 %{_kde_libdir}/kde4/kio_info.so
 %{_kde_libdir}/kde4/kio_man.so
-%{_kde_libdir}/kde4/kio_nepomuk.so
-%{_kde_libdir}/kde4/kio_nepomuksearch.so
 %{_kde_libdir}/kde4/kio_network.so
 %{_kde_libdir}/kde4/kio_nfs.so
 %{_kde_libdir}/kde4/kio_recentdocuments.so
 %{_kde_libdir}/kde4/kio_remote.so
 %{_kde_libdir}/kde4/kio_settings.so
 %{_kde_libdir}/kde4/kio_sftp.so
-%{_kde_libdir}/kde4/kio_tags.so
 %{_kde_libdir}/kde4/kio_thumbnail.so
-%{_kde_libdir}/kde4/kio_timeline.so
 %{_kde_libdir}/kde4/kio_trash.so
 %{_kde_libdir}/kde4/kshorturifilter.so
 %{_kde_libdir}/kde4/kuriikwsfilter.so
@@ -250,7 +244,6 @@ KDE 4 application runtime components.
 %{_kde_services}/comicbookthumbnail.desktop
 %{_kde_services}/componentchooser.desktop
 %{_kde_services}/cursorthumbnail.desktop
-%{_kde_services}/desktop-search.desktop
 %{_kde_services}/desktopthumbnail.desktop
 %{_kde_services}/device_automounter_kcm.desktop
 %{_kde_services}/directorythumbnail.desktop
@@ -265,7 +258,6 @@ KDE 4 application runtime components.
 %{_kde_services}/jpegthumbnail.desktop
 %{_kde_services}/kcm_attica.desktop
 %{_kde_services}/kcm_kdnssd.desktop
-%{_kde_services}/kcm_nepomuk.desktop
 %{_kde_services}/kcm_phonon.desktop
 %{_kde_services}/kcmcgi.desktop
 %{_kde_services}/kcmkded.desktop
@@ -408,6 +400,11 @@ mkdir -p %{buildroot}%{_kde_bindir}
 ln -s %{_kde_libdir}/kde4/libexec/kdesu %{buildroot}%{_kde_bindir}/kdesu
 
 %changelog
+* Wed Jun 11 2014 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.13.2-1
+- New version 4.13.2
+- Build requires libssh at least 0.6.0
+- Update files (remove Nepomuk parts)
+
 * Wed Apr 02 2014 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.12.4-1
 - New version 4.12.4
 
