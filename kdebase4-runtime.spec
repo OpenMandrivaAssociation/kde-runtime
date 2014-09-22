@@ -1,10 +1,10 @@
 Summary:	K Desktop Environment - Base Runtime
 Name:		kdebase4-runtime
 Version:	4.13.3
-Release:	1
+Release:	2
 Epoch:		1
-Group:		Graphical desktop/KDE
 License:	GPLv2+
+Group:		Graphical desktop/KDE
 Url:		http://www.kde.org
 %define is_beta %(if test `echo %{version} |cut -d. -f3` -ge 70; then echo -n 1; else echo -n 0; fi)
 %if %{is_beta}
@@ -64,9 +64,9 @@ BuildRequires:	pkgconfig(soprano)
 BuildRequires:	pkgconfig(xcursor)
 
 Requires:	kdelibs4-core
-Requires:	oxygen-icon-theme
 Requires:	libkactivities
-Requires:	polkit-kde-1
+Requires:	oxygen-icon-theme
+Requires:	polkit-kde-agent-1
 Requires:	soprano-plugin-redland
 Suggests:	cagibi
 Suggests:	djvulibre
@@ -400,6 +400,9 @@ mkdir -p %{buildroot}%{_kde_bindir}
 ln -s %{_kde_libdir}/kde4/libexec/kdesu %{buildroot}%{_kde_bindir}/kdesu
 
 %changelog
+* Tue Sep 23 2014 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.13.3-2
+- Require polkit-kde-agent-1 instead of polkit-kde-1
+
 * Tue Jul 15 2014 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.13.3-1
 - New version 4.13.3
 
