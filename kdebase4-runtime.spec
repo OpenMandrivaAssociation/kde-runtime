@@ -59,6 +59,7 @@ BuildRequires:	pkgconfig(libwebp)
 BuildRequires:	pkgconfig(NetworkManager)
 BuildRequires:	pkgconfig(OpenEXR)
 BuildRequires:	pkgconfig(phonon)
+BuildRequires:	pkgconfig(qca2)
 BuildRequires:	pkgconfig(smbclient)
 BuildRequires:	pkgconfig(soprano)
 BuildRequires:	pkgconfig(xcursor)
@@ -402,6 +403,7 @@ ln -s %{_kde_libdir}/kde4/libexec/kdesu %{buildroot}%{_kde_bindir}/kdesu
 %changelog
 * Mon Sep 29 2014 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.14.1-1
 - New version 4.14.1
+- Add pkgconfig(qca2) to BuildRequires
 
 * Tue Sep 23 2014 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.13.3-2
 - Require polkit-kde-agent-1 instead of polkit-kde-1
