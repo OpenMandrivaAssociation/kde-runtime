@@ -1,23 +1,16 @@
+%define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 Summary:	K Desktop Environment - Base Runtime
 Name:		kdebase4-runtime
-Version:	4.14.3
-Release:	2
+Version:	14.11.97
+Release:	1
 Epoch:		1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		http://www.kde.org
-%define is_beta %(if test `echo %{version} |cut -d. -f3` -ge 70; then echo -n 1; else echo -n 0; fi)
-%if %{is_beta}
-%define ftpdir unstable
-%else
-%define ftpdir stable
-%endif
-Source0:	ftp://ftp.kde.org/pub/kde/%{ftpdir}/%{version}/src/kde-runtime-%{version}.tar.xz
+Source0:	ftp://ftp.kde.org/pub/kde/%{stable}/applications/%{version}/src/kde-runtime-%{version}.tar.xz
 Source1:	kdebase4-runtime.rpmlintrc
 Patch0:		kdebase-runtime-4.5.74-fix-htsearch-path.patch
 Patch1:		kde-runtime-4.9.98-link-tirpc.patch
-# See http://bugs.rosalinux.ru/show_bug.cgi?id=1902
-Patch2:		kde-runtime-4.10.2-kdesu-encoding.patch
 Patch3:		kde-runtime-4.10.4-kcm-attica-network-error.patch
 Patch4:		kde-runtime-4.11.3-save-i18n-settings.patch
 Patch5:		kdebase-runtime-4.3.2-knotify-fix-cpu-charge.patch
@@ -298,7 +291,28 @@ KDE 4 application runtime components.
 %{_kde_mandir}/man?/*
 %{_kde_datadir}/mime/packages/*.xml
 %{_kde_datadir}/sounds/*
-%doc %{_kde_docdir}/HTML/en/*
+%doc %{_docdir}/HTML/en/fundamentals
+%doc %{_docdir}/HTML/en/kdebugdialog
+%doc %{_docdir}/HTML/en/khelpcenter
+%doc %{_docdir}/HTML/en/kioslave
+%doc %{_docdir}/HTML/en/onlinehelp
+
+#--------------------------------------------------------------
+%package kde4
+Summary:	KDE4 versions of tools that are replaced by Plasma 5
+Group:		Graphical desktop/KDE
+Requires:	%{name} = %{EVRD}
+
+%description kde4
+KDE4 versions of tools that are replaced by Plasma 5.
+
+Install this package if you want to run KDE 4.x without having a
+dependency on Plasma 5.
+
+%files kde4
+%doc %{_docdir}/HTML/en/kcontrol
+%doc %{_docdir}/HTML/en/knetattach
+%doc %{_docdir}/HTML/en/kdesu
 
 #--------------------------------------------------------------
 
@@ -375,7 +389,6 @@ browsing.
 %patch0 -p1 -b .htsearch
 %patch1 -p1 -b .tirpclinkage~
 %patch3 -p1 -b .kcm_attica~
-%patch2 -p1 -b .kdesu~
 %patch4 -p1 -b .save_i18n~
 %patch5 -p1 -b .bug_49814
 %patch8 -p0
@@ -401,8 +414,8 @@ mkdir -p %{buildroot}%{_kde_bindir}
 ln -s %{_kde_libdir}/kde4/libexec/kdesu %{buildroot}%{_kde_bindir}/kdesu
 
 %changelog
-* Tue Nov 11 2014 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.14.3-1
-- New version 4.14.3
+* Tue Nov 11 2014 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:14.11.97-1
+- New version 14.11.97
 
 * Wed Oct 15 2014 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.14.2-1
 - New version 4.14.2
