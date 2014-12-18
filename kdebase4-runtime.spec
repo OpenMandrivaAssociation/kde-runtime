@@ -1,6 +1,6 @@
 Summary:	K Desktop Environment - Base Runtime
 Name:		kdebase4-runtime
-Version:	4.13.3
+Version:	4.14.3
 Release:	1
 Epoch:		1
 Group:		Graphical desktop/KDE
@@ -59,6 +59,7 @@ BuildRequires:	pkgconfig(libwebp)
 BuildRequires:	pkgconfig(NetworkManager)
 BuildRequires:	pkgconfig(OpenEXR)
 BuildRequires:	pkgconfig(phonon)
+BuildRequires:	pkgconfig(qca2)
 BuildRequires:	pkgconfig(smbclient)
 BuildRequires:	pkgconfig(soprano)
 BuildRequires:	pkgconfig(xcursor)
@@ -66,7 +67,7 @@ BuildRequires:	pkgconfig(xcursor)
 Requires:	kdelibs4-core
 Requires:	oxygen-icon-theme
 Requires:	libkactivities
-Requires:	polkit-kde-1
+Requires:	polkit-kde-agent-1
 Requires:	soprano-plugin-redland
 Suggests:	cagibi
 Suggests:	djvulibre
