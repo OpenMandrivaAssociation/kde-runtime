@@ -24,6 +24,7 @@ Patch100:	kdebase-runtime-4.8.0-knetattachxdg.patch
 Patch101:	kde-runtime-4.11.0-l10n-ru.patch
 Patch103:	kde-runtime-4.9.3-kcmlocale-fix-translations.patch
 # Fix knotify settings overwriting pulse volume
+# partially applied, need verification
 Patch104:	kdebase-runtime-4.6.0-canberra.patch
 
 # Backports
@@ -397,7 +398,6 @@ browsing.
 %patch100 -p1
 %patch101 -p1
 %patch103 -p1
-%patch104 -p1
 
 %patch200 -p1 -R
 
