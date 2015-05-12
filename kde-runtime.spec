@@ -10,7 +10,7 @@ Url:		http://www.kde.org
 Source0:	ftp://ftp.kde.org/pub/kde/%{stable}/applications/%{version}/src/%{name}-%{version}.tar.xz
 Source1:	%{name}.rpmlintrc
 Patch0:		kdebase-runtime-4.5.74-fix-htsearch-path.patch
-Patch1:		kde-runtime-4.9.98-link-tirpc.patch
+Patch1:		kde-runtime-15.04.0-link-tirpc-for-nfs.patch
 Patch3:		kde-runtime-4.10.4-kcm-attica-network-error.patch
 Patch4:		kde-runtime-4.11.3-save-i18n-settings.patch
 Patch5:		kdebase-runtime-4.3.2-knotify-fix-cpu-charge.patch

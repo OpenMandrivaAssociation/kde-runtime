@@ -1,0 +1,33 @@
+diff -Naur kde-runtime-15.04.0/kioslave/nfs/CMakeLists.txt kde-runtime-15.04.0.tpg/kioslave/nfs/CMakeLists.txt
+--- kde-runtime-15.04.0/kioslave/nfs/CMakeLists.txt	2015-05-12 20:48:42.000000000 +0000
++++ kde-runtime-15.04.0.tpg/kioslave/nfs/CMakeLists.txt	2015-05-12 20:52:15.485242126 +0000
+@@ -1,10 +1,14 @@
+ ## Check for XDR functions
+ include(CheckFunctionExists)
+ 
+-CHECK_FUNCTION_EXISTS(xdr_u_int64_t HAVE_XDR_U_INT64_T)
+-CHECK_FUNCTION_EXISTS(xdr_uint64_t HAVE_XDR_UINT64_T)
+-CHECK_FUNCTION_EXISTS(xdr_u_hyper HAVE_XDR_U_HYPER)
+-CHECK_FUNCTION_EXISTS(xdr_u_longlong_t HAVE_XDR_U_LONGLONG_T)
++#CHECK_FUNCTION_EXISTS(xdr_u_int64_t HAVE_XDR_U_INT64_T)
++#CHECK_FUNCTION_EXISTS(xdr_uint64_t HAVE_XDR_UINT64_T)
++#CHECK_FUNCTION_EXISTS(xdr_u_hyper HAVE_XDR_U_HYPER)
++#CHECK_FUNCTION_EXISTS(xdr_u_longlong_t HAVE_XDR_U_LONGLONG_T)
++set(HAVE_XDR_U_INT64_T TRUE)
++set(HAVE_XDR_UINT64_T TRUE)
++set(HAVE_XDR_HYPER TRUE)
++set(HAVE_XDR_U_LONGLONG_T TRUE)
+ 
+ if (NOT HAVE_XDR_U_INT64_T AND NOT HAVE_XDR_UINT64_T AND NOT HAVE_XDR_U_HYPER AND NOT HAVE_XDR_U_LONGLONG_T)
+     message(FATAL_ERROR "Could not find 64-bit XDR datatype functions!")
+--- kde-runtime-4.9.98/kioslave/nfs/CMakeLists.txt.bero	2013-01-29 01:29:38.452894537 +0100
++++ kde-runtime-4.9.98/kioslave/nfs/CMakeLists.txt	2013-01-29 01:29:50.296753117 +0100
+@@ -4,7 +4,7 @@ set(kio_nfs_PART_SRCS kio_nfs.cpp mount_
+ kde4_add_plugin(kio_nfs ${kio_nfs_PART_SRCS})
+ 
+ 
+-target_link_libraries(kio_nfs   ${KDE4_KIO_LIBS})
++target_link_libraries(kio_nfs   ${KDE4_KIO_LIBS} tirpc)
+ 
+ install(TARGETS kio_nfs  DESTINATION ${PLUGIN_INSTALL_DIR} )
+ 
