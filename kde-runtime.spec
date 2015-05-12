@@ -2,7 +2,7 @@
 Summary:	K Desktop Environment - Base Runtime
 Name:		kde-runtime
 Version:	15.04.0
-Release:	1
+Release:	2
 Epoch:		1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
@@ -72,6 +72,7 @@ Suggests:	kdialog
 Suggests:	kwallet-daemon
 Conflicts:	kdebase4-workspace < 2:4.10.0
 Conflicts:	nepomuk-scribo < 1:0.6.0-3
+%rename		kdebase4-runtime
 
 %description
 KDE 4 application runtime components.
