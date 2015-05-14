@@ -2,7 +2,7 @@
 Summary:	K Desktop Environment - Base Runtime
 Name:		kde-runtime
 Version:	15.04.1
-Release:	1
+Release:	2
 Epoch:		1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
@@ -95,7 +95,7 @@ KDE 4 application runtime components.
 %{_kde_bindir}/keditfiletype
 %{_kde_bindir}/kfile4
 %{_kde_bindir}/kglobalaccel
-%{_kde_bindir}/khelpcenter
+#%{_kde_bindir}/khelpcenter
 %{_kde_bindir}/khotnewstuff-upload
 %{_kde_bindir}/khotnewstuff4
 %{_kde_bindir}/kiconfinder
@@ -204,7 +204,7 @@ KDE 4 application runtime components.
 %{_kde_libdir}/attica_kde.so
 %{_kde_libdir}/libkdeinit4_kcmshell4.so
 %{_kde_libdir}/libkdeinit4_kglobalaccel.so
-%{_kde_libdir}/libkdeinit4_khelpcenter.so
+#%{_kde_libdir}/libkdeinit4_khelpcenter.so
 %{_kde_libdir}/libkdeinit4_kuiserver.so
 %{_kde_libdir}/libknotifyplugin.so
 %{_kde_applicationsdir}/*.desktop
@@ -217,7 +217,7 @@ KDE 4 application runtime components.
 %{_kde_appsdir}/kconf_update/*.upd
 %{_kde_appsdir}/kde
 %{_kde_appsdir}/kglobalaccel
-%{_kde_appsdir}/khelpcenter
+#%{_kde_appsdir}/khelpcenter
 %{_kde_appsdir}/kio_bookmarks
 %{_kde_appsdir}/kio_desktop
 %{_kde_appsdir}/kio_docfilter
@@ -260,7 +260,7 @@ KDE 4 application runtime components.
 %{_kde_services}/kcmnotify.desktop
 %{_kde_services}/kcmtrash.desktop
 %{_kde_services}/kglobalaccel.desktop
-%{_kde_services}/khelpcenter.desktop
+#%{_kde_services}/khelpcenter.desktop
 %{_kde_services}/kmanpart.desktop
 %{_kde_services}/knotify4.desktop
 %{_kde_services}/kshorturifilter.desktop
@@ -295,7 +295,7 @@ KDE 4 application runtime components.
 %{_kde_datadir}/sounds/*
 %doc %{_docdir}/HTML/en/fundamentals
 %doc %{_docdir}/HTML/en/kdebugdialog
-%doc %{_docdir}/HTML/en/khelpcenter
+#%doc %{_docdir}/HTML/en/khelpcenter
 %doc %{_docdir}/HTML/en/kioslave
 %doc %{_docdir}/HTML/en/onlinehelp
 
@@ -413,6 +413,14 @@ rm -f %{buildroot}%{_kde_iconsdir}/hicolor/index.theme
 
 mkdir -p %{buildroot}%{_kde_bindir}
 ln -s %{_kde_libdir}/kde4/libexec/kdesu %{buildroot}%{_kde_bindir}/kdesu
+
+# (tpg) get rid of khelpcenter
+# https://issues.openmandriva.org/show_bug.cgi?id=1222
+rm -rf %{buildroot}%{_kde_bindir}/khelpcenter
+rm -rf %{buildroot}%{_kde_libdir}/libkdeinit4_khelpcenter.so
+rm -rf %{buildroot}%{_kde_appsdir}/khelpcenter
+rm -rf %{buildroot}%{_kde_services}/khelpcenter.desktop
+rm -rf %{buildroot}%{_docdir}/HTML/*/khelpcenter
 
 %changelog
 * Tue Nov 11 2014 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:14.11.97-1
