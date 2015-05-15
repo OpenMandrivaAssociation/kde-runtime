@@ -2,7 +2,7 @@
 Summary:	K Desktop Environment - Base Runtime
 Name:		kde-runtime
 Version:	15.04.1
-Release:	2
+Release:	3
 Epoch:		1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
@@ -43,7 +43,6 @@ BuildRequires:	pkgconfig(alsa)
 BuildRequires:	pkgconfig(exiv2)
 BuildRequires:	pkgconfig(libattica)
 BuildRequires:	pkgconfig(libcanberra)
-BuildRequires:	pkgconfig(libkactivities)
 BuildRequires:	pkgconfig(libntrack-qt4)
 BuildRequires:	pkgconfig(libpulse)
 BuildRequires:	pkgconfig(libssh) >= 0.6.0
@@ -58,8 +57,6 @@ BuildRequires:	pkgconfig(smbclient)
 BuildRequires:	pkgconfig(soprano)
 BuildRequires:	pkgconfig(xcursor)
 
-Requires:	kdelibs-core
-Requires:	libkactivities
 Requires:	oxygen-icon-theme
 Requires:	polkit-kde-agent-1
 Requires:	soprano-plugin-redland
@@ -69,7 +66,6 @@ Suggests:	gdb
 Suggests:	hicolor-icon-theme
 Suggests:	kde4-l10n
 Suggests:	kdialog
-Suggests:	kwallet-daemon
 Conflicts:	kdebase4-workspace < 2:4.10.0
 Conflicts:	nepomuk-scribo < 1:0.6.0-3
 %rename		kdebase4-runtime
