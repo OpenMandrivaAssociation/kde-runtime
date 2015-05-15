@@ -43,6 +43,7 @@ BuildRequires:	pkgconfig(alsa)
 BuildRequires:	pkgconfig(exiv2)
 BuildRequires:	pkgconfig(libattica)
 BuildRequires:	pkgconfig(libcanberra)
+BuildRequires:	pkgconfig(libkactivities)
 BuildRequires:	pkgconfig(libntrack-qt4)
 BuildRequires:	pkgconfig(libpulse)
 BuildRequires:	pkgconfig(libssh) >= 0.6.0
