@@ -2,7 +2,7 @@
 Summary:	K Desktop Environment - Base Runtime
 Name:		kde-runtime
 Version:	15.04.3
-Release:	2
+Release:	3
 Epoch:		1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
@@ -416,9 +416,11 @@ ln -s %{_kde_libdir}/kde4/libexec/kdesu %{buildroot}%{_kde_bindir}/kdesu
 rm -rf %{buildroot}%{_kde_bindir}/khelpcenter
 rm -rf %{buildroot}%{_kde_libdir}/libkdeinit4_khelpcenter.so
 rm -rf %{buildroot}%{_kde_appsdir}/khelpcenter
+rm -rf %{buildroot}%{_kde_datadir}/config.kcfg/khelpcenter.kcfg
 rm -rf %{buildroot}%{_kde_services}/khelpcenter.desktop
 rm -rf %{buildroot}%{_docdir}/HTML/*/khelpcenter
 rm -rf %{buildroot}%{_docdir}/HTML/*/fundamentals
 rm -rf %{buildroot}%{_docdir}/HTML/*/khelpcenter
 rm -rf %{buildroot}%{_docdir}/HTML/*/onlinehelp
 rm -rf %{buildroot}%{_docdir}/HTML/*/glossary
+
