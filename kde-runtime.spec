@@ -2,7 +2,7 @@
 Summary:	K Desktop Environment - Base Runtime
 Name:		kde-runtime
 Version:	15.04.3
-Release:	3
+Release:	4
 Epoch:		1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
