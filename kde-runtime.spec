@@ -1,8 +1,8 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 Summary:	K Desktop Environment - Base Runtime
 Name:		kde-runtime
-Version:	15.04.3
-Release:	4
+Version:	15.08.0
+Release:	1
 Epoch:		1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
@@ -34,8 +34,8 @@ Patch200:	kde-runtime-4.11.3-pulse.patch
 
 BuildRequires:	automoc4
 BuildRequires:	jpeg-devel
-BuildRequires:	kdelibs4-devel >= 5:4.14.8
-BuildRequires:	kdepimlibs4-devel
+BuildRequires:	kdelibs-devel >= 5:4.14.8
+BuildRequires:	kdepimlibs-devel
 BuildRequires:	nepomuk-core-devel
 BuildRequires:	ntrack-devel
 BuildRequires:	openslp-devel
