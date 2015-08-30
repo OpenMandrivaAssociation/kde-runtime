@@ -400,7 +400,7 @@ browsing.
 %patch200 -p1 -R
 
 %build
-%cmake_kde4
+%cmake_kde4 -DCMAKE_MINIMUM_REQUIRED_VERSION=3.1
 %make
 
 %install
