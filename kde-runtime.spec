@@ -36,7 +36,6 @@ BuildRequires:	automoc4
 BuildRequires:	jpeg-devel
 BuildRequires:	kdelibs-devel >= 5:4.14.8
 BuildRequires:	kdepimlibs-devel
-BuildRequires:	nepomuk-core-devel
 BuildRequires:	ntrack-devel
 BuildRequires:	openslp-devel
 BuildRequires:	pkgconfig(alsa)
