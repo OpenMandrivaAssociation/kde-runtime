@@ -57,8 +57,6 @@ BuildRequires:	pkgconfig(smbclient)
 BuildRequires:	pkgconfig(soprano)
 BuildRequires:	pkgconfig(xcursor)
 BuildRequires:	cmake(KDeclarative)
-BuildRequires:	KdepimLibs
-BuildRequires:	cmake(KF5Gpgmepp)
 BuildRequires:	cmake(KF5Gpgmepp)
 
 Requires:	polkit-kde-agent-1
