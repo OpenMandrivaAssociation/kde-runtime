@@ -62,7 +62,9 @@ BuildRequires:	cmake(KF5Gpgmepp)
 BuildRequires:	cmake(KF5Gpgmepp)
 
 Requires:	polkit-kde-agent-1
-Requires:	soprano-plugin-redland
+Requires:	kactivitymanagerd
+Requires:	icoutils
+
 Suggests:	cagibi
 Suggests:	djvulibre
 Suggests:	gdb
@@ -89,7 +91,7 @@ KDE 4 application runtime components.
 %{_kde_bindir}/kde4
 %{_kde_bindir}/kde4-menu
 %{_kde_bindir}/kdebugdialog
-%{_kde_bindir}/kdesu
+#%{_kde_bindir}/kdesu
 %{_kde_bindir}/keditfiletype
 %{_kde_bindir}/kfile4
 %{_kde_bindir}/kglobalaccel
@@ -185,6 +187,7 @@ KDE 4 application runtime components.
 %{_kde_libdir}/kde4/windowsexethumbnail.so
 %{_kde_libdir}/kde4/windowsimagethumbnail.so
 %{_kde_libdir}/kde4/libexec
+%attr(2755,root,nogroup) %{_kde_libdir}/kde4/libexec/kdesud
 %{_kde_libdir}/kde4/plugins
 %{_kde_libdir}/kde4/imports/org/kde/dirmodel/qmldir
 %{_kde_libdir}/kde4/imports/org/kde/dirmodel/libdirmodelplugin.so
@@ -310,9 +313,6 @@ Install this package if you want to run KDE 4.x without having a
 dependency on Plasma 5.
 
 %files kde4
-%doc %{_docdir}/HTML/en/kcontrol
-%doc %{_docdir}/HTML/en/knetattach
-%doc %{_docdir}/HTML/en/kdesu
 
 #--------------------------------------------------------------
 
@@ -409,19 +409,20 @@ browsing.
 
 rm -f %{buildroot}%{_kde_iconsdir}/hicolor/index.theme
 
-mkdir -p %{buildroot}%{_kde_bindir}
-ln -s %{_kde_libdir}/kde4/libexec/kdesu %{buildroot}%{_kde_bindir}/kdesu
-
 # (tpg) get rid of khelpcenter
 # https://issues.openmandriva.org/show_bug.cgi?id=1222
+rm -rf %{buildroot}%{_kde_bindir}/kdesu
 rm -rf %{buildroot}%{_kde_bindir}/khelpcenter
 rm -rf %{buildroot}%{_kde_libdir}/libkdeinit4_khelpcenter.so
 rm -rf %{buildroot}%{_kde_appsdir}/khelpcenter
 rm -rf %{buildroot}%{_kde_datadir}/config.kcfg/khelpcenter.kcfg
 rm -rf %{buildroot}%{_kde_services}/khelpcenter.desktop
+rm -rf %{buildroot}%{_docdir}/HTML/*/kdesu
+rm -rf %{buildroot}%{_docdir}/HTML/*/kcontrol
+rm -rf %{buildroot}%{_docdir}/HTML/*/knetattach
 rm -rf %{buildroot}%{_docdir}/HTML/*/khelpcenter
 rm -rf %{buildroot}%{_docdir}/HTML/*/fundamentals
 rm -rf %{buildroot}%{_docdir}/HTML/*/khelpcenter
 rm -rf %{buildroot}%{_docdir}/HTML/*/onlinehelp
 rm -rf %{buildroot}%{_docdir}/HTML/*/glossary
-
+rm -fv %{buildroot}%{_mandir}/man1/kdesu.1*
