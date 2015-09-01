@@ -57,15 +57,17 @@ BuildRequires:	pkgconfig(qca2)
 BuildRequires:	pkgconfig(smbclient)
 BuildRequires:	pkgconfig(soprano)
 BuildRequires:	pkgconfig(xcursor)
+BuildRequires:	cmake(KDeclarative)
+BuildRequires:	KdepimLibs
+BuildRequires:	cmake(KF5Gpgmepp)
+BuildRequires:	cmake(KF5Gpgmepp)
 
-Requires:	oxygen-icon-theme
 Requires:	polkit-kde-agent-1
 Requires:	soprano-plugin-redland
 Suggests:	cagibi
 Suggests:	djvulibre
 Suggests:	gdb
 Suggests:	hicolor-icon-theme
-Suggests:	kde4-l10n
 Suggests:	kdialog
 Conflicts:	kdebase4-workspace < 2:4.10.0
 Conflicts:	nepomuk-scribo < 1:0.6.0-3
