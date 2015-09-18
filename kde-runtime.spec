@@ -185,8 +185,19 @@ KDE 4 application runtime components.
 %{_kde_libdir}/kde4/textthumbnail.so
 %{_kde_libdir}/kde4/windowsexethumbnail.so
 %{_kde_libdir}/kde4/windowsimagethumbnail.so
-%{_kde_libdir}/kde4/libexec
+%{_kde_libdir}/kde4/libexec/drkonqi
+%{_kde_libdir}/kde4/libexec/kcmremotewidgetshelper
+%{_kde_libdir}/kde4/libexec/kdeeject
+%{_kde_libdir}/kde4/libexec/kdesu
 %attr(2755,root,nogroup) %{_kde_libdir}/kde4/libexec/kdesud
+%{_kde_libdir}/kde4/libexec/kdontchangethehostname
+%{_kde_libdir}/kde4/libexec/khc_docbookdig.pl
+%{_kde_libdir}/kde4/libexec/khc_htdig.pl
+%{_kde_libdir}/kde4/libexec/khc_htsearch.pl
+%{_kde_libdir}/kde4/libexec/khc_indexbuilder
+%{_kde_libdir}/kde4/libexec/khc_mansearch.pl
+%{_kde_libdir}/kde4/libexec/kioexec
+%{_kde_libdir}/kde4/libexec/knetattach
 %{_kde_libdir}/kde4/plugins
 %{_kde_libdir}/kde4/imports/org/kde/dirmodel/qmldir
 %{_kde_libdir}/kde4/imports/org/kde/dirmodel/libdirmodelplugin.so
