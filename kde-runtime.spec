@@ -61,7 +61,6 @@ BuildRequires:	cmake(KF5Gpgmepp)
 BuildRequires:	cmake(KdepimLibs)
 
 Requires:	polkit-kde-agent-1
-Requires:	kactivitymanagerd
 Requires:	icoutils
 
 Suggests:	cagibi
