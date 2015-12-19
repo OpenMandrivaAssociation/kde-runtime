@@ -56,11 +56,9 @@ BuildRequires:	pkgconfig(qca2)
 BuildRequires:	pkgconfig(smbclient)
 BuildRequires:	pkgconfig(soprano)
 BuildRequires:	pkgconfig(xcursor)
-BuildRequires:	cmake(ECM)
 BuildRequires:	cmake(KDeclarative)
 BuildRequires:	cmake(KF5Gpgmepp)
 BuildRequires:	cmake(KdepimLibs)
-BuildRequires:	cmake(KF5GAPI)
 Requires:	polkit-kde-agent-1
 Requires:	icoutils
 
@@ -409,13 +407,13 @@ browsing.
 %patch103 -p1
 
 %patch200 -p1 -R
-%cmake_kde5
 
 %build
-%ninja -C build
+%cmake_kde4 -DCMAKE_MINIMUM_REQUIRED_VERSION=3.1
+%make
 
 %install
-%ninja_install -C build
+%makeinstall_std -C build
 
 rm -f %{buildroot}%{_kde_iconsdir}/hicolor/index.theme
 
