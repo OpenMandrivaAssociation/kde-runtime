@@ -1,4 +1,2 @@
-removed_sources:
-  kde-runtime-15.08.0.tar.xz: cf356762677d80adfec16d5756839cdfa36b84d7
 sources:
-  kde-runtime-15.12.3.tar.xz: 12226932cecd8c8945d00e92b4b6154dc058dd47
+  kde-runtime-16.04.0.tar.xz: e49c748bcf569e52bf59354e2fffe17c1f40bc26
