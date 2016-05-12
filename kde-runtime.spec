@@ -1,7 +1,7 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 Summary:	K Desktop Environment - Base Runtime
 Name:		kde-runtime
-Version:	16.04.0
+Version:	16.04.1
 Release:	1
 Epoch:		1
 License:	GPLv2+
