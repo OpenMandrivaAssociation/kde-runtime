@@ -57,11 +57,7 @@ BuildRequires:	pkgconfig(smbclient)
 BuildRequires:	pkgconfig(soprano)
 BuildRequires:	pkgconfig(xcursor)
 BuildRequires:	cmake(KDeclarative)
-%if %mdvver > 3000001
-BuildRequires:  cmake(Gpgmepp)
-%else
 BuildRequires:  cmake(KF5Gpgmepp)
-%endif
 BuildRequires:	cmake(KdepimLibs)
 Requires:	polkit-kde-agent-1
 Requires:	icoutils
