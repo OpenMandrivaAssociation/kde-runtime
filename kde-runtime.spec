@@ -1,7 +1,7 @@
 Summary:	K Desktop Environment - Base Runtime
 Name:		kdebase4-runtime
 Version:	4.14.3
-Release:	1
+Release:	2
 Epoch:		1
 Group:		Graphical desktop/KDE
 License:	GPLv2+
@@ -32,7 +32,7 @@ Patch101:	kde-runtime-4.11.0-l10n-ru.patch
 Patch103:	kde-runtime-4.9.3-kcmlocale-fix-translations.patch
 # Fix knotify settings overwriting pulse volume
 Patch104:	kdebase-runtime-4.6.0-canberra.patch
-
+Patch105:	kde-runtime-smb_anon.patch
 # Backports
 # Revert http://quickgit.kde.org/?p=kde-runtime.git&a=commitdiff&h=9c061a16753e8801f157842107cdc19bd06c4533
 # to fix issue with missing video capture devices in Phonon
@@ -385,6 +385,7 @@ browsing.
 %patch101 -p1
 %patch103 -p1
 %patch104 -p1
+%patch105 -p1
 
 %patch200 -p1 -R
 
