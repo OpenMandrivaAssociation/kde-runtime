@@ -1,7 +1,7 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 Summary:	K Desktop Environment - Base Runtime
 Name:		kde-runtime
-Version:	16.12.2
+Version:	17.04.0
 Release:	1
 Epoch:		1
 License:	GPLv2+
@@ -57,6 +57,7 @@ BuildRequires:	pkgconfig(smbclient)
 BuildRequires:	pkgconfig(soprano)
 BuildRequires:	pkgconfig(xcursor)
 BuildRequires:	cmake(KDeclarative)
+BuildRequires:	cmake(NepomukCore)
 #BuildRequires:  cmake(KF5Gpgmepp)
 BuildRequires:	cmake(KdepimLibs)
 Requires:	polkit-kde-agent-1
