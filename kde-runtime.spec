@@ -1,7 +1,7 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 Summary:	K Desktop Environment - Base Runtime
 Name:		kde-runtime
-Version:	17.04.0
+Version:	17.04.1
 Release:	1
 Epoch:		1
 License:	GPLv2+
@@ -32,7 +32,7 @@ Patch104:	kdebase-runtime-4.6.0-canberra.patch
 # to fix issue with missing video capture devices in Phonon
 Patch200:	kde-runtime-4.11.3-pulse.patch
 
-BuildRequires:	automoc4
+#BuildRequires:	automoc4
 BuildRequires:	jpeg-devel
 BuildRequires:	kdelibs-devel >= 5:4.14.8
 BuildRequires:	kdepimlibs4-devel
@@ -57,8 +57,10 @@ BuildRequires:	pkgconfig(smbclient)
 BuildRequires:	pkgconfig(soprano)
 BuildRequires:	pkgconfig(xcursor)
 BuildRequires:	cmake(KDeclarative)
-#BuildRequires:  cmake(KF5Gpgmepp)
+BuildRequires:  cmake(NepomukCore)
+BuildRequires:	cmake(Gpgme)
 BuildRequires:	cmake(KdepimLibs)
+BuildConflicts:	akonadi-devel
 Requires:	polkit-kde-agent-1
 Requires:	icoutils
 
