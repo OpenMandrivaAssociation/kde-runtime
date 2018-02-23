@@ -2,7 +2,7 @@
 Summary:	K Desktop Environment - Base Runtime
 Name:		kde-runtime
 Version:	17.08.1
-Release:	1
+Release:	2
 Epoch:		1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
